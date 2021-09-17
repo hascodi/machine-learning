@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 15 Ethisch ML | Machine Learning</title>
+  <meta name="description" content="Artificial intelligence course at the AP University College." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 15 Ethisch ML | Machine Learning" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Artificial intelligence course at the AP University College." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 15 Ethisch ML | Machine Learning" />
+  
+  <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
+  
+
+<meta name="author" content="34142/1916/2021/1/38 David D’Haese" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="rapporteren.html"/>
+<link rel="next" href="de-logaritme.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="css\course.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Summary</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot de cursus</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#in-een-notedop"><i class="fa fa-check"></i><b>1.1</b> In een notedop</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#leerdoelen"><i class="fa fa-check"></i><b>1.2</b> Leerdoelen</a></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#cursus-vorm"><i class="fa fa-check"></i><b>1.3</b> Cursus vorm</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#bekijken-van-deze-cursus"><i class="fa fa-check"></i><b>1.4</b> Bekijken van deze Cursus</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#code-uit-de-cursus-uitvoeren"><i class="fa fa-check"></i><b>1.5</b> Code uit de cursus uitvoeren</a></li>
+<li class="chapter" data-level="1.6" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#oefeningen-maken"><i class="fa fa-check"></i><b>1.6</b> Oefeningen maken</a></li>
+<li class="chapter" data-level="1.7" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#licentie-voor-deze-cursus"><i class="fa fa-check"></i><b>1.7</b> Licentie voor deze cursus</a></li>
+<li class="chapter" data-level="1.8" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#verwijzen-naar-deze-cursus"><i class="fa fa-check"></i><b>1.8</b> Verwijzen naar deze cursus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="leren-uit-data.html"><a href="leren-uit-data.html"><i class="fa fa-check"></i><b>2</b> Leren uit data</a><ul>
+<li class="chapter" data-level="2.1" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces"><i class="fa fa-check"></i><b>2.1</b> Het leerproces</a></li>
+<li class="chapter" data-level="2.2" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-evolutie-van-het-machinaal-leren"><i class="fa fa-check"></i><b>2.2</b> De evolutie van het machinaal leren</a></li>
+<li class="chapter" data-level="2.3" data-path="leren-uit-data.html"><a href="leren-uit-data.html#intelligentie"><i class="fa fa-check"></i><b>2.3</b> Intelligentie</a></li>
+<li class="chapter" data-level="2.4" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-model"><i class="fa fa-check"></i><b>2.4</b> Het model</a></li>
+<li class="chapter" data-level="2.5" data-path="leren-uit-data.html"><a href="leren-uit-data.html#doelfunctie"><i class="fa fa-check"></i><b>2.5</b> Doelfunctie</a></li>
+<li class="chapter" data-level="2.6" data-path="leren-uit-data.html"><a href="leren-uit-data.html#mnist-dataset"><i class="fa fa-check"></i><b>2.6</b> MNIST dataset</a></li>
+<li class="chapter" data-level="2.7" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-resultaat-van-mnist-analyse"><i class="fa fa-check"></i><b>2.7</b> Het resultaat van MNIST analyse</a></li>
+<li class="chapter" data-level="2.8" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-mnist-model"><i class="fa fa-check"></i><b>2.8</b> Het MNIST model</a></li>
+<li class="chapter" data-level="2.9" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces-voor-begeleid-ml"><i class="fa fa-check"></i><b>2.9</b> Het leerproces voor begeleid ML</a></li>
+<li class="chapter" data-level="2.10" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-onderdelen-van-een-model"><i class="fa fa-check"></i><b>2.10</b> De onderdelen van een model</a></li>
+<li class="chapter" data-level="2.11" data-path="leren-uit-data.html"><a href="leren-uit-data.html#hyperparameters"><i class="fa fa-check"></i><b>2.11</b> Hyperparameters</a></li>
+<li class="chapter" data-level="2.12" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leeralgoritme"><i class="fa fa-check"></i><b>2.12</b> Het leeralgoritme</a></li>
+<li class="chapter" data-level="2.13" data-path="leren-uit-data.html"><a href="leren-uit-data.html#model-complexiteit"><i class="fa fa-check"></i><b>2.13</b> Model complexiteit</a></li>
+<li class="chapter" data-level="2.14" data-path="leren-uit-data.html"><a href="leren-uit-data.html#comprimeren-door-middel-van-een-ml-model"><i class="fa fa-check"></i><b>2.14</b> Comprimeren door middel van een ML model</a></li>
+<li class="chapter" data-level="2.15" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-ontwerp"><i class="fa fa-check"></i><b>2.15</b> Leren versus ontwerp</a></li>
+<li class="chapter" data-level="2.16" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-onthouden-en-inferentie"><i class="fa fa-check"></i><b>2.16</b> Leren versus onthouden en inferentie</a></li>
+<li class="chapter" data-level="2.17" data-path="leren-uit-data.html"><a href="leren-uit-data.html#onbegeleid-ml"><i class="fa fa-check"></i><b>2.17</b> Onbegeleid ML</a></li>
+<li class="chapter" data-level="2.18" data-path="leren-uit-data.html"><a href="leren-uit-data.html#conditionering"><i class="fa fa-check"></i><b>2.18</b> Conditionering</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#data-voor-ml"><i class="fa fa-check"></i><b>3.1</b> Data voor ML</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#wat-is-data"><i class="fa fa-check"></i><b>3.2</b> Wat is data</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#soorten-data"><i class="fa fa-check"></i><b>3.3</b> Soorten data</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#externe-databronnen"><i class="fa fa-check"></i><b>3.4</b> Externe databronnen</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>3.5</b> Data Genereren</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>3.6</b> De analyse dataset</a></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>3.7</b> Soorten variabelen</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#eng-nominal-scale-data"><i class="fa fa-check"></i><b>3.8</b> (Eng) Nominal-Scale Data</a></li>
+<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#eng-dummy-variables"><i class="fa fa-check"></i><b>3.9</b> (Eng) Dummy Variables</a></li>
+<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#eng-ordinal-scale-data"><i class="fa fa-check"></i><b>3.10</b> (Eng) Ordinal-Scale Data</a></li>
+<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#eng-circular-scale"><i class="fa fa-check"></i><b>3.11</b> (Eng) Circular-Scale</a></li>
+<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#eng-censoring"><i class="fa fa-check"></i><b>3.12</b> (Eng) Censoring</a></li>
+<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>3.13</b> Tijd en ruimte</a></li>
+<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>3.14</b> Toegang tot data</a></li>
+<li class="chapter" data-level="3.15" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>3.15</b> Het codeboek</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>4</b> Data exploratie</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>4.1</b> Principes van data exploratie</a></li>
+<li class="chapter" data-level="4.2" data-path="data-exploratie.html"><a href="data-exploratie.html#stappen-in-data-exploratie"><i class="fa fa-check"></i><b>4.2</b> Stappen in data exploratie</a></li>
+<li class="chapter" data-level="4.3" data-path="data-exploratie.html"><a href="data-exploratie.html#voorbeeld-data-exploratie"><i class="fa fa-check"></i><b>4.3</b> Voorbeeld data exploratie</a></li>
+<li class="chapter" data-level="4.4" data-path="data-exploratie.html"><a href="data-exploratie.html#univariate-verdelingen"><i class="fa fa-check"></i><b>4.4</b> Univariate verdelingen</a></li>
+<li class="chapter" data-level="4.5" data-path="data-exploratie.html"><a href="data-exploratie.html#correlatie-tussen-twee-variabelen"><i class="fa fa-check"></i><b>4.5</b> Correlatie tussen twee variabelen</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html"><i class="fa fa-check"></i><b>5</b> Manipuleren van data</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#kort-overzicht-van-de-manipulaties"><i class="fa fa-check"></i><b>5.1</b> Kort overzicht van de manipulaties</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#filteren-en-versnijden"><i class="fa fa-check"></i><b>5.1.1</b> Filteren en versnijden</a></li>
+<li class="chapter" data-level="5.1.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#booleaans-masker"><i class="fa fa-check"></i><b>5.1.2</b> Booleaans masker</a></li>
+<li class="chapter" data-level="5.1.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-grouping-and-aggregation"><i class="fa fa-check"></i><b>5.1.3</b> (Eng.) Grouping and Aggregation</a></li>
+<li class="chapter" data-level="5.1.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-transforming-text"><i class="fa fa-check"></i><b>5.1.4</b> (Eng.) Transforming text</a></li>
+<li class="chapter" data-level="5.1.5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-re-scaling-numerical-values"><i class="fa fa-check"></i><b>5.1.5</b> (Eng.) Re-Scaling Numerical Values</a></li>
+<li class="chapter" data-level="5.1.6" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-discretizations"><i class="fa fa-check"></i><b>5.1.6</b> (Eng.) Discretizations</a></li>
+<li class="chapter" data-level="5.1.7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-information-content"><i class="fa fa-check"></i><b>5.1.7</b> (Eng.) Information Content</a></li>
+<li class="chapter" data-level="5.1.8" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-reformatting-type-conversion-casting-or-coercion"><i class="fa fa-check"></i><b>5.1.8</b> (Eng.) Reformatting, Type Conversion, Casting or Coercion</a></li>
+<li class="chapter" data-level="5.1.9" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-numerical-values"><i class="fa fa-check"></i><b>5.1.9</b> (Eng.) Changing numerical Values</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-category-names"><i class="fa fa-check"></i><b>5.2</b> (Eng.) Changing Category Names</a></li>
+<li class="chapter" data-level="5.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-imputation"><i class="fa fa-check"></i><b>5.3</b> (Eng.) Imputation</a></li>
+<li class="chapter" data-level="5.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#onbehandeld"><i class="fa fa-check"></i><b>5.4</b> Onbehandeld</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="de-percetron.html"><a href="de-percetron.html"><i class="fa fa-check"></i><b>6</b> De percetron</a><ul>
+<li class="chapter" data-level="6.1" data-path="de-percetron.html"><a href="de-percetron.html#historiek"><i class="fa fa-check"></i><b>6.1</b> Historiek</a></li>
+<li class="chapter" data-level="6.2" data-path="de-percetron.html"><a href="de-percetron.html#de-anatomie-van-de-perceptron"><i class="fa fa-check"></i><b>6.2</b> De anatomie van de perceptron</a></li>
+<li class="chapter" data-level="6.3" data-path="de-percetron.html"><a href="de-percetron.html#casestudy-onderscheiden-van-setosa"><i class="fa fa-check"></i><b>6.3</b> Casestudy: Onderscheiden van setosa</a></li>
+<li class="chapter" data-level="6.4" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-klasse"><i class="fa fa-check"></i><b>6.4</b> De perceptron klasse</a></li>
+<li class="chapter" data-level="6.5" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-functies"><i class="fa fa-check"></i><b>6.5</b> De perceptron functies</a></li>
+<li class="chapter" data-level="6.6" data-path="de-percetron.html"><a href="de-percetron.html#het-leeralgoritme-van-de-perceptron"><i class="fa fa-check"></i><b>6.6</b> Het leeralgoritme van de perceptron</a></li>
+<li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
+<li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-computer-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Computer Vision</a></li>
+<li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
+<li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
+<li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
+<li class="chapter" data-level="8.5" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#filter-als-compressor"><i class="fa fa-check"></i><b>8.5</b> Filter als compressor</a></li>
+<li class="chapter" data-level="8.6" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-stride-niet-opgeven"><i class="fa fa-check"></i><b>8.6</b> De <em>stride</em> niet opgeven</a></li>
+<li class="chapter" data-level="8.7" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-volledige-filter-laag"><i class="fa fa-check"></i><b>8.7</b> De volledige filter-laag</a></li>
+<li class="chapter" data-level="8.8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#meerdere-filters-per-laag"><i class="fa fa-check"></i><b>8.8</b> Meerdere filters per laag</a></li>
+<li class="chapter" data-level="8.9" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#max-pooling"><i class="fa fa-check"></i><b>8.9</b> Max Pooling</a></li>
+<li class="chapter" data-level="8.10" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#samenstellen-van-cnns"><i class="fa fa-check"></i><b>8.10</b> Samenstellen van CNNs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="autoencoders.html"><a href="autoencoders.html"><i class="fa fa-check"></i><b>9</b> Autoencoders</a><ul>
+<li class="chapter" data-level="9.1" data-path="autoencoders.html"><a href="autoencoders.html#probleemstelling-rond-dimensionaliteit-en-complexiteit"><i class="fa fa-check"></i><b>9.1</b> Probleemstelling rond Dimensionaliteit en Complexiteit</a></li>
+<li class="chapter" data-level="9.2" data-path="autoencoders.html"><a href="autoencoders.html#dimensionaliteit-reduceren"><i class="fa fa-check"></i><b>9.2</b> Dimensionaliteit reduceren</a></li>
+<li class="chapter" data-level="9.3" data-path="autoencoders.html"><a href="autoencoders.html#pca-om-dimensionaliteit-te-reduceren"><i class="fa fa-check"></i><b>9.3</b> PCA om dimensionaliteit te reduceren</a></li>
+<li class="chapter" data-level="9.4" data-path="autoencoders.html"><a href="autoencoders.html#pca-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.4</b> PCA op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.5" data-path="autoencoders.html"><a href="autoencoders.html#beperkingen-van-pca"><i class="fa fa-check"></i><b>9.5</b> Beperkingen van PCA</a></li>
+<li class="chapter" data-level="9.6" data-path="autoencoders.html"><a href="autoencoders.html#de-architectuur-van-de-autoencoder"><i class="fa fa-check"></i><b>9.6</b> De Architectuur van de Autoencoder</a></li>
+<li class="chapter" data-level="9.7" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.7</b> Autoencoder op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.8" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-met-cnn"><i class="fa fa-check"></i><b>9.8</b> Autoencoder met CNN</a></li>
+<li class="chapter" data-level="9.9" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-als-ruis-verwijderaar"><i class="fa fa-check"></i><b>9.9</b> Autoencoder als ruis-verwijderaar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html"><i class="fa fa-check"></i><b>10</b> Trainen en testen</a><ul>
+<li class="chapter" data-level="10.1" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#leren-leven-met-de-onzekerheid"><i class="fa fa-check"></i><b>10.1</b> Leren leven met de onzekerheid</a></li>
+<li class="chapter" data-level="10.2" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#meten-van-de-prestatie-van-een-model"><i class="fa fa-check"></i><b>10.2</b> Meten van de prestatie van een model</a></li>
+<li class="chapter" data-level="10.3" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#training--validatie--en-test-set"><i class="fa fa-check"></i><b>10.3</b> Training-, validatie- en test-set</a></li>
+<li class="chapter" data-level="10.4" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#cross-validatie"><i class="fa fa-check"></i><b>10.4</b> Cross-validatie</a></li>
+<li class="chapter" data-level="10.5" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#werkstroom-deep-learning"><i class="fa fa-check"></i><b>10.5</b> Werkstroom deep learning</a></li>
+<li class="chapter" data-level="10.6" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#data-lekkage"><i class="fa fa-check"></i><b>10.6</b> Data lekkage</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html"><i class="fa fa-check"></i><b>11</b> Sequentie Analyse</a><ul>
+<li class="chapter" data-level="11.1" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding-tot-sequentie-analyse"><i class="fa fa-check"></i><b>11.1</b> Inleiding tot sequentie analyse</a></li>
+<li class="chapter" data-level="11.2" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sequence-to-sequence"><i class="fa fa-check"></i><b>11.2</b> Sequence-To-Sequence</a></li>
+<li class="chapter" data-level="11.3" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#recurrente-nn"><i class="fa fa-check"></i><b>11.3</b> Recurrente NN</a></li>
+<li class="chapter" data-level="11.4" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#verdwijnende-gradiënten"><i class="fa fa-check"></i><b>11.4</b> Verdwijnende gradiënten</a></li>
+<li class="chapter" data-level="11.5" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#long-short-term-memory-lstm"><i class="fa fa-check"></i><b>11.5</b> Long short-term memory (LSTM)</a></li>
+<li class="chapter" data-level="11.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sentiment-analyse"><i class="fa fa-check"></i><b>11.6</b> Sentiment analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html"><i class="fa fa-check"></i><b>12</b> Neurale Netwerken met Extern Geheugen</a><ul>
+<li class="chapter" data-level="12.1" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inleiding-nn-met-extern-geheugen"><i class="fa fa-check"></i><b>12.1</b> Inleiding NN met extern geheugen</a></li>
+<li class="chapter" data-level="12.2" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#neurale-turing-machines"><i class="fa fa-check"></i><b>12.2</b> Neurale Turing Machines</a></li>
+<li class="chapter" data-level="12.3" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#lezen-uit-en-schrijven-naar-een-ntm-geheugen"><i class="fa fa-check"></i><b>12.3</b> Lezen uit en schrijven naar een NTM geheugen</a></li>
+<li class="chapter" data-level="12.4" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adressering-van-ntm-geheugens"><i class="fa fa-check"></i><b>12.4</b> Adressering van NTM geheugens</a></li>
+<li class="chapter" data-level="12.5" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inhoud-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.5</b> Inhoud-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.6" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#locatie-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.6</b> Locatie-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.7" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adresseringsmechanisme"><i class="fa fa-check"></i><b>12.7</b> Adresseringsmechanisme</a></li>
+<li class="chapter" data-level="12.8" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-nadelen-van-ntms"><i class="fa fa-check"></i><b>12.8</b> De nadelen van NTMs</a></li>
+<li class="chapter" data-level="12.9" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-differentiële-neurale-computer"><i class="fa fa-check"></i><b>12.9</b> De differentiële neurale computer</a></li>
+<li class="chapter" data-level="12.10" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#implementatie-dnc"><i class="fa fa-check"></i><b>12.10</b> Implementatie DNC</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html"><i class="fa fa-check"></i><b>13</b> Deep Reinforcement Learning</a><ul>
+<li class="chapter" data-level="13.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#inleiding-deep-rl"><i class="fa fa-check"></i><b>13.1</b> Inleiding Deep RL</a></li>
+<li class="chapter" data-level="13.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#voorbeelden-van-deep-reinforcement-learning"><i class="fa fa-check"></i><b>13.2</b> Voorbeelden van deep reinforcement learning</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#introductie-deepmind-team"><i class="fa fa-check"></i><b>13.2.1</b> Introductie DeepMind Team</a></li>
+<li class="chapter" data-level="13.2.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deepminds-deep-q-learning"><i class="fa fa-check"></i><b>13.2.2</b> DeepMind’s Deep-Q learning</a></li>
+<li class="chapter" data-level="13.2.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#robot-tasks"><i class="fa fa-check"></i><b>13.2.3</b> Robot tasks</a></li>
+<li class="chapter" data-level="13.2.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#atlas"><i class="fa fa-check"></i><b>13.2.4</b> Atlas</a></li>
+<li class="chapter" data-level="13.2.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#cart-pole"><i class="fa fa-check"></i><b>13.2.5</b> Cart-Pole</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#markov-beslissingsproces"><i class="fa fa-check"></i><b>13.3</b> Markov beslissingsproces</a></li>
+<li class="chapter" data-level="13.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deep-reinforcement-learning-1"><i class="fa fa-check"></i><b>13.4</b> Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="13.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#varianten-van-deep-rl"><i class="fa fa-check"></i><b>13.5</b> Varianten van (Deep) RL</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#vormen-van-schriftelijke-communicatie"><i class="fa fa-check"></i><b>14.1</b> Vormen van schriftelijke communicatie</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#de-vraagstelling"><i class="fa fa-check"></i><b>14.2</b> De vraagstelling</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#de-probleemstelling"><i class="fa fa-check"></i><b>14.3</b> De probleemstelling</a></li>
+<li class="chapter" data-level="14.4" data-path="rapporteren.html"><a href="rapporteren.html#uitvoering-ai-project"><i class="fa fa-check"></i><b>14.4</b> Uitvoering AI project</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbare-willekeur"><i class="fa fa-check"></i><b>14.4.1</b> Reproduceerbare willekeur</a></li>
+<li class="chapter" data-level="14.4.2" data-path="rapporteren.html"><a href="rapporteren.html#tools"><i class="fa fa-check"></i><b>14.4.2</b> Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="rapporteren.html"><a href="rapporteren.html#de-inleiding-van-een-rapport"><i class="fa fa-check"></i><b>14.5</b> De inleiding van een rapport</a></li>
+<li class="chapter" data-level="14.6" data-path="rapporteren.html"><a href="rapporteren.html#methodiek"><i class="fa fa-check"></i><b>14.6</b> Methodiek</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="rapporteren.html"><a href="rapporteren.html#data-beschikbaar-maken"><i class="fa fa-check"></i><b>14.6.1</b> Data beschikbaar maken</a></li>
+<li class="chapter" data-level="14.6.2" data-path="rapporteren.html"><a href="rapporteren.html#beschikbaar-maken-van-databanken"><i class="fa fa-check"></i><b>14.6.2</b> Beschikbaar maken van databanken</a></li>
+<li class="chapter" data-level="14.6.3" data-path="rapporteren.html"><a href="rapporteren.html#procesbeschrijving"><i class="fa fa-check"></i><b>14.6.3</b> Procesbeschrijving</a></li>
+<li class="chapter" data-level="14.6.4" data-path="rapporteren.html"><a href="rapporteren.html#voorbeeld-uit-wang-et-al."><i class="fa fa-check"></i><b>14.6.4</b> Voorbeeld uit Wang et al.</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="rapporteren.html"><a href="rapporteren.html#resultaten"><i class="fa fa-check"></i><b>14.7</b> Resultaten</a><ul>
+<li class="chapter" data-level="14.7.1" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.7.1</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.7.2" data-path="rapporteren.html"><a href="rapporteren.html#onzekere-cijfers"><i class="fa fa-check"></i><b>14.7.2</b> Onzekere cijfers</a></li>
+<li class="chapter" data-level="14.7.3" data-path="rapporteren.html"><a href="rapporteren.html#visuele-cijfers"><i class="fa fa-check"></i><b>14.7.3</b> Visuele cijfers</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="rapporteren.html"><a href="rapporteren.html#discussie-en-conclusie"><i class="fa fa-check"></i><b>14.8</b> Discussie en Conclusie</a></li>
+<li class="chapter" data-level="14.9" data-path="rapporteren.html"><a href="rapporteren.html#afsluiten-met-de-samenvatting"><i class="fa fa-check"></i><b>14.9</b> Afsluiten met de samenvatting</a></li>
+<li class="chapter" data-level="14.10" data-path="rapporteren.html"><a href="rapporteren.html#verwijzen-naar-extern-werk"><i class="fa fa-check"></i><b>14.10</b> Verwijzen naar extern werk</a><ul>
+<li class="chapter" data-level="14.10.1" data-path="rapporteren.html"><a href="rapporteren.html#citeren"><i class="fa fa-check"></i><b>14.10.1</b> Citeren</a></li>
+<li class="chapter" data-level="14.10.2" data-path="rapporteren.html"><a href="rapporteren.html#licenties-en-toestemming"><i class="fa fa-check"></i><b>14.10.2</b> Licenties en toestemming</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a><ul>
+<li class="chapter" data-level="15.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#inleiding-tot-de-ml-ethiek"><i class="fa fa-check"></i><b>15.1</b> Inleiding tot de ML-ethiek</a></li>
+<li class="chapter" data-level="15.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#hoe-het-niet-moet"><i class="fa fa-check"></i><b>15.2</b> Hoe het niet moet</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gender-ongelijkheid"><i class="fa fa-check"></i><b>15.2.1</b> Gender-ongelijkheid</a></li>
+<li class="chapter" data-level="15.2.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#onmenselijk"><i class="fa fa-check"></i><b>15.2.2</b> Onmenselijk</a></li>
+<li class="chapter" data-level="15.2.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#vals-gevoel-van-controle"><i class="fa fa-check"></i><b>15.2.3</b> Vals gevoel van controle</a></li>
+<li class="chapter" data-level="15.2.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gamification"><i class="fa fa-check"></i><b>15.2.4</b> Gamification</a></li>
+<li class="chapter" data-level="15.2.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ongewilde-advertenties"><i class="fa fa-check"></i><b>15.2.5</b> Ongewilde advertenties</a></li>
+<li class="chapter" data-level="15.2.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#huidskleur"><i class="fa fa-check"></i><b>15.2.6</b> Huidskleur</a></li>
+<li class="chapter" data-level="15.2.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#polarisatie"><i class="fa fa-check"></i><b>15.2.7</b> Polarisatie</a></li>
+<li class="chapter" data-level="15.2.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gezondheid"><i class="fa fa-check"></i><b>15.2.8</b> Gezondheid</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-oorzaken-van-onethisch-ai-producten"><i class="fa fa-check"></i><b>15.3</b> De oorzaken van onethisch AI-producten</a></li>
+<li class="chapter" data-level="15.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#representativiteit"><i class="fa fa-check"></i><b>15.4</b> Representativiteit</a></li>
+<li class="chapter" data-level="15.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#randvoorwaarden"><i class="fa fa-check"></i><b>15.5</b> Randvoorwaarden</a></li>
+<li class="chapter" data-level="15.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy-en-ethiek"><i class="fa fa-check"></i><b>15.6</b> Privacy en ethiek</a></li>
+<li class="chapter" data-level="15.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy"><i class="fa fa-check"></i><b>15.7</b> Privacy</a></li>
+<li class="chapter" data-level="15.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-drie-wetten-van-asimov"><i class="fa fa-check"></i><b>15.8</b> De drie wetten van Asimov</a></li>
+<li class="chapter" data-level="15.9" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ethiek"><i class="fa fa-check"></i><b>15.9</b> Ethiek</a></li>
+<li class="chapter" data-level="15.10" data-path="ethisch-ml.html"><a href="ethisch-ml.html#proces-om-etisch-te-blijven"><i class="fa fa-check"></i><b>15.10</b> Proces om etisch te blijven</a></li>
+<li class="chapter" data-level="15.11" data-path="ethisch-ml.html"><a href="ethisch-ml.html#regels-rond-ethiek"><i class="fa fa-check"></i><b>15.11</b> Regels rond ethiek</a></li>
+<li class="chapter" data-level="15.12" data-path="ethisch-ml.html"><a href="ethisch-ml.html#eed"><i class="fa fa-check"></i><b>15.12</b> Eed</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a><ul>
+<li class="chapter" data-level="A.1" data-path="de-logaritme.html"><a href="de-logaritme.html#installing-cuda-optional"><i class="fa fa-check"></i><b>A.1</b> Installing CUDA (optional)</a></li>
+<li class="chapter" data-level="A.2" data-path="de-logaritme.html"><a href="de-logaritme.html#the-r-language"><i class="fa fa-check"></i><b>A.2</b> The R language</a></li>
+<li class="chapter" data-level="A.3" data-path="de-logaritme.html"><a href="de-logaritme.html#python"><i class="fa fa-check"></i><b>A.3</b> Python</a></li>
+<li class="chapter" data-level="A.4" data-path="de-logaritme.html"><a href="de-logaritme.html#rstudio"><i class="fa fa-check"></i><b>A.4</b> RStudio</a></li>
+<li class="chapter" data-level="A.5" data-path="de-logaritme.html"><a href="de-logaritme.html#installing-tensorflow"><i class="fa fa-check"></i><b>A.5</b> Installing Tensorflow</a></li>
+<li class="chapter" data-level="A.6" data-path="de-logaritme.html"><a href="de-logaritme.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>A.6</b> Installation steps that worked for the author</a></li>
+<li class="chapter" data-level="A.7" data-path="de-logaritme.html"><a href="de-logaritme.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>A.7</b> Waar vind ik hulp</a></li>
+<li class="chapter" data-level="A.8" data-path="de-logaritme.html"><a href="de-logaritme.html#waar-kan-ik-leeralgoritmen-terugvinden"><i class="fa fa-check"></i><b>A.8</b> Waar kan ik leeralgoritmen terugvinden</a></li>
+<li class="chapter" data-level="A.9" data-path="de-logaritme.html"><a href="de-logaritme.html#hoofdstuk-4"><i class="fa fa-check"></i><b>A.9</b> Hoofdstuk 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Machine Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ethisch-ml" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 15</span> Ethisch ML</h1>
+<p><q>With great power comes great responsibility</q></p>
+<div class="quote-source">
+<p>— <span class="citation">Convention <a href="#ref-greatpower" role="doc-biblioref">1793</a></span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="inleiding-tot-de-ml-ethiek" class="section level2">
+<h2><span class="header-section-number">15.1</span> Inleiding tot de ML-ethiek</h2>
+<p>ML stelt ons in staat zaken te verwezenlijken die voorheen onmogelijk werden geacht. Die macht brengt inderdaad een grote verantwoordelijkheid met zich mee. ML ontwikkelaars, maar in feiten evenzeer software ontwikkelaars, zien zichzelf al te vaak als zijnde neutrale en uitvoerende spelers (<span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>). Maar wie ontwerpt maar voortdurend allerhande keuzes die een indirecte maar significante impact kan hebben op de eindgebruiker.</p>
+<p>In dit hoofdstuk gaan we een aantal voorbeelden zien van wat er allemaal kan misgaan met ML en wat we er aan kunnen doen. Voor een groot gedeelte wordt er teruggevallen op het recente werk van Katleen Gabriels (<span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>):</p>
+<p><img src="img/gabriels2019regels.jpg" width="200px" /></p>
+</div>
+<div id="hoe-het-niet-moet" class="section level2">
+<h2><span class="header-section-number">15.2</span> Hoe het niet moet</h2>
+<p>De beste manier om te weten wat er precies van een ML-ontwikkelaar verwacht wordt, is door een aantal voorbeelden aan te halen waar het mis ging. Zo moet het dus niet…</p>
+<div id="gender-ongelijkheid" class="section level3">
+<h3><span class="header-section-number">15.2.1</span> Gender-ongelijkheid</h3>
+<p>Uit <span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>, p. 68:</p>
+<p>Siri, de virtuele assistent van Apple, kan je helpen om om een viagra-leverancier te vinden, maar niet een abortus-kliniek. En dan zijn er de AI-gestuurde job advertenties die goed-betaalde jobs eerder bij mannen aanraden dan bij vrouwen. Of deze: Pediater Louise Shelby kon met haar ledenkaart de kleedkamer voor vrouwen niet binnen omdat de toegang op basis van de aanspreektitel beveiligd werd en omdat de titel van <em>doctor</em> enkel bij mannen stond aangegeven (<span class="citation">Phillips <a href="#ref-PureGymC18" role="doc-biblioref">2015</a></span>).</p>
+<p>Maar het kan nog veel erger. Het <a href="https://nl.wikipedia.org/wiki/Cambridge_Analytica">Cambridge Analytica</a> schandaal begon bij de datawetenschapper Michał Kosiński die een onderzoek had gedaan rond profilering. Hij toonde aan dat intelligentie, geslacht (85%) en seksuele voorkeur (88% acuraatheid) voorspeld kon worden op basis van Facebook data en dit beter dan dat vrienden of naasten dat konden! De gevolgen waren aanzienlijk (zie Wiki link) met onder andere een faillissement en een pagina-grote verontschuldiging van Facebook in de kranten <em>The Observer</em>, <em>The Sunday Times</em>, <em>Mail on Sunday</em>, <em>Sunday Mirror</em>, <em>Sunday Express</em>, <em>Sunday Telegraph</em>, <em>The New York Times</em>, <em>Washington Post</em> ende <em>Wall Street Journal</em> (<span class="citation">“Mark zuckerberg says sorry in full-page newspaper ads - cnn,” <a href="#ref-MarkZuck72" role="doc-biblioref">n.d.</a></span>):</p>
+<p><img src="img/facebook-sorry.jpg" />
+<a href="https://res.cloudinary.com/yaffa-publishing/image/fetch/q_auto:best,c_fit,w_630,f_auto/http%3A%2F%2Fyaffa-cdn.s3.amazonaws.com%2Fadnews%2Flive%2Fimages%2FdmImage%2FSourceImage%2Fdzigevrwsaexfrz.jpg-large2.jpeg">bron</a></p>
+</div>
+<div id="onmenselijk" class="section level3">
+<h3><span class="header-section-number">15.2.2</span> Onmenselijk</h3>
+<p><img src="img/tay.png" />
+<img src="img/tay2.gif" /></p>
+<p><a href="https://www.theguardian.com/technology/2016/mar/26/microsoft-deeply-sorry-for-offensive-tweets-by-ai-chatbot">bron</a></p>
+<p>Tay, AI chatbot van Microsoft die in 2016 in productie werd gebracht op Twitter, moest leren om conversaties aan te knopen met geïnteresseerde twitteraars. Hierboven het resultaat. Peter Lee, de Corporate Vice President van Microsoft moest zich snel <a href="https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/">verontschuldigen</a>:</p>
+<p><i>"As many of you know by now, on Wednesday we launched a chatbot called Tay. We are deeply sorry for the unintended offensive and hurtful tweets from Tay, which do not represent who we are or what we stand for, nor how we designed Tay. Tay is now offline and we’ll look to bring Tay back only when we are confident we can better anticipate malicious intent that conflicts with our principles and values.</p>
+<p>I want to share what we learned and how we’re taking these lessons forward.</p>
+<p>For context, Tay was not the first artificial intelligence application we released into the online social world. In China, our XiaoIce chatbot is being used by some 40 million people, delighting with its stories and conversations. The great experience with XiaoIce led us to wonder: Would an AI like this be just as captivating in a radically different cultural environment? Tay – a chatbot created for 18- to 24- year-olds in the U.S. for entertainment purposes – is our first attempt to answer this question.</p>
+<p>As we developed Tay, we planned and implemented a lot of filtering and conducted extensive user studies with diverse user groups. We stress-tested Tay under a variety of conditions, specifically to make interacting with Tay a positive experience. Once we got comfortable with how Tay was interacting with users, we wanted to invite a broader group of people to engage with her. It’s through increased interaction where we expected to learn more and for the AI to get better and better.</p>
+<p>The logical place for us to engage with a massive group of users was Twitter. Unfortunately, in the first 24 hours of coming online, a coordinated attack by a subset of people exploited a vulnerability in Tay. Although we had prepared for many types of abuses of the system, we had made a critical oversight for this specific attack. As a result, Tay tweeted wildly inappropriate and reprehensible words and images. We take full responsibility for not seeing this possibility ahead of time. We will take this lesson forward as well as those from our experiences in China, Japan and the U.S. Right now, we are hard at work addressing the specific vulnerability that was exposed by the attack on Tay.</p>
+<p>Looking ahead, we face some difficult – and yet exciting – research challenges in AI design. AI systems feed off of both positive and negative interactions with people. In that sense, the challenges are just as much social as they are technical. We will do everything possible to limit technical exploits but also know we cannot fully predict all possible human interactive misuses without learning from mistakes. To do AI right, one needs to iterate with many people and often in public forums. We must enter each one with great caution and ultimately learn and improve, step by step, and to do this without offending people in the process. We will remain steadfast in our efforts to learn from this and other experiences as we work toward contributing to an Internet that represents the best, not the worst, of humanity."</i></p>
+<div class="quote-source">
+<p>— <span class="citation">Lee <a href="#ref-lee2016learning" role="doc-biblioref">2016</a></span></p>
+</div>
+<p>Ook bekend is het labelling algoritme van Google dat schandalige gevolgen had voor mensen met een donkere huidskleur (Figuur <a href="ethisch-ml.html#fig:image-labelling-scandal">15.1</a>. Twee jaren na de feiten (in 2017) zou Google dit opgelost hebben door eenvoudigweg de woorden ‘gorilla’, ‘chimpansee’ en ‘monkey’ uit het bestand van mogelijke classificaties te verwijderen (<span class="citation">“Google’s solution to accidental algorithmic racism,” <a href="#ref-twoyearslater" role="doc-biblioref">n.d.</a></span>)</p>
+<div class="figure"><span id="fig:image-labelling-scandal"></span>
+<img src="img/image-labelling-scandal.png" alt="Het classificatie-algoritme van Google herkende mensen met een donkere huidskleur als ‘gorilla’s’. bron." width="201" />
+<p class="caption">
+Figuur 15.1: Het classificatie-algoritme van Google herkende mensen met een donkere huidskleur als ‘gorilla’s’. <a href="https://boingboing.net/2018/01/11/gorilla-chimp-monkey-unpersone.html">bron</a>.
+</p>
+</div>
+
+</div>
+<div id="vals-gevoel-van-controle" class="section level3">
+<h3><span class="header-section-number">15.2.3</span> Vals gevoel van controle</h3>
+<p>Sinds het begin van de gokspelen is er gewerkt naar <em>addiction by design</em>. Zie bijvoorbeeld het octrooi (eng: <em>patent</em>) voor de (hardware) gokmachine (Zie Figuur <a href="ethisch-ml.html#fig:slot-machine">15.2</a>) waarin letterlijk staat dat het punt waarop het drieluik van de machine blijft stilstaan door willekeur bepaald wordt en niets te maken heeft met wanneer er aan de hendel getrokken wordt (<span class="citation">Telnaes <a href="#ref-telnaes1984electronic" role="doc-biblioref">1984</a></span>; zie conclusies (eng: <em>claims</em>) 8 en 9). Quasi elk spelletje dat je op je smartphone of op jouw PC kun spelen heeft dezelfde principes van het gokmachine uit 1982 overgenomen en vermiljoenvoudigd.</p>
+<div class="figure"><span id="fig:slot-machine"></span>
+<img src="img/slot-machine.png" alt="Figuur 1 uit patent US4448419A (Telnaes 1984)." width="499" />
+<p class="caption">
+Figuur 15.2: Figuur 1 uit patent US4448419A (<span class="citation">Telnaes <a href="#ref-telnaes1984electronic" role="doc-biblioref">1984</a></span>).
+</p>
+</div>
+
+</div>
+<div id="gamification" class="section level3">
+<h3><span class="header-section-number">15.2.4</span> Gamification</h3>
+<p>Uit <span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>, p. 56:</p>
+<p>Gamification is een hot topic, maar vergeet niet dat het hierbij ook fout kan lopen. <a href="https://www.kolibree.com/en/">Kolibree</a> is een mooi voorbeeld van gamification. het zet kinderen op speelse wijze aan om kinderen lang genoeg hun tanden te poetsen. Zo is er ook de <a href="https://www.youtube.com/watch?v=VPahl1Mk6U4">Honda Insight Eco Assist System</a> die tijdens het rijden een ECO-score voor je berekent en desgevallend de kleur van het dashboard aanpast. Beide voorbeelden kan je moeilijk iets tegen hebben, toch?</p>
+<p>Het probleem is als volgt: De ontwerper van zulke technologie beloont de eindgebruiker om goed te doen. Daarbij bepaalt de ontwerper of diens organisatie zelf wat ‘goed’ betekent. Zelden is daar controle over. En dan is er nog dit: de eindgebruiker zal inderdaad zijn gedrag aanpassen, maar misschien niet om de juiste redenen, namelijk om beloond te worden.</p>
+</div>
+<div id="ongewilde-advertenties" class="section level3">
+<h3><span class="header-section-number">15.2.5</span> Ongewilde advertenties</h3>
+<p>Alles in de reclame-wereld is er op voorzien om de aandacht van de gebruiker te trekken. Men noemt dit <em>distraction by design</em>. Elke seconde dat een eindgebruiker spendeert aan hun product betekent winst. Je mag lachen om dat filmpje of verbaasd zijn over die opmerkelijke afbeelding, zolang de merknaam van het product in jouw brein gepland mag worden.</p>
+</div>
+<div id="huidskleur" class="section level3">
+<h3><span class="header-section-number">15.2.6</span> Huidskleur</h3>
+<p>Dit heeft niet rechtstreeks iets met ML te maken, maar volgt wel hetzelfde principe. In het onderstaand filmpje laat een werknemer bij Facebook zien hoe een verdeler van zeepschuim in toiletten wél werkt voor mensen met een lichte huidskleur, maar niet voor mensen met een donkere huidskleur.</p>
+<iframe width="566" height="318" src="https://www.youtube.com/embed/YJjv_OeiHmo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="polarisatie" class="section level3">
+<h3><span class="header-section-number">15.2.7</span> Polarisatie</h3>
+<p>Chris Wetherell, een ontwikkelaar by Twitter heeft spijt dat hij ooit de retweet knop bedacht. Hij vergelijkt de retweet knop met het geven van een geladen geweer aan een vierjarige (<span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>, p. 84).</p>
+</div>
+<div id="gezondheid" class="section level3">
+<h3><span class="header-section-number">15.2.8</span> Gezondheid</h3>
+<p>Een AI triage systeem ontwikkeld door een onderzoeksteam aan de Universiteit van Pittsburgh, kwam tot de onzinnige constatatie dat een patiënt met een longontsteking en tegelijk asthma een betere overlevingskans zou hebben als een patiënt met enkel een longontsteking, alsof de astma de effecten van een longontsteking zou verzachten (<span class="citation">Mbadiwe <a href="#ref-comorbidity" role="doc-biblioref">2017</a></span>). Reden? De duur waarop een patiënt op spoed ligt werd als maatstaf genomen voor de urgentie. Wat het neuraal netwerk niet wist, was dat de comorbide asthma patiënten met een longontsteking onmiddellijk naar <em>intensive care</em> werden gevoerd.</p>
+</div>
+</div>
+<div id="de-oorzaken-van-onethisch-ai-producten" class="section level2">
+<h2><span class="header-section-number">15.3</span> De oorzaken van onethisch AI-producten</h2>
+<p>Veel van de bovenstaande voorbeelden hebben eerder iets met ontwerp te maken dan met AI of ML, maar het principe is hetzelfde. Een AI-product wordt <em>ontworpen</em> net als elk ander software- of hardware-product ontworpen wordt. Bij AI denk men misschien dat men ‘de data laten spreken’ en dus per definitie de waarheid vertelt. Dat is dus niet zo. We spraken eerder al over het GIGO principe en dat geldt ook voor ethisch-verantwoordelijkheid.</p>
+
+<div class="definition">
+<span id="def:gigo-ethiek" class="definition"><strong>Stelling 15.1  </strong></span>Als de invoerdata vertekend zijn, zal het model dat ook zijn.
+</div>
+
+<p>Inderdaad, net zoals je een mens kunt wijsmaken dat gelukskoekjes een chinese uitvinding zijn, dat de kerstman door The Coca-Cola Company werd uitgevonden of dat de aarde in de zomer dichter bij de zon staat dan in de winter, kan je een model allerhande zaken wijsmaken die niet waar zijn, zo simpel is het eigenlijk.</p>
+</div>
+<div id="representativiteit" class="section level2">
+<h2><span class="header-section-number">15.4</span> Representativiteit</h2>
+<p>Laten we eerst een beetje dieper graven naar de oorzaken van onethische AI. Wat betekent het als de data vertekend zijn?</p>
+
+<div class="definition">
+<span id="def:representativeness" class="definition"><strong>Stelling 15.2  </strong></span>Vertekende training-, validatie- of test-data zijn data die niet representatief zijn voor de toekomstige invoer tijdens de inferentie van een ML model.
+</div>
+
+<p>Het probleem is dat de data nooit 100% representatief zijn voor de toekomstige invoer. En heel belangrijk:</p>
+
+<div class="definition">
+<span id="def:representativeness-comm" class="definition"><strong>Stelling 15.3  </strong></span>Het is de verantwoordelijkheid van de ontwerper van het model om een goed beeld van de representativiteit van de beschikbare data te hebben en om dit zo klaar en duidelijk als mogelijk te communiceren naar al de belanghebbenden.
+</div>
+
+</div>
+<div id="randvoorwaarden" class="section level2">
+<h2><span class="header-section-number">15.5</span> Randvoorwaarden</h2>
+<p>Representativiteit van de invoer-data is een belangrijke randvoorwaarden onder dewelke de resultaten van de analyse en de conclusies in het rapport gelden. Maar, er zijn vaak ook andere randvoorwaarden die vermeld dienen te worden tijdens het bekijken van de resultaten van een leeralgoritme. Hieronder zijn een aantal voorbeelden om dit duidelijk te maken, de voorwaarde staat telkens vetgedrukt:</p>
+<p><q>We kunnen met 75% zekerheid voorspellen of een student zal slagen voor het vak <strong>indien het gaat om vakken waarvan het cursusmateriaal van Digitap beschikbaar wordt gemaakt</strong></q></p>
+<p><q><strong>Indien we ervan uitgaan dat de ontbrekende data random verdeeld zijn over de dataset</strong> kan ik met 75% zekerheid voorspellen dat …</q></p>
+<p><q><strong>Als we er vanuit gaan dat het respons-gedrag op Facebook de komende maanden niet veranderd</strong> kunnen we voorspellen dat er vóór het eind van de maand nog een staking uitbreekt.</q></p>
+<p>Soms kunnen er door middel van statistische tests nagegaan worden of er inderdaad aan een aantal randvoorwaarden wordt voldaan. Dit past niet binnen het bereik van deze cursus en als het zover komt moet je een statisticus onder de arm nemen, maar het getuigt van professionalisme om ten alle tijde de randvoorwaarden te vermelden,</p>
+</div>
+<div id="privacy-en-ethiek" class="section level2">
+<h2><span class="header-section-number">15.6</span> Privacy en ethiek</h2>
+<p>Europa is voorloper in het uitwerken van regels rond privacy. Dat heeft met het verleden van Europa te maken, waar de schendingen van de zogenaamde <em>Inoffizielle Mitarbeiter</em> van de <a href="https://nl.wikipedia.org/wiki/Stasi">Stasi</a> grote gevolgen had voor de Duitse Democratische Republiek. Het belangrijkst anti-privacy wetgevend product is de fameuze <a href="https://diplomatie.belgium.be/nl/Diensten/Naar_Belgie_komen/Visum_Voor_Belgie/GDPR_VIS">GDPR</a> (General Data Protection Regulation)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Voor het eerst werden de rechten van alle Europese burgers beschermd tegen misbruik.</p>
+<p>Maar wetgeving en ethiek zijn twee verschillende zaken. De wetgeving probeert natuurlijk vaak de ethiek van het moment te formaliseren, maar er blijft altijd een verschil (men kan zeggen dat de wetgeving meestal achterloopt op ethiek).</p>
+</div>
+<div id="privacy" class="section level2">
+<h2><span class="header-section-number">15.7</span> Privacy</h2>
+<p>Europa is dus het eerste grootmacht op aarde dat zo een uitgesproken wet of de privacy van persoonlijke gegevens goedkeurt (<span class="citation">Europese Unie <a href="#ref-gdpr" role="doc-biblioref">2016</a></span>). De principes van deze verordening kunnen als volgt samengevat worden:</p>
+
+<div class="definition">
+<span id="def:gdpr-1" class="definition"><strong>Stelling 15.4  (Transparantie-1)  </strong></span><strong>Persoonsgegevens</strong> zijn die onlosmakelijk aan een persson gekoppeld kunnen worden. Enerzijds gaat het om gegevens waarmee de persoon in kwestie rechtressk of onrechtreeks geïdentificeerd kan worden zoals vingerafdruk, adres, rijksregisternummer, telefoonnumer, IP-adres, MAC-adres, enz…. Als een AP student geïdentificeerd kan worden a.d.h.v. geboorteplaats (omdat er maar één student daar geboren is), dan wordt dat ook een persoonsgegeven! Als een combinatie van geslacht en geboortedatum een student (bijna) kan identificeren, dan zijn dat ook persoonsgegevens. Daarnaast zijn ook andere gegevens zoals doctorsattesten en allerhande soorten medische gegevens sowieso persoonsgegevens en moeten deze maximaal beschermd worden.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-2" class="definition"><strong>Stelling 15.5  (Transparantie-2)  </strong></span>De persoon van wie gegevens op de ene of andere manier verwerkt worden (bekijken, kopiëren, verplaatsen, aanpassen, verwijderen) moet hiervoor diens toestemming gegeven hebben.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-3" class="definition"><strong>Stelling 15.6  (Transparantie-3)  </strong></span>De persoon van wie gegevens op de ene of andere manier verwerkt worden werd op de hoogte gebracht van diens rechten.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-4" class="definition"><strong>Stelling 15.7  (Doelbeperking-1)  </strong></span>Het doel waarvoor persoonsgegevens worden verzameld en verwerkt moet duidelijk kenbaar gemaakt worden bij de eigenaar van de gegevens en mag niet wijzigen zonder dat de eigenaar hiervoor zijn akkoord gaf.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-5" class="definition"><strong>Stelling 15.8  (Gegevensbeperking-1)  </strong></span>Uitsluitend de gegevens die absoluut noodzakelijk zijn om dit doel te bereiken, mogen worden verzameld.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-6" class="definition"><strong>Stelling 15.9  (Juistheid-1)  </strong></span>De verwerker van de persoonsgegevens is verantwoordelijk voor de juistheid van de gegevens gedurende de ganse periode waarin de gegevens beschikbaar zijn.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-7" class="definition"><strong>Stelling 15.10  (Bewaarbeperking-1)  </strong></span>Persoonsgegevens mogen niet langer dan strikt noodzakelijk voor het beoogde doel bewaard worden.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-8" class="definition"><strong>Stelling 15.11  (Vertrouwelijkheid-1)  </strong></span>Persoonsgegevens moeten actief beschermd worden tegen toegang door onbevoegden.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-9" class="definition"><strong>Stelling 15.12  (Integriteit-1)  </strong></span>Persoonsgegevens moeten actief beschermd worden tegen verlies of vernietiging.
+</div>
+
+
+<div class="definition">
+<span id="def:gdpr-10" class="definition"><strong>Stelling 15.13  (Verantwoording-1)  </strong></span>De verwerker moet kunnen aantonen aan deze regels te voldoen en hebben voldaan gedurende de ganse periode waarin die de gegevens bezat.
+</div>
+
+
+<div class="example">
+<p><span id="exm:privacy-by-default" class="example"><strong>Voorbeeld 15.1  </strong></span>Vele online platformen hanteren het principe van <em>public-by-default</em> (<span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>), dat betekent dat ze standaard al de informatie van de eindgebruiker publiek zetten. De AVG verplicht echter om binnen Europa het principe van <em>privacy by default</em> te hanteren.</p>
+<img src="img/github-public-by-default.png" title="fig:" alt="GitHub publiek of privë" />
+</div>
+
+</div>
+<div id="de-drie-wetten-van-asimov" class="section level2">
+<h2><span class="header-section-number">15.8</span> De drie wetten van Asimov</h2>
+<p>Isaac Asimov bedacht in 1942 de wetten van de robotica en bracht zo meteen een ethische kijk op het gebruik van artificiële intelligentie:</p>
+<p><q><br>Nulde wet — Een robot mag geen schade toebrengen aan de mensheid, of toelaten dat de mensheid schade toegebracht wordt door zijn nalatigheid.<br>
+Eerste Wet — Een robot mag een mens geen letsel toebrengen of door niet te handelen toestaan dat een mens een letsel oploopt behalve als dit de Nulde Wet zou schenden.<br>
+Tweede Wet — Een robot moet de bevelen uitvoeren die hem door mensen gegeven worden, behalve als die opdrachten in strijd zijn met de Nulde Wet of de Eerste Wet.<br>
+Derde Wet — Een robot moet zijn eigen bestaan beschermen, voor zover die bescherming niet in strijd is met de Nulde, de Eerste of de Tweede Wet.</q></p>
+<div class="quote-source">
+<p>— <span class="citation">“Drie wetten van de robotica - wikipedia,” <a href="#ref-driewetten" role="doc-biblioref">n.d.</a></span></p>
+</div>
+
+<div class="theorem">
+<p><span id="thm:isaac-asimov" class="theorem"><strong>Persoonlijkheid 15.1  (Isaac Asimov)  </strong></span></p>
+<p><img src="img/isaac-asimov.jpg" /></p>
+<a href="https://nl.wikipedia.org/wiki/Isaac_Asimov"><em>Isaac Asimov</em></a> is een een gerenommeerde schrijver waar vele toekomstige schrijvers hun mosterd vandaan haalden (Alex Proyas met I, Robot; Douglas Adams in HGTG; <span class="citation">Salor and others <a href="#ref-salor2012sum" role="doc-biblioref">2012</a></span>)
+</div>
+
+</div>
+<div id="ethiek" class="section level2">
+<h2><span class="header-section-number">15.9</span> Ethiek</h2>
+<p>Het is opmerkelijk om te beseffen dat we in 2020 Asimov’s wetten gebruiken om te bepalen hoe een zelf-rijdende auto zich moet gedragen (<span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>). Zo worden door MIT onderzoekers de morele dilemma’s onderzocht die een zelf-rijdende auto moet oplossen (<span class="citation">Awad et al. <a href="#ref-awad2020universals" role="doc-biblioref">2020</a></span>). In plaats van een panel van intellectuelen en ethici te laten beslissen over wat een auto mag of niet mag doen, zijn ze heel anders te werk gegaan. Ze hebben via een online platform (de zogenaamde <em>Moral Machine</em>) de bevolking geraadpleegd over wat zij zelf in bepaalde verkeerssituaties zouden doen (zie Figuur <a href="ethisch-ml.html#fig:moral-machine">15.3</a>). Uit het bevragingen bleek dat moraliteit sterk afhangt van de cultuur. Zo geven japanners een grotere waarde aan ouderen dan wat men in West-Europa doet.</p>
+<p>Situaties zoals diegene beschreven door de <em>Moral Machine</em> zijn dermate complex en context-afhankelijk dat vele academici vinden dat je beslissingen over leven en dood niet kunt overlaten aan een beslissingsboom (<span class="citation">Gabriels, <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a>; Wallach and Allen, <a href="#ref-wallach2008moral" role="doc-biblioref">2008</a></span>). Maar willen we ooit zelf-rijdende wagens komen, moeten er ergens wel keuzes gemaakt worden. In Duitsland werden daarom regels opgesteld om te bepalen hoe de ethiek van zelf-rijdende wagens moet worden bewaakt (<span class="citation">Luetge <a href="#ref-luetge2017" role="doc-biblioref">2017</a></span>). Deze regels druisen rechtstreeks in tegen die van de <em>Moral Machine</em>. Hier zegt men dat keuzes nooit gemaakt mogen worden op basis van fysieke- of mentale eigenschappen van de betrokken partijen binnen het verkeer-scenario, zoals geslacht of leeftijd.</p>
+<p>Het komt er verder op neer dat er voor zware leven-en-dood beslissingen de verantwoordelijkheid verschoven wordt van de bestuurder van de wagen en de ontwikkelaars van de desbetreffende AI-systemen naar de beleidsmakers en de constructeurs van de zelf-rijdende wagens (<span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>).</p>
+<div class="figure"><span id="fig:moral-machine"></span>
+<img src="img/moral-machine.png" alt="The Moral Machine is een online platform ontwikkeld door de Scalable Cooperation-groep aan het MIT. Het vraagt aan de eindgebruiker om een keuze te maken tussen twee mogelijke acties waarbij sowieso slachtoffers zouden vallen. Bron: zie Judge-tabblad op de Moral Machine website." width="712" />
+<p class="caption">
+Figuur 15.3: The Moral Machine is een online platform ontwikkeld door de Scalable Cooperation-groep aan het MIT. Het vraagt aan de eindgebruiker om een keuze te maken tussen twee mogelijke acties waarbij sowieso slachtoffers zouden vallen. Bron: zie <em>Judge</em>-tabblad op de <a href="https://www.moralmachine.net/">Moral Machine website</a>.
+</p>
+</div>
+
+</div>
+<div id="proces-om-etisch-te-blijven" class="section level2">
+<h2><span class="header-section-number">15.10</span> Proces om etisch te blijven</h2>
+
+<div class="definition">
+<span id="def:ethisch-design" class="definition"><strong>Stelling 15.14  (Ethiek ontwerp je)  </strong></span>Ethiek is niet iets wat je aan het einde van je ML project aan moet beginnen denken. Vanaf het opzetten van de <a href="rapporteren.html#de-vraagstelling">vraagstelling</a>, moet de data-wetenschapper zich reeds met ethiek inlaten (<span class="citation">Gabriels <a href="#ref-gabriels2019regels" role="doc-biblioref">2019</a></span>).
+</div>
+
+<p>Het doel is natuurlijk om hier iets uit te leren. Hoe kunnen ervoor zorgen dat we zelf ethisch zijn en blijven? Hier is een leidraad:</p>
+<div class="figure"><span id="fig:blijf-ethisch"></span>
+<img src="img/blijf-ethisch.svg" alt="Een handleiding om ervoor te zorgen dat een ethisch verantwoord ML-product in productie wordt gezet. Lijkt het een beetje overkill? Denk eraan dat de pijn die je iemand aandoet zich in de rechtbank kan vertalen naar enorme bedragen! Acties worden voorgesteld als cirkels, beslissingsmomenten als ruiten en objecten of statussen als rechthoeken."  />
+<p class="caption">
+Figuur 15.4: Een handleiding om ervoor te zorgen dat een ethisch verantwoord ML-product in productie wordt gezet. Lijkt het een beetje overkill? Denk eraan dat de pijn die je iemand aandoet zich in de rechtbank kan vertalen naar enorme bedragen! Acties worden voorgesteld als cirkels, beslissingsmomenten als ruiten en objecten of statussen als rechthoeken.
+</p>
+</div>
+
+<p>De twee eerste acties in bovenstaand proces worden voor een belangrijk deel ondervangen door het opstellen van een zogenaamde <em>DPIA</em> of <a href="https://gdpr.eu/data-protection-impact-assessment-template/"><em>Data Protection Impact Assessment</em></a>. Hierin beschrijf je het wat, waarom en hoe van het project alsook de resultaten van een doorgedreven risico-analyse. De DPIA is gericht naar de autoriteiten en naar de DPO (<em>Data privacy Officer</em>) van jouw organisatie.</p>
+</div>
+<div id="regels-rond-ethiek" class="section level2">
+<h2><span class="header-section-number">15.11</span> Regels rond ethiek</h2>
+<p>Hier zijn nog een aantal losse richtlijnen die je moet volgen om tot een ethisch ML-product te komen:</p>
+
+<div class="definition">
+<span id="def:ai-rule-1" class="definition"><strong>Stelling 15.15  </strong></span>Volg alle vereisten voor het bekomen van een solide, betrouwbare, transparante en veilige software-applicatie, deze zijn namelijk ook geldig voor een AI-applicatie.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-8" class="definition"><strong>Stelling 15.16  </strong></span>Pas alle wetten toe rond privacy! Stel onder andere dus een DPIA op.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-2" class="definition"><strong>Stelling 15.17  </strong></span>Werk in nauwe samenwerking binnen een goed-gebalanceerd multidisciplinair team.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-3" class="definition"><strong>Stelling 15.18  </strong></span>Werk uitsluitend met representatieve data.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-4" class="definition"><strong>Stelling 15.19  </strong></span>Werk het liefst met méér dan 1 onafhankelijke databron.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-5" class="definition"><strong>Stelling 15.20  </strong></span>Weet alles wat er te weten is over de bron-data: wie heeft het verzameld, hoe werd het verzameld, is de onafhankelijkheid van alle tussenpersonen gegarandeerd, was er voldoende controle tijdens het verzamelen van de data, kan je de controle documenten inkijken, kan je de oorspronkelijke data-collectoren spreken (indien relevant), enzovoort…. Zie bijvoorbeeld ook het online <a href="https://data-en-maatschappij.ai/uploads/publications/DANDA-form.pdf"><em>Data Collection Bias Assessment</em></a> formulier of de <a href="http://www.datasciencepublicpolicy.org/projects/aequitas/"><em>Aequitas source bias audit toolkit</em></a>.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-9" class="definition"><strong>Stelling 15.21  </strong></span>Breng alle gegevensstromen binnen het AI-project in kaart.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-10" class="definition"><strong>Stelling 15.22  </strong></span>Maak het werk reproduceerbaar.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-11" class="definition"><strong>Stelling 15.23  </strong></span>Beschrijf scenario’s waarin de eindgebruiker van kwade wil is.
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-6" class="definition"><strong>Stelling 15.24  </strong></span>Overweeg het gebruik van statistieken die de rechtvaardigheid effectief kunnen meten (zie bv het R <code>fairness</code> pakket).
+</div>
+
+
+<div class="definition">
+<span id="def:ai-rule-7" class="definition"><strong>Stelling 15.25  </strong></span>Communiceer openlijk over de performanties van het model (zoals sensitiviteit en specificiteit). Laat <em>nooit</em> twijfel bestaan over welke dataset een bepaalde statistiek op slaat (ongeziene test-set of toch validatie dataset).
+</div>
+
+</div>
+<div id="eed" class="section level2">
+<h2><span class="header-section-number">15.12</span> Eed</h2>
+<p>Het onderstaande eed (<em>Designers’s Oath</em>) werd bedacht door James Williams (<span class="citation">Williams <a href="#ref-williams2018stand" role="doc-biblioref">2018</a></span>):</p>
+<p><i>
+"Als iemand die het leven van anderen vormgeeft, beloof ik om:</p>
+<ul>
+<li>Oprecht om hun succes te geven;</li>
+<li>Hun intenties, doelen en waarden zo volledig mogelijk te begrijpen;</li>
+<li>Mijn projecten en handelingen op hun intenties, doelen en waarden af te stemmen;</li>
+<li>Hun waardigheid, aandacht en vrijheid te respecteren en nooit hun eigen zwakheden tegen henzelf in te zetten;</li>
+<li>Het volledige effect van mijn projecten op hun leven te meten en niet alleen die effecten die voor mij belangrijk zijn;</li>
+<li>Duidelijk, eerlijk en regelmatig over mijn intenties en methoden te communiceren en</li>
+<li>De mogelijkheid om hun eigen leven te leiden te stimuleren door reflectie op hun eigen waarden, doelen en intenties aan te moedigen"</li>
+</ul>
+<p></i></p>
+<div class="quote-source">
+<p>— <span class="citation">Williams <a href="#ref-williams2018stand" role="doc-biblioref">2018</a></span></p>
+</div>
+
+</div>
+</div>
+
+
+
+<h3>Bronvermelding</h3>
+<div id="refs" class="references">
+<div id="ref-awad2020universals">
+<p>Awad, E., Dsouza, S., Shariff, A., Rahwan, I., Bonnefon, J.-F., 2020. Universals and variations in moral decisions made in 42 countries by 70,000 participants. Proceedings of the National Academy of Sciences 117, 2332–2337.</p>
+</div>
+<div id="ref-greatpower">
+<p>Convention, 1793. Collection générale des décrets rendus par la convention nationale, Convention nationale (paris). chez Baudouin.</p>
+</div>
+<div id="ref-driewetten">
+<p>Drie wetten van de robotica - wikipedia, n.d. <em>(Accessed on 12/14/2020)</em>.</p>
+</div>
+<div id="ref-gdpr">
+<p>Europese Unie, H.E.P. en de Raad van de, 2016. Verordening (eu) 2016 /679 van het europees parlement en de raad van 27 april 2016 betreffende de bescherming van natuurlijke personen in verband met de verwerking van persoonsgegevens en betreffende het vrije verkeer van die gegevens en tot intrekking van richtlijn 95/46/eg (algemene verordening gegevensbescherming pbeu 2016/679) <em><a href="https://eur-lex.europa.eu/legal-content/NL/TXT/PDF/?uri=CELEX:32016R0679&amp;from=NL">https://eur-lex.europa.eu/legal-content/NL/TXT/PDF/?uri=CELEX:32016R0679&amp;from=NL</a></em>.</p>
+</div>
+<div id="ref-gabriels2019regels">
+<p>Gabriels, K., 2019. Regels voor robots: Ethiek in tijden van ai.</p>
+</div>
+<div id="ref-twoyearslater">
+<p>Google’s solution to accidental algorithmic racism: Ban gorillas | google | the guardian, n.d. <em>(Accessed on 12/16/2020)</em>.</p>
+</div>
+<div id="ref-lee2016learning">
+<p>Lee, P., 2016. Learning from tay’s introduction. Official Microsoft Blog 25.</p>
+</div>
+<div id="ref-luetge2017">
+<p>Luetge, C., 2017. The german ethics code for automated and connected driving. Philosophy &amp; Technology 30, 547–558.</p>
+</div>
+<div id="ref-MarkZuck72">
+<p>Mark zuckerberg says sorry in full-page newspaper ads - cnn, n.d. <em>(Accessed on 12/15/2020)</em>.</p>
+</div>
+<div id="ref-comorbidity">
+<p>Mbadiwe, T., 2017. The potential pitfalls of machine learning algorithms in medicine - pulmonology advisor <em>(Accessed on 12/16/2020)</em>.</p>
+</div>
+<div id="ref-PureGymC18">
+<p>Phillips, J., 2015. Pure gym ceo: We’re not a sexist company <em>(Accessed on 12/16/2020)</em>.</p>
+</div>
+<div id="ref-salor2012sum">
+<p>Salor, F.E., others, 2012. Sum of all knowledge: Wikipedia and the encyclopedic urge (PhD thesis). Universiteit van Amsterdam [Host].</p>
+</div>
+<div id="ref-telnaes1984electronic">
+<p>Telnaes, I.S., 1984. Electronic gaming device utilizing a random number generator for selecting the reel stop positions <em>US Patent 4,448,419</em>.</p>
+</div>
+<div id="ref-wallach2008moral">
+<p>Wallach, W., Allen, C., 2008. Moral machines: Teaching robots right from wrong. Oxford University Press.</p>
+</div>
+<div id="ref-williams2018stand">
+<p>Williams, J., 2018. Stand out of our light: Freedom and resistance in the attention economy. Cambridge University Press.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Maar ook bekend van Spider Man<a href="ethisch-ml.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Staat ook bekend onder de Nederlandstalige naam: <em>Algemene verordening gegevensbescherming</em> of <em>AVG</em>.<a href="ethisch-ml.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rapporteren.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="de-logaritme.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ddhaese/machine-learning-source/16_Ethisch_ML.Rmd",
+"text": "Bron"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

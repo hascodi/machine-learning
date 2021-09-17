@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 11 Sequentie Analyse | Machine Learning</title>
+  <meta name="description" content="Artificial intelligence course at the AP University College." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 11 Sequentie Analyse | Machine Learning" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Artificial intelligence course at the AP University College." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 11 Sequentie Analyse | Machine Learning" />
+  
+  <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
+  
+
+<meta name="author" content="34142/1916/2021/1/38 David D’Haese" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="trainen-en-testen.html"/>
+<link rel="next" href="neurale-netwerken-met-extern-geheugen.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\course.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Summary</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot de cursus</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#in-een-notedop"><i class="fa fa-check"></i><b>1.1</b> In een notedop</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#leerdoelen"><i class="fa fa-check"></i><b>1.2</b> Leerdoelen</a></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#cursus-vorm"><i class="fa fa-check"></i><b>1.3</b> Cursus vorm</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#bekijken-van-deze-cursus"><i class="fa fa-check"></i><b>1.4</b> Bekijken van deze Cursus</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#code-uit-de-cursus-uitvoeren"><i class="fa fa-check"></i><b>1.5</b> Code uit de cursus uitvoeren</a></li>
+<li class="chapter" data-level="1.6" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#oefeningen-maken"><i class="fa fa-check"></i><b>1.6</b> Oefeningen maken</a></li>
+<li class="chapter" data-level="1.7" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#licentie-voor-deze-cursus"><i class="fa fa-check"></i><b>1.7</b> Licentie voor deze cursus</a></li>
+<li class="chapter" data-level="1.8" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#verwijzen-naar-deze-cursus"><i class="fa fa-check"></i><b>1.8</b> Verwijzen naar deze cursus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="leren-uit-data.html"><a href="leren-uit-data.html"><i class="fa fa-check"></i><b>2</b> Leren uit data</a><ul>
+<li class="chapter" data-level="2.1" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces"><i class="fa fa-check"></i><b>2.1</b> Het leerproces</a></li>
+<li class="chapter" data-level="2.2" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-evolutie-van-het-machinaal-leren"><i class="fa fa-check"></i><b>2.2</b> De evolutie van het machinaal leren</a></li>
+<li class="chapter" data-level="2.3" data-path="leren-uit-data.html"><a href="leren-uit-data.html#intelligentie"><i class="fa fa-check"></i><b>2.3</b> Intelligentie</a></li>
+<li class="chapter" data-level="2.4" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-model"><i class="fa fa-check"></i><b>2.4</b> Het model</a></li>
+<li class="chapter" data-level="2.5" data-path="leren-uit-data.html"><a href="leren-uit-data.html#doelfunctie"><i class="fa fa-check"></i><b>2.5</b> Doelfunctie</a></li>
+<li class="chapter" data-level="2.6" data-path="leren-uit-data.html"><a href="leren-uit-data.html#mnist-dataset"><i class="fa fa-check"></i><b>2.6</b> MNIST dataset</a></li>
+<li class="chapter" data-level="2.7" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-resultaat-van-mnist-analyse"><i class="fa fa-check"></i><b>2.7</b> Het resultaat van MNIST analyse</a></li>
+<li class="chapter" data-level="2.8" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-mnist-model"><i class="fa fa-check"></i><b>2.8</b> Het MNIST model</a></li>
+<li class="chapter" data-level="2.9" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces-voor-begeleid-ml"><i class="fa fa-check"></i><b>2.9</b> Het leerproces voor begeleid ML</a></li>
+<li class="chapter" data-level="2.10" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-onderdelen-van-een-model"><i class="fa fa-check"></i><b>2.10</b> De onderdelen van een model</a></li>
+<li class="chapter" data-level="2.11" data-path="leren-uit-data.html"><a href="leren-uit-data.html#hyperparameters"><i class="fa fa-check"></i><b>2.11</b> Hyperparameters</a></li>
+<li class="chapter" data-level="2.12" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leeralgoritme"><i class="fa fa-check"></i><b>2.12</b> Het leeralgoritme</a></li>
+<li class="chapter" data-level="2.13" data-path="leren-uit-data.html"><a href="leren-uit-data.html#model-complexiteit"><i class="fa fa-check"></i><b>2.13</b> Model complexiteit</a></li>
+<li class="chapter" data-level="2.14" data-path="leren-uit-data.html"><a href="leren-uit-data.html#comprimeren-door-middel-van-een-ml-model"><i class="fa fa-check"></i><b>2.14</b> Comprimeren door middel van een ML model</a></li>
+<li class="chapter" data-level="2.15" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-ontwerp"><i class="fa fa-check"></i><b>2.15</b> Leren versus ontwerp</a></li>
+<li class="chapter" data-level="2.16" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-onthouden-en-inferentie"><i class="fa fa-check"></i><b>2.16</b> Leren versus onthouden en inferentie</a></li>
+<li class="chapter" data-level="2.17" data-path="leren-uit-data.html"><a href="leren-uit-data.html#onbegeleid-ml"><i class="fa fa-check"></i><b>2.17</b> Onbegeleid ML</a></li>
+<li class="chapter" data-level="2.18" data-path="leren-uit-data.html"><a href="leren-uit-data.html#conditionering"><i class="fa fa-check"></i><b>2.18</b> Conditionering</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#data-voor-ml"><i class="fa fa-check"></i><b>3.1</b> Data voor ML</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#wat-is-data"><i class="fa fa-check"></i><b>3.2</b> Wat is data</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#soorten-data"><i class="fa fa-check"></i><b>3.3</b> Soorten data</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#externe-databronnen"><i class="fa fa-check"></i><b>3.4</b> Externe databronnen</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>3.5</b> Data Genereren</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>3.6</b> De analyse dataset</a></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>3.7</b> Soorten variabelen</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#eng-nominal-scale-data"><i class="fa fa-check"></i><b>3.8</b> (Eng) Nominal-Scale Data</a></li>
+<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#eng-dummy-variables"><i class="fa fa-check"></i><b>3.9</b> (Eng) Dummy Variables</a></li>
+<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#eng-ordinal-scale-data"><i class="fa fa-check"></i><b>3.10</b> (Eng) Ordinal-Scale Data</a></li>
+<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#eng-circular-scale"><i class="fa fa-check"></i><b>3.11</b> (Eng) Circular-Scale</a></li>
+<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#eng-censoring"><i class="fa fa-check"></i><b>3.12</b> (Eng) Censoring</a></li>
+<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>3.13</b> Tijd en ruimte</a></li>
+<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>3.14</b> Toegang tot data</a></li>
+<li class="chapter" data-level="3.15" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>3.15</b> Het codeboek</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>4</b> Data exploratie</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>4.1</b> Principes van data exploratie</a></li>
+<li class="chapter" data-level="4.2" data-path="data-exploratie.html"><a href="data-exploratie.html#stappen-in-data-exploratie"><i class="fa fa-check"></i><b>4.2</b> Stappen in data exploratie</a></li>
+<li class="chapter" data-level="4.3" data-path="data-exploratie.html"><a href="data-exploratie.html#voorbeeld-data-exploratie"><i class="fa fa-check"></i><b>4.3</b> Voorbeeld data exploratie</a></li>
+<li class="chapter" data-level="4.4" data-path="data-exploratie.html"><a href="data-exploratie.html#univariate-verdelingen"><i class="fa fa-check"></i><b>4.4</b> Univariate verdelingen</a></li>
+<li class="chapter" data-level="4.5" data-path="data-exploratie.html"><a href="data-exploratie.html#correlatie-tussen-twee-variabelen"><i class="fa fa-check"></i><b>4.5</b> Correlatie tussen twee variabelen</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html"><i class="fa fa-check"></i><b>5</b> Manipuleren van data</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#kort-overzicht-van-de-manipulaties"><i class="fa fa-check"></i><b>5.1</b> Kort overzicht van de manipulaties</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#filteren-en-versnijden"><i class="fa fa-check"></i><b>5.1.1</b> Filteren en versnijden</a></li>
+<li class="chapter" data-level="5.1.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#booleaans-masker"><i class="fa fa-check"></i><b>5.1.2</b> Booleaans masker</a></li>
+<li class="chapter" data-level="5.1.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-grouping-and-aggregation"><i class="fa fa-check"></i><b>5.1.3</b> (Eng.) Grouping and Aggregation</a></li>
+<li class="chapter" data-level="5.1.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-transforming-text"><i class="fa fa-check"></i><b>5.1.4</b> (Eng.) Transforming text</a></li>
+<li class="chapter" data-level="5.1.5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-re-scaling-numerical-values"><i class="fa fa-check"></i><b>5.1.5</b> (Eng.) Re-Scaling Numerical Values</a></li>
+<li class="chapter" data-level="5.1.6" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-discretizations"><i class="fa fa-check"></i><b>5.1.6</b> (Eng.) Discretizations</a></li>
+<li class="chapter" data-level="5.1.7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-information-content"><i class="fa fa-check"></i><b>5.1.7</b> (Eng.) Information Content</a></li>
+<li class="chapter" data-level="5.1.8" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-reformatting-type-conversion-casting-or-coercion"><i class="fa fa-check"></i><b>5.1.8</b> (Eng.) Reformatting, Type Conversion, Casting or Coercion</a></li>
+<li class="chapter" data-level="5.1.9" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-numerical-values"><i class="fa fa-check"></i><b>5.1.9</b> (Eng.) Changing numerical Values</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-category-names"><i class="fa fa-check"></i><b>5.2</b> (Eng.) Changing Category Names</a></li>
+<li class="chapter" data-level="5.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-imputation"><i class="fa fa-check"></i><b>5.3</b> (Eng.) Imputation</a></li>
+<li class="chapter" data-level="5.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#onbehandeld"><i class="fa fa-check"></i><b>5.4</b> Onbehandeld</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="de-percetron.html"><a href="de-percetron.html"><i class="fa fa-check"></i><b>6</b> De percetron</a><ul>
+<li class="chapter" data-level="6.1" data-path="de-percetron.html"><a href="de-percetron.html#historiek"><i class="fa fa-check"></i><b>6.1</b> Historiek</a></li>
+<li class="chapter" data-level="6.2" data-path="de-percetron.html"><a href="de-percetron.html#de-anatomie-van-de-perceptron"><i class="fa fa-check"></i><b>6.2</b> De anatomie van de perceptron</a></li>
+<li class="chapter" data-level="6.3" data-path="de-percetron.html"><a href="de-percetron.html#casestudy-onderscheiden-van-setosa"><i class="fa fa-check"></i><b>6.3</b> Casestudy: Onderscheiden van setosa</a></li>
+<li class="chapter" data-level="6.4" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-klasse"><i class="fa fa-check"></i><b>6.4</b> De perceptron klasse</a></li>
+<li class="chapter" data-level="6.5" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-functies"><i class="fa fa-check"></i><b>6.5</b> De perceptron functies</a></li>
+<li class="chapter" data-level="6.6" data-path="de-percetron.html"><a href="de-percetron.html#het-leeralgoritme-van-de-perceptron"><i class="fa fa-check"></i><b>6.6</b> Het leeralgoritme van de perceptron</a></li>
+<li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
+<li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-computer-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Computer Vision</a></li>
+<li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
+<li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
+<li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
+<li class="chapter" data-level="8.5" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#filter-als-compressor"><i class="fa fa-check"></i><b>8.5</b> Filter als compressor</a></li>
+<li class="chapter" data-level="8.6" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-stride-niet-opgeven"><i class="fa fa-check"></i><b>8.6</b> De <em>stride</em> niet opgeven</a></li>
+<li class="chapter" data-level="8.7" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-volledige-filter-laag"><i class="fa fa-check"></i><b>8.7</b> De volledige filter-laag</a></li>
+<li class="chapter" data-level="8.8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#meerdere-filters-per-laag"><i class="fa fa-check"></i><b>8.8</b> Meerdere filters per laag</a></li>
+<li class="chapter" data-level="8.9" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#max-pooling"><i class="fa fa-check"></i><b>8.9</b> Max Pooling</a></li>
+<li class="chapter" data-level="8.10" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#samenstellen-van-cnns"><i class="fa fa-check"></i><b>8.10</b> Samenstellen van CNNs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="autoencoders.html"><a href="autoencoders.html"><i class="fa fa-check"></i><b>9</b> Autoencoders</a><ul>
+<li class="chapter" data-level="9.1" data-path="autoencoders.html"><a href="autoencoders.html#probleemstelling-rond-dimensionaliteit-en-complexiteit"><i class="fa fa-check"></i><b>9.1</b> Probleemstelling rond Dimensionaliteit en Complexiteit</a></li>
+<li class="chapter" data-level="9.2" data-path="autoencoders.html"><a href="autoencoders.html#dimensionaliteit-reduceren"><i class="fa fa-check"></i><b>9.2</b> Dimensionaliteit reduceren</a></li>
+<li class="chapter" data-level="9.3" data-path="autoencoders.html"><a href="autoencoders.html#pca-om-dimensionaliteit-te-reduceren"><i class="fa fa-check"></i><b>9.3</b> PCA om dimensionaliteit te reduceren</a></li>
+<li class="chapter" data-level="9.4" data-path="autoencoders.html"><a href="autoencoders.html#pca-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.4</b> PCA op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.5" data-path="autoencoders.html"><a href="autoencoders.html#beperkingen-van-pca"><i class="fa fa-check"></i><b>9.5</b> Beperkingen van PCA</a></li>
+<li class="chapter" data-level="9.6" data-path="autoencoders.html"><a href="autoencoders.html#de-architectuur-van-de-autoencoder"><i class="fa fa-check"></i><b>9.6</b> De Architectuur van de Autoencoder</a></li>
+<li class="chapter" data-level="9.7" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.7</b> Autoencoder op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.8" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-met-cnn"><i class="fa fa-check"></i><b>9.8</b> Autoencoder met CNN</a></li>
+<li class="chapter" data-level="9.9" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-als-ruis-verwijderaar"><i class="fa fa-check"></i><b>9.9</b> Autoencoder als ruis-verwijderaar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html"><i class="fa fa-check"></i><b>10</b> Trainen en testen</a><ul>
+<li class="chapter" data-level="10.1" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#leren-leven-met-de-onzekerheid"><i class="fa fa-check"></i><b>10.1</b> Leren leven met de onzekerheid</a></li>
+<li class="chapter" data-level="10.2" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#meten-van-de-prestatie-van-een-model"><i class="fa fa-check"></i><b>10.2</b> Meten van de prestatie van een model</a></li>
+<li class="chapter" data-level="10.3" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#training--validatie--en-test-set"><i class="fa fa-check"></i><b>10.3</b> Training-, validatie- en test-set</a></li>
+<li class="chapter" data-level="10.4" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#cross-validatie"><i class="fa fa-check"></i><b>10.4</b> Cross-validatie</a></li>
+<li class="chapter" data-level="10.5" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#werkstroom-deep-learning"><i class="fa fa-check"></i><b>10.5</b> Werkstroom deep learning</a></li>
+<li class="chapter" data-level="10.6" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#data-lekkage"><i class="fa fa-check"></i><b>10.6</b> Data lekkage</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html"><i class="fa fa-check"></i><b>11</b> Sequentie Analyse</a><ul>
+<li class="chapter" data-level="11.1" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding-tot-sequentie-analyse"><i class="fa fa-check"></i><b>11.1</b> Inleiding tot sequentie analyse</a></li>
+<li class="chapter" data-level="11.2" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sequence-to-sequence"><i class="fa fa-check"></i><b>11.2</b> Sequence-To-Sequence</a></li>
+<li class="chapter" data-level="11.3" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#recurrente-nn"><i class="fa fa-check"></i><b>11.3</b> Recurrente NN</a></li>
+<li class="chapter" data-level="11.4" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#verdwijnende-gradiënten"><i class="fa fa-check"></i><b>11.4</b> Verdwijnende gradiënten</a></li>
+<li class="chapter" data-level="11.5" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#long-short-term-memory-lstm"><i class="fa fa-check"></i><b>11.5</b> Long short-term memory (LSTM)</a></li>
+<li class="chapter" data-level="11.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sentiment-analyse"><i class="fa fa-check"></i><b>11.6</b> Sentiment analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html"><i class="fa fa-check"></i><b>12</b> Neurale Netwerken met Extern Geheugen</a><ul>
+<li class="chapter" data-level="12.1" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inleiding-nn-met-extern-geheugen"><i class="fa fa-check"></i><b>12.1</b> Inleiding NN met extern geheugen</a></li>
+<li class="chapter" data-level="12.2" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#neurale-turing-machines"><i class="fa fa-check"></i><b>12.2</b> Neurale Turing Machines</a></li>
+<li class="chapter" data-level="12.3" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#lezen-uit-en-schrijven-naar-een-ntm-geheugen"><i class="fa fa-check"></i><b>12.3</b> Lezen uit en schrijven naar een NTM geheugen</a></li>
+<li class="chapter" data-level="12.4" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adressering-van-ntm-geheugens"><i class="fa fa-check"></i><b>12.4</b> Adressering van NTM geheugens</a></li>
+<li class="chapter" data-level="12.5" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inhoud-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.5</b> Inhoud-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.6" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#locatie-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.6</b> Locatie-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.7" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adresseringsmechanisme"><i class="fa fa-check"></i><b>12.7</b> Adresseringsmechanisme</a></li>
+<li class="chapter" data-level="12.8" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-nadelen-van-ntms"><i class="fa fa-check"></i><b>12.8</b> De nadelen van NTMs</a></li>
+<li class="chapter" data-level="12.9" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-differentiële-neurale-computer"><i class="fa fa-check"></i><b>12.9</b> De differentiële neurale computer</a></li>
+<li class="chapter" data-level="12.10" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#implementatie-dnc"><i class="fa fa-check"></i><b>12.10</b> Implementatie DNC</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html"><i class="fa fa-check"></i><b>13</b> Deep Reinforcement Learning</a><ul>
+<li class="chapter" data-level="13.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#inleiding-deep-rl"><i class="fa fa-check"></i><b>13.1</b> Inleiding Deep RL</a></li>
+<li class="chapter" data-level="13.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#voorbeelden-van-deep-reinforcement-learning"><i class="fa fa-check"></i><b>13.2</b> Voorbeelden van deep reinforcement learning</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#introductie-deepmind-team"><i class="fa fa-check"></i><b>13.2.1</b> Introductie DeepMind Team</a></li>
+<li class="chapter" data-level="13.2.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deepminds-deep-q-learning"><i class="fa fa-check"></i><b>13.2.2</b> DeepMind’s Deep-Q learning</a></li>
+<li class="chapter" data-level="13.2.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#robot-tasks"><i class="fa fa-check"></i><b>13.2.3</b> Robot tasks</a></li>
+<li class="chapter" data-level="13.2.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#atlas"><i class="fa fa-check"></i><b>13.2.4</b> Atlas</a></li>
+<li class="chapter" data-level="13.2.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#cart-pole"><i class="fa fa-check"></i><b>13.2.5</b> Cart-Pole</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#markov-beslissingsproces"><i class="fa fa-check"></i><b>13.3</b> Markov beslissingsproces</a></li>
+<li class="chapter" data-level="13.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deep-reinforcement-learning-1"><i class="fa fa-check"></i><b>13.4</b> Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="13.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#varianten-van-deep-rl"><i class="fa fa-check"></i><b>13.5</b> Varianten van (Deep) RL</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#vormen-van-schriftelijke-communicatie"><i class="fa fa-check"></i><b>14.1</b> Vormen van schriftelijke communicatie</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#de-vraagstelling"><i class="fa fa-check"></i><b>14.2</b> De vraagstelling</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#de-probleemstelling"><i class="fa fa-check"></i><b>14.3</b> De probleemstelling</a></li>
+<li class="chapter" data-level="14.4" data-path="rapporteren.html"><a href="rapporteren.html#uitvoering-ai-project"><i class="fa fa-check"></i><b>14.4</b> Uitvoering AI project</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbare-willekeur"><i class="fa fa-check"></i><b>14.4.1</b> Reproduceerbare willekeur</a></li>
+<li class="chapter" data-level="14.4.2" data-path="rapporteren.html"><a href="rapporteren.html#tools"><i class="fa fa-check"></i><b>14.4.2</b> Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="rapporteren.html"><a href="rapporteren.html#de-inleiding-van-een-rapport"><i class="fa fa-check"></i><b>14.5</b> De inleiding van een rapport</a></li>
+<li class="chapter" data-level="14.6" data-path="rapporteren.html"><a href="rapporteren.html#methodiek"><i class="fa fa-check"></i><b>14.6</b> Methodiek</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="rapporteren.html"><a href="rapporteren.html#data-beschikbaar-maken"><i class="fa fa-check"></i><b>14.6.1</b> Data beschikbaar maken</a></li>
+<li class="chapter" data-level="14.6.2" data-path="rapporteren.html"><a href="rapporteren.html#beschikbaar-maken-van-databanken"><i class="fa fa-check"></i><b>14.6.2</b> Beschikbaar maken van databanken</a></li>
+<li class="chapter" data-level="14.6.3" data-path="rapporteren.html"><a href="rapporteren.html#procesbeschrijving"><i class="fa fa-check"></i><b>14.6.3</b> Procesbeschrijving</a></li>
+<li class="chapter" data-level="14.6.4" data-path="rapporteren.html"><a href="rapporteren.html#voorbeeld-uit-wang-et-al."><i class="fa fa-check"></i><b>14.6.4</b> Voorbeeld uit Wang et al.</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="rapporteren.html"><a href="rapporteren.html#resultaten"><i class="fa fa-check"></i><b>14.7</b> Resultaten</a><ul>
+<li class="chapter" data-level="14.7.1" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.7.1</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.7.2" data-path="rapporteren.html"><a href="rapporteren.html#onzekere-cijfers"><i class="fa fa-check"></i><b>14.7.2</b> Onzekere cijfers</a></li>
+<li class="chapter" data-level="14.7.3" data-path="rapporteren.html"><a href="rapporteren.html#visuele-cijfers"><i class="fa fa-check"></i><b>14.7.3</b> Visuele cijfers</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="rapporteren.html"><a href="rapporteren.html#discussie-en-conclusie"><i class="fa fa-check"></i><b>14.8</b> Discussie en Conclusie</a></li>
+<li class="chapter" data-level="14.9" data-path="rapporteren.html"><a href="rapporteren.html#afsluiten-met-de-samenvatting"><i class="fa fa-check"></i><b>14.9</b> Afsluiten met de samenvatting</a></li>
+<li class="chapter" data-level="14.10" data-path="rapporteren.html"><a href="rapporteren.html#verwijzen-naar-extern-werk"><i class="fa fa-check"></i><b>14.10</b> Verwijzen naar extern werk</a><ul>
+<li class="chapter" data-level="14.10.1" data-path="rapporteren.html"><a href="rapporteren.html#citeren"><i class="fa fa-check"></i><b>14.10.1</b> Citeren</a></li>
+<li class="chapter" data-level="14.10.2" data-path="rapporteren.html"><a href="rapporteren.html#licenties-en-toestemming"><i class="fa fa-check"></i><b>14.10.2</b> Licenties en toestemming</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a><ul>
+<li class="chapter" data-level="15.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#inleiding-tot-de-ml-ethiek"><i class="fa fa-check"></i><b>15.1</b> Inleiding tot de ML-ethiek</a></li>
+<li class="chapter" data-level="15.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#hoe-het-niet-moet"><i class="fa fa-check"></i><b>15.2</b> Hoe het niet moet</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gender-ongelijkheid"><i class="fa fa-check"></i><b>15.2.1</b> Gender-ongelijkheid</a></li>
+<li class="chapter" data-level="15.2.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#onmenselijk"><i class="fa fa-check"></i><b>15.2.2</b> Onmenselijk</a></li>
+<li class="chapter" data-level="15.2.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#vals-gevoel-van-controle"><i class="fa fa-check"></i><b>15.2.3</b> Vals gevoel van controle</a></li>
+<li class="chapter" data-level="15.2.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gamification"><i class="fa fa-check"></i><b>15.2.4</b> Gamification</a></li>
+<li class="chapter" data-level="15.2.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ongewilde-advertenties"><i class="fa fa-check"></i><b>15.2.5</b> Ongewilde advertenties</a></li>
+<li class="chapter" data-level="15.2.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#huidskleur"><i class="fa fa-check"></i><b>15.2.6</b> Huidskleur</a></li>
+<li class="chapter" data-level="15.2.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#polarisatie"><i class="fa fa-check"></i><b>15.2.7</b> Polarisatie</a></li>
+<li class="chapter" data-level="15.2.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gezondheid"><i class="fa fa-check"></i><b>15.2.8</b> Gezondheid</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-oorzaken-van-onethisch-ai-producten"><i class="fa fa-check"></i><b>15.3</b> De oorzaken van onethisch AI-producten</a></li>
+<li class="chapter" data-level="15.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#representativiteit"><i class="fa fa-check"></i><b>15.4</b> Representativiteit</a></li>
+<li class="chapter" data-level="15.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#randvoorwaarden"><i class="fa fa-check"></i><b>15.5</b> Randvoorwaarden</a></li>
+<li class="chapter" data-level="15.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy-en-ethiek"><i class="fa fa-check"></i><b>15.6</b> Privacy en ethiek</a></li>
+<li class="chapter" data-level="15.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy"><i class="fa fa-check"></i><b>15.7</b> Privacy</a></li>
+<li class="chapter" data-level="15.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-drie-wetten-van-asimov"><i class="fa fa-check"></i><b>15.8</b> De drie wetten van Asimov</a></li>
+<li class="chapter" data-level="15.9" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ethiek"><i class="fa fa-check"></i><b>15.9</b> Ethiek</a></li>
+<li class="chapter" data-level="15.10" data-path="ethisch-ml.html"><a href="ethisch-ml.html#proces-om-etisch-te-blijven"><i class="fa fa-check"></i><b>15.10</b> Proces om etisch te blijven</a></li>
+<li class="chapter" data-level="15.11" data-path="ethisch-ml.html"><a href="ethisch-ml.html#regels-rond-ethiek"><i class="fa fa-check"></i><b>15.11</b> Regels rond ethiek</a></li>
+<li class="chapter" data-level="15.12" data-path="ethisch-ml.html"><a href="ethisch-ml.html#eed"><i class="fa fa-check"></i><b>15.12</b> Eed</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
+<li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
+<li class="chapter" data-level="C" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>C</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
+<li class="chapter" data-level="D" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>D</b> Computations using GPU</a></li>
+<li class="chapter" data-level="E" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>E</b> Installation</a><ul>
+<li class="chapter" data-level="E.1" data-path="installation.html"><a href="installation.html#installing-cuda-optional"><i class="fa fa-check"></i><b>E.1</b> Installing CUDA (optional)</a></li>
+<li class="chapter" data-level="E.2" data-path="installation.html"><a href="installation.html#the-r-language"><i class="fa fa-check"></i><b>E.2</b> The R language</a></li>
+<li class="chapter" data-level="E.3" data-path="installation.html"><a href="installation.html#python"><i class="fa fa-check"></i><b>E.3</b> Python</a></li>
+<li class="chapter" data-level="E.4" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>E.4</b> RStudio</a></li>
+<li class="chapter" data-level="E.5" data-path="installation.html"><a href="installation.html#installing-tensorflow"><i class="fa fa-check"></i><b>E.5</b> Installing Tensorflow</a></li>
+<li class="chapter" data-level="E.6" data-path="installation.html"><a href="installation.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>E.6</b> Installation steps that worked for the author</a></li>
+<li class="chapter" data-level="E.7" data-path="installation.html"><a href="installation.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>E.7</b> Waar vind ik hulp</a></li>
+<li class="chapter" data-level="E.8" data-path="installation.html"><a href="installation.html#waar-kan-ik-leeralgoritmen-terugvinden"><i class="fa fa-check"></i><b>E.8</b> Waar kan ik leeralgoritmen terugvinden</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>F</b> Git</a></li>
+<li class="chapter" data-level="G" data-path="antwoorden.html"><a href="antwoorden.html"><i class="fa fa-check"></i><b>G</b> Antwoorden</a><ul>
+<li class="chapter" data-level="G.1" data-path="antwoorden.html"><a href="antwoorden.html#hoofdstuk-4"><i class="fa fa-check"></i><b>G.1</b> Hoofdstuk 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Machine Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sequentie-analyse" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 11</span> Sequentie Analyse</h1>
+<div id="inleiding-tot-sequentie-analyse" class="section level2">
+<h2><span class="header-section-number">11.1</span> Inleiding tot sequentie analyse</h2>
+<p>Neurale netwerken stellen ons in staat om in plaats van statische gegevens ook sequenties en data-stromen te verwerken. Voorbeelden van sequenties zijn muziek, een tekst, een presentatie, de beurs-cijfers, etc…. Dit is vooral nuttig wanneer er tussen de elementen van de sequentie een zekere autocorrelatie heerst, i.e. wanneer de sequentie ook een reeks vormt.</p>
+</div>
+<div id="sequence-to-sequence" class="section level2">
+<h2><span class="header-section-number">11.2</span> Sequence-To-Sequence</h2>
+<p>Een voorbeeld waarbij zowel de in- als de uitvoer van een NN de vorm van een sequentie heeft (eng: <em>sequence-to-sequence</em> of <em>seq2seq</em>), is bij ge-automatiseerde taalkundige zinsontleding. Hierbij probeert men dus een NN te maken dat voor elke woord de woordsoort (eng: <em>part-of-speech</em> of <em>POS</em>) bepaalt (onderwerp, lijdend voorwerp, lidwoord, bijvoeglijk naamwoord, werkwoord, etc…). Andere seq2seq voorbeelden zijn transcriptie (audio → tekst) en geautomatiseerde vertaling of samenvatting.</p>
+<p>Nu is de vraag: hoe werkt dit? Hoe kan je een NN voeden met een sequentie en een sequentie terugkrijgen. Heel simpel, door telkens subsets van <span class="math inline">\(n\)</span> elementen te nemen, als een buffer. Men spreekt dan van een context venster (eng: <em>context window</em>). In het voorbeeld van de zinsontleding spreekt men van <a href="https://en.wikipedia.org/wiki/N-gram"><span class="math inline">\(n\)</span>-grammen</a>. Het principe is uitgebeeld in Figuur <a href="sequentie-analyse.html#fig:neurale-n-grammen">11.1</a>.</p>
+<div class="figure"><span id="fig:neurale-n-grammen"></span>
+<img src="img/neurale-n-grammen.svg" alt="Principe van neurale \(2\)-grammen als voorbeeld van een seq2seq strategie. Opgelet, de term \(n\)-gram slaagt op een sequentie van opeenvolgende elementen, maar de elementen kunnen van alles zijn: woorden, letters, lettergrepen, fonemen, basenparen, …"  />
+<p class="caption">
+Figuur 11.1: Principe van neurale <span class="math inline">\(2\)</span>-grammen als voorbeeld van een seq2seq strategie. Opgelet, de term <span class="math inline">\(n\)</span>-gram slaagt op een sequentie van opeenvolgende elementen, maar de elementen kunnen van alles zijn: woorden, letters, lettergrepen, fonemen, basenparen, …
+</p>
+</div>
+
+<p>Het werken met een context venster is echter niet voldoende. Vooral wanneer de invoer-sequentie niet exact dezelfde lengte heeft als de uitvoer-sequentie, komt men vast te zitten. Wat er ontbreekt is een <em>werkgeheugen</em> (eng: <em>working memory</em> of <em>state</em>). De eerder besproken NN types hadden geen geheugen en toch werkte ze. Waarom zou men dan nu een geheugen nodig hebben? Bij het gebruik van sequenties is er vaak sprake van autocorrelatie (zie &amp;sect rond <a href="data.html#tijd-en-ruimte">Tijd en Ruimte</a>) en moeten deze verbanden ook in beschouwing worden genomen. Vandaar dat voor sequentie-analyse een geheugen cruciaal is.</p>
+</div>
+<div id="recurrente-nn" class="section level2">
+<h2><span class="header-section-number">11.3</span> Recurrente NN</h2>
+<p>We introduceren nu recurrente NN (eng: <em>recurrent NN</em> of kortweg <em>RNN</em>), een NN dat een geheugen bevat. Voor het introduceren van dit geheugen moeten we een eerder gestelde regel doorbreken, namelijk dat noden binnen een laag niet met elkaar verbonden mogen worden (zie Stelling <a href="inleiding-tot-artificiële-neurale-netwerken.html#def:ff-ann-noden">7.1</a>). We krijgen nu een netwerk zoals voorgesteld in Figuur <a href="sequentie-analyse.html#fig:rnn-01">11.2</a>. Het komt er in feite op neer dat een stuk van het netwerk wordt ontdubbeld om het effect van de autocorrelatie op te vangen. Men spreekt van <em>unrolling through time</em>.</p>
+<div class="figure"><span id="fig:rnn-01"></span>
+<img src="img/rnn-01.svg" alt="Architectuur voor een eenvoudig RNN. Men spreek in de literatuur van unrolling through time (nl: uitgerold in de tijd) om aan te geven dat neuronen met een verbinding naar zichzelf (woordsoort → woordsoort) worden ontdubbeld (woordsoort\(t-1\) → woordsoort\(t\)). De dikke oranje pijl geeft aan dat er een verbinding wordt gelegd tussen de overeenkomstige neuronen van de verborgen laag. De vergroting van de ontvangende neuron binnen de verborgen laag (onderaan) laat zien dat er een extra functie nodig is om het samenvoegen (eng: concatenation) van de huidige met de eerdere invoer mogelijk te maken."  />
+<p class="caption">
+Figuur 11.2: Architectuur voor een eenvoudig RNN. Men spreek in de literatuur van <em>unrolling through time</em> (nl: <em>uitgerold in de tijd</em>) om aan te geven dat neuronen met een verbinding naar zichzelf (woordsoort → woordsoort) worden ontdubbeld (woordsoort<sub><span class="math inline">\(t-1\)</span></sub> → woordsoort<sub><span class="math inline">\(t\)</span></sub>). De dikke oranje pijl geeft aan dat er een verbinding wordt gelegd tussen de overeenkomstige neuronen van de verborgen laag. De vergroting van de ontvangende neuron binnen de verborgen laag (onderaan) laat zien dat er een extra functie nodig is om het samenvoegen (eng: <em>concatenation</em>) van de huidige met de eerdere invoer mogelijk te maken.
+</p>
+</div>
+
+<p>Het <em>backpropagation</em> algoritme moet nu worden aangepast omdat de gewichten van de recurrente verbinden voor een bepaalde invoer dezelfde moeten zijn. De nieuwe versie van dit algoritme heet <em>back-propagation through time (BPTT)</em> en werkt door de afgeleiden uit te middelen en te berekenen van nieuw naar oud (details hier niet belangrijk).</p>
+</div>
+<div id="verdwijnende-gradiënten" class="section level2">
+<h2><span class="header-section-number">11.4</span> Verdwijnende gradiënten</h2>
+<p>De manier hoe het <em>backpropagation</em> algoritme werkt veroorzaakt een onaangenaam neveneffect, namelijk dat naarmate men teruggaat naar eerdere lagen, hoe kleiner de afgeleiden (zie <a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation">Backpropagation</a>) worden. Dit effect noemt men <em>vanishing gradiënts</em> (nl: <em>verdwijnen gradiënten</em>). Bij FF-ANN bepaalt de diepte van het NN de mate van verdwijning, terwijl bij RNN we dit effect in ‘de breedte’ (van <span class="math inline">\(t-n \rightarrow t\)</span>) kan worden waargenomen.</p>
+</div>
+<div id="long-short-term-memory-lstm" class="section level2">
+<h2><span class="header-section-number">11.5</span> Long short-term memory (LSTM)</h2>
+<p>LSTM is uitgevonden om het probleem van verdwijnende gradiënten op te vangen bij recurrente netwerken. Er zijn andere gelijkaardige oplossingen, maar LSTM is de meest populaire. Naast de huidige invoer en input van het geheugen, wordt er ook een <em>cell state</em><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> onderhouden en doorgegeven waarin belangrijke lange-termijn informatie bewaard kan worden. Om de cell state te onderhouden, worden er drie nieuwe componenten toegevoegd:</p>
+<ul>
+<li>De <em>forget gate</em>: bepaalt welke lange termijn informatie vergeten moet worden, i.e. verwijderd uit de cell state</li>
+<li>De <em>input gate</em>: bepaalt welke nieuwe informatie moet worden toegevoegd aan de cell state</li>
+<li>De <em>output gate</em>: bevat logica om te bepalen welke informatie uit het werkgeheugen wordt doorgegeven</li>
+</ul>
+<div class="figure"><span id="fig:rnn-02"></span>
+<img src="img/rnn-02.svg" alt="Architectuur voor een LSTM. De blauwe pijlen geven de overdracht van de cell state weer langsheen de temporele as."  />
+<p class="caption">
+Figuur 11.3: Architectuur voor een LSTM. De blauwe pijlen geven de overdracht van de <em>cell state</em> weer langsheen de temporele as.
+</p>
+</div>
+
+<p>De term gate slaagt op het feit dat deze functies als sigmoid activatiefuncties als, ze converteren continue numerieke waarde naar een 0 of een 1. Geeft bij voorbeeld de forget-gate een 1, dan betekent dit dat de input vergeten mag worden. Voor een meer gedetailleerde beschrijving (valt buiten de scope van deze cursus) verwijs ik graag naar de <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">blog van Christopher Olah</a>, zie <span class="citation">Christopher Olah <a href="#ref-Olah" role="doc-biblioref">2015</a></span>.</p>
+</div>
+<div id="sentiment-analyse" class="section level2">
+<h2><span class="header-section-number">11.6</span> Sentiment analyse</h2>
+<p>Sentiment analyse is het extraheren van een emotie uit een opgegeven stuk tekst. Bedrijven kunnen bijvoorbeeld erg benieuwd naar de tevredenheid van hun klanten. Of je kan nieuwsgierig zijn naar de reactie van de bevolking op een bepaalde gebeurtenis of naar de reputatie van een bepaald merk of bepaalde persoon. Dergelijke vragen los je op door middel van een sentiment analyse.</p>
+<p>Bij een sentiment analyse bestaat de invoer gewoonlijk uit een paragraaf of een tekst terwijl de uitvoer met slechts één enkele variabele kan worden uitgebeeld. Laten we op zoek gaan een dataset met gelabelde teksten, i.e. teksten waarbij het sentiment reeds manueel bepaald werd zodat we hiermee een algoritme kunnen trainen. Op <a href="https://www.kaggle.com/">Kaggle</a>, dé plek voor iedere datawetenschapper die openstaat voor een uitdaging, vinden we een <a href="https://www.kaggle.com/ashukr/rnnsentiment-data">oefen-dataset</a> die bestaat uit 25000 film-reviews met overeenkomstige emotie, gecodeerd als <code>negative</code> of <code>positive</code>.</p>
+<p>Het laden van de data doen we hier in R:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="sequentie-analyse.html#cb111-1"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb111-2"><a href="sequentie-analyse.html#cb111-2"></a>sent &lt;-<span class="st"> &quot;dat/sentiment.zip&quot;</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb111-3"><a href="sequentie-analyse.html#cb111-3"></a><span class="st">  </span>unzip <span class="op">%&gt;%</span></span>
+<span id="cb111-4"><a href="sequentie-analyse.html#cb111-4"></a><span class="st">  </span><span class="kw">fread</span>(<span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="dt">Sentiment =</span> <span class="st">&quot;factor&quot;</span>))</span>
+<span id="cb111-5"><a href="sequentie-analyse.html#cb111-5"></a></span>
+<span id="cb111-6"><a href="sequentie-analyse.html#cb111-6"></a>sent &lt;-<span class="st"> </span>sent[<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>.N)]</span>
+<span id="cb111-7"><a href="sequentie-analyse.html#cb111-7"></a>sent <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">extract</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(.), <span class="dv">5</span>)) <span class="op">%&gt;%</span><span class="st"> </span>kable</span></code></pre></div>
+<table>
+<colgroup>
+<col width="99%" />
+<col width="0%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Review</th>
+<th align="left">Sentiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">its no surprise that busey later developed a tumor in his sinus cavity this film is also a poor decision but one i enjoyed fully . the first minutes is the most uninspiring minutes in any film boring bad dialouge and then with a spiderman stance busey yells the best worst line in any film ever created . . . your worst nightmare butthorn i coughed up some of my egg nog laughing so hard . that line resonates so well it even tops clooney s infamous hi freeze i m batman line . other classic moments is busey constantly getting upset for people reminding him that he got his ex cia partner killed . . . which he did by accidentally shooting him in the chest all made possible by a super slow motion flashback sequence that makes watching paint dry seem exciting . there s an ashtray to the nads punches to the face and a that wasn t my fault and you know it well the footage shows him missing the bad guy and hitting his buddy so . . . other scream out loud moments has to be his ex girl friend dropping a grenade to the ground to enable his escape a plan that defies all logic physics and absurdity . and lastly when mcbain jumps out of the thunderblast during intense guerrilla warfare and starts to run and hurdles a small object i almost wet myself . some of busey s best work by far rent or buy it today butthorn my vote is a perfect on the poo meter that is .</td>
+<td align="left">positive</td>
+</tr>
+<tr class="even">
+<td align="left">well it looked good on paper nick cage and jerry buckheimer collaborate again this time on a mix of heist movie da vinci code american history and indiana jones . but oh dear this is to indiana jones what speed is to speed . a reasonable cast including john voight and harvey keitel battles against a puerile script and loses badly . the film is little more than an extended advert for the freemasons . however these freemasons are not your usual shopkeepers who use funny handshakes and play golf these freemasons are the natural descendants of the knights templar and nobody mention from hell or jack the ripper . i don t think i ve revealed any plot spoilers because there are none . there is virtually no suspense no surprises and no climax it just stops . national treasure aims for dan brown but hits the same intellectual level as an episode of scooby doo sans the humour .</td>
+<td align="left">negative</td>
+</tr>
+<tr class="odd">
+<td align="left">first thing first . in this genre movie the first thing you need is a good music and thats where mr . shankar and his party fails . br br music is completely pale and uneffective . on other hand there is ajay devgan who has removed a letter a from his spelling done good job but was of no use to a bad casted movies like this . br br asin is like a doll which is used to amuse public even though she is good to look at but her role in movie is to dance actually she is dancing member of a rock band and i don t think any rock band have there dancer as a member of band . br br in nut shell this movie is a piece of crap a piece of t . watch it if you wanna get fooled .</td>
+<td align="left">negative</td>
+</tr>
+<tr class="even">
+<td align="left">i was interested to see the move thinking that it might be a diamond in the rough but the only thing i found was bad writing horrible directing the shot sequences do not flow even though the director might say that that is what he is going for it looks very uninspired and immature the editing could have been done by anyone with vcrs and the stock was low budget video . i would say that it wasn t even something as simple as mini digital video . br br there are some simple ways to fix a film with what the director has like through editing etc . but it is obvious that he just doesn t care . there is as much effort put in to this movie as a ham sandwich . it could be made better but that would mean extra work .</td>
+<td align="left">negative</td>
+</tr>
+<tr class="odd">
+<td align="left">this is the best picture about baseball since redford whacked the natural our way . dennis quaid and rachel griffiths light up the screen with a great story and a cast that seemed real enough to pull you into their lives . br br laced with dreams dripping in reality the american dream reignites after . with a true story about the devil ray s mid life rookie jimmy morris . australian born actress rachel griffiths plays a native west texan better than a lot of texans i know and dennis quaid was perfection cast as the wannabe gonnabe and humble winner with as much psychological baggage as the average viewer in the audience . it s real . the on screen chemistry works . if you like baseball heart warmers you re going to love this film . the ingredients for americana and apple pie were all in there . my popcorn became the a la mode . br br and hey buy the cd the music rocks and carries the story magnificently syncing words and music pushes the story forward exactly the way it should an area that disappoints me more often than not . br br criticisms i d have given the baseball to somebody else . but quaid has something to teach us all about character and heart . st . rita and the nuns were a nice decoration but they never really found their place in the story to open and close around them . a little long . worth every minute in the last analysis . . br br</td>
+<td align="left">positive</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="sequentie-analyse.html#cb112-1"></a>x &lt;-<span class="st"> </span>sent<span class="op">$</span>Review</span>
+<span id="cb112-2"><a href="sequentie-analyse.html#cb112-2"></a>y &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">*</span><span class="st"> </span>(sent<span class="op">$</span>Sentiment <span class="op">==</span><span class="st"> &quot;positive&quot;</span>)</span>
+<span id="cb112-3"><a href="sequentie-analyse.html#cb112-3"></a></span>
+<span id="cb112-4"><a href="sequentie-analyse.html#cb112-4"></a><span class="kw">rm</span>(sent)</span>
+<span id="cb112-5"><a href="sequentie-analyse.html#cb112-5"></a><span class="kw">invisible</span>(<span class="kw">gc</span>())</span></code></pre></div>
+<p>Tijdens het uitlezen van de data geven we mee dat het sentiment een factor is. Dat is in principe niet zo heel erg belangrijk voor deze specifieke toepassing, maar over het algemeen is het wel belangrijk dat elke variabele op de juiste wijze wordt geïnterpreteerd. Vooral in R zijn de meeste methoden er immers op voorzien op dit type uit te lezen. Omdat we echter de data toch naar Python zullen doorsturen, zijn we verplicht om {<code>negative</code>, <code>positive</code>} te hercoderen naar {0, 1}. De <code>rm</code> functie op de laatste lijn zorgt ervoor dat de oorspronkelijke variabele wordt verwijderd om plaats te maken in het geheugen. <code>gc</code> staat dan weer voor <em>garbage collection</em>, iets wat elke ontwikkelaar mee vertrouwd zou moeten zijn.</p>
+<p>Misschien toch kort een overzicht van de twee variabelen. Voor wat betreft de emotie, zien we dat er net evenveel positieve als negatieve film-reviews in de dataset set, we zeggen dat de dataset voor deze variabele gebalanceerd is:</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="sequentie-analyse.html#cb113-1"></a>y <span class="op">%&gt;%</span><span class="st"> </span>table <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">barplot</span>(<span class="dt">col =</span> <span class="dv">1</span>, <span class="dt">ylab =</span> <span class="st">&quot;#&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Distribution outcome&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/sent-emo-1.png" width="672" /></p>
+<p>We kunnen ook eens kijken naar de verdeling van de lengte van de reviews, uitgedrukt zowel als aantal karakters als in aantal woorden:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="sequentie-analyse.html#cb114-1"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb114-2"><a href="sequentie-analyse.html#cb114-2"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">1</span>)</span>
+<span id="cb114-3"><a href="sequentie-analyse.html#cb114-3"></a></span>
+<span id="cb114-4"><a href="sequentie-analyse.html#cb114-4"></a>x <span class="op">%&gt;%</span><span class="st"> </span>nchar <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">main =</span> <span class="st">&quot;Density of review length&quot;</span>,</span>
+<span id="cb114-5"><a href="sequentie-analyse.html#cb114-5"></a>  <span class="dt">xlab =</span> <span class="st">&quot;Review length</span><span class="ch">\n</span><span class="st">number of characters&quot;</span>, <span class="dt">col =</span> <span class="dv">1</span>)</span>
+<span id="cb114-6"><a href="sequentie-analyse.html#cb114-6"></a>x <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_count</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">w+&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">main =</span> <span class="st">&quot;Density of review length&quot;</span>,</span>
+<span id="cb114-7"><a href="sequentie-analyse.html#cb114-7"></a>  <span class="dt">xlab =</span> <span class="st">&quot;Review length</span><span class="ch">\n</span><span class="st">number of words&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb114-8"><a href="sequentie-analyse.html#cb114-8"></a></span>
+<span id="cb114-9"><a href="sequentie-analyse.html#cb114-9"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">200</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/sent-review-length-1.png" width="480" /></p>
+<p>We gaan nu over naar Python, alwaar we de reviews gaan voorbereiden voor verder onderzoek. Eén van de eerste stappen binnen een NLP analyse is bijna altijd het indexeren van de onderdelen waarin men geïnteresseerd is (eng: <em>tokenize</em>, waarbij elke onderdeel als <em>token</em> wordt bestempeld). In dit geval zullen we de reviews in afzonderlijke woorden opsplitsen terwijl we ons ontdoen van leestekens (eng: <em>punctuation</em>) net omdat de woorden vermoedelijk een voorspellende waarde hebben naar emotie toe. Verder zullen we elke film-review omzetten naar een sequentie van woorden met een exacte lengte van 200 (zie ook stippellijn in bovenstaande grafiek). Is de review langer, dan wordt deze bruusk afgekapt op 200 woorden. Uiteraard zijn hier betere manieren denkbaar om deze stap informatie-bewuster te maken. Is de film-review korter dan 200 woorden, dan wordt de sequentie aangevuld nulwaarden.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="sequentie-analyse.html#cb115-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.text <span class="im">import</span> Tokenizer</span>
+<span id="cb115-2"><a href="sequentie-analyse.html#cb115-2"></a><span class="im">from</span> tensorflow.keras.preprocessing.sequence <span class="im">import</span> pad_sequences</span>
+<span id="cb115-3"><a href="sequentie-analyse.html#cb115-3"></a></span>
+<span id="cb115-4"><a href="sequentie-analyse.html#cb115-4"></a>most_freq_top <span class="op">=</span> <span class="dv">5000</span></span>
+<span id="cb115-5"><a href="sequentie-analyse.html#cb115-5"></a>review_max_len <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb115-6"><a href="sequentie-analyse.html#cb115-6"></a></span>
+<span id="cb115-7"><a href="sequentie-analyse.html#cb115-7"></a>tokenizer <span class="op">=</span> Tokenizer(num_words <span class="op">=</span> most_freq_top)</span>
+<span id="cb115-8"><a href="sequentie-analyse.html#cb115-8"></a>tokenizer.fit_on_texts(r.x)</span>
+<span id="cb115-9"><a href="sequentie-analyse.html#cb115-9"></a>encoded_docs <span class="op">=</span> tokenizer.texts_to_sequences(r.x) </span>
+<span id="cb115-10"><a href="sequentie-analyse.html#cb115-10"></a>padded_sequence <span class="op">=</span> pad_sequences(encoded_docs, maxlen <span class="op">=</span> review_max_len) </span></code></pre></div>
+<p>Laten we alvast controleren dat de tokenizer het verwachte resultaat oplevert. Eerst bekijken we de eerste review, na indexering:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="sequentie-analyse.html#cb116-1"></a>py<span class="op">$</span>encoded_docs[[<span class="dv">1</span>]] </span></code></pre></div>
+<pre><code>##   [1]  702 1801 1587  308  382   14   30    4    1  117   99  124   91   10  102    1   64  284    8   14   37
+##  [22] 1163   14   86    4    1 4919   21  422   23   28   91    1  171   18    2  272  141   39    1  375   42
+##  [43]    1    9  269    4    1 4919    8   43  576   23   28   77    1  171  184 3930 1983 3161 1140 1023  688
+##  [64]    2    1 2280   43 1256    5    1   18    1  221  432   18    6   44    1 4919  257 3461   37 1335 1156
+##  [85]   66  702 1801 1587  308  382   46  129    3  653  331    4  146 4048   24    1 4975  162  582   19    1
+## [106] 1266    2  689  241    1  241   64    1 4919   97   80 1348   10 1712  357    9 2395 3461 4976 4976</code></pre>
+<p>Via de ‘woordenboek’ zouden we deze review moeten kunnen reproduceren:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="sequentie-analyse.html#cb118-1"></a>py<span class="op">$</span>tokenizer<span class="op">$</span>word_index[py<span class="op">$</span>encoded_docs[[<span class="dv">1</span>]]] <span class="op">%&gt;%</span><span class="st"> </span>names <span class="op">%&gt;%</span></span>
+<span id="cb118-2"><a href="sequentie-analyse.html#cb118-2"></a><span class="st">  </span><span class="kw">paste</span>(<span class="dt">collapse =</span> <span class="st">&quot; &quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;rock n roll high school was one of the best movies ever made i think the only reason it was so awesome was because of the ramones you couldn t have made the same movie and put something like the sex or the in place of the ramones it just wouldn t have been the same young clint howard vincent van mary paul and the hall just added to the movie the whole entire movie is about the ramones especially joey so everybody showed see rock n roll high school if your a huge fan of real punk not the sissy new crap but the loud and fast kind the kind only the ramones could do r i p rest in peace joey dee dee&quot;</code></pre>
+<p>De oorspronkelijke tekst was als volgt:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="sequentie-analyse.html#cb120-1"></a>x[<span class="dv">1</span>] </span></code></pre></div>
+<pre><code>## [1] &quot;rock  n  roll high school was one of the best movies ever made  i think the only reason it was so awesome was because of the ramones  you couldn  t have made the same movie and put something like the sex pistols  or the clash in place of the ramones  it just wouldn  t have been the same . dey young  clint howard  vincent van patten  mary woronov  paul bartel  and the hall monters  just added to the movie . the whole entire movie is about the ramones . . . especially joey  so everybody showed see rock  n  roll high school if your a huge fan of real punk . not the sissy new crap . . . but the loud  and fast kind . the kind only the ramones could do . r . i . p  rest in peace  joey ramone          . dee dee ramone&quot;</code></pre>
+<p>Merk op dat leestekens inderdaad verdwenen zijn, dat alles in kleine letters staat (maar dat was ook al zo in het origineel) en dat er woorden ontbreken, namelijk de woorden die niet in de top 5000 van de meest voorkomende woorden staan. Merk ook op dat in het origineel stukken tekst lijken te ontbreken. Heb je enig idee waarom dit het geval zou zijn?</p>
+<p>De <code>padded_sequence</code> variabele bevat alle afgekapte reviews in één grote 2-dimensionale matrix:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb122-1"><a href="sequentie-analyse.html#cb122-1"></a>padded_sequence.shape</span></code></pre></div>
+<pre><code>## (25000, 200)</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="sequentie-analyse.html#cb124-1"></a>padded_sequence[<span class="dv">0</span>, ] </span></code></pre></div>
+<pre><code>## array([   0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+##           0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+##           0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+##           0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+##           0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+##           0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+##           0,    0,    0,    0,    0,    0,    0,    0,    0,  702, 1801,
+##        1587,  308,  382,   14,   30,    4,    1,  117,   99,  124,   91,
+##          10,  102,    1,   64,  284,    8,   14,   37, 1163,   14,   86,
+##           4,    1, 4919,   21,  422,   23,   28,   91,    1,  171,   18,
+##           2,  272,  141,   39,    1,  375,   42,    1,    9,  269,    4,
+##           1, 4919,    8,   43,  576,   23,   28,   77,    1,  171,  184,
+##        3930, 1983, 3161, 1140, 1023,  688,    2,    1, 2280,   43, 1256,
+##           5,    1,   18,    1,  221,  432,   18,    6,   44,    1, 4919,
+##         257, 3461,   37, 1335, 1156,   66,  702, 1801, 1587,  308,  382,
+##          46,  129,    3,  653,  331,    4,  146, 4048,   24,    1, 4975,
+##         162,  582,   19,    1, 1266,    2,  689,  241,    1,  241,   64,
+##           1, 4919,   97,   80, 1348,   10, 1712,  357,    9, 2395, 3461,
+##        4976, 4976])</code></pre>
+<p>We kunnen nu beginnen aan de opbouw van de architectuur van het LSTM netwerk:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="sequentie-analyse.html#cb126-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> Sequential</span>
+<span id="cb126-2"><a href="sequentie-analyse.html#cb126-2"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> LSTM,Dense, Dropout, SpatialDropout1D</span>
+<span id="cb126-3"><a href="sequentie-analyse.html#cb126-3"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Embedding</span>
+<span id="cb126-4"><a href="sequentie-analyse.html#cb126-4"></a></span>
+<span id="cb126-5"><a href="sequentie-analyse.html#cb126-5"></a>embedding_vector_length <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb126-6"><a href="sequentie-analyse.html#cb126-6"></a></span>
+<span id="cb126-7"><a href="sequentie-analyse.html#cb126-7"></a>model <span class="op">=</span> Sequential()</span>
+<span id="cb126-8"><a href="sequentie-analyse.html#cb126-8"></a>model.add(Embedding(most_freq_top, embedding_vector_length, input_length <span class="op">=</span> <span class="dv">200</span>))</span></code></pre></div>
+<p>De eerste laag is een <em>embedding</em> laag. De term kwamen we eerder al tegen bij het beschrijven van de autoencoder, maar nu breiden we de betekenis een beetje uit:</p>
+
+<div class="definition">
+<span id="def:embedding-def" class="definition"><strong>Stelling 11.1  (Embedding)  </strong></span>Een <em>embedding</em> is als een functie die een discrete numerieke variabele (i.e. {308, 6, 3, …}), die al-dan-niet dienst doet als voorstelling van een categorische variabele (i.e. {“high”, “is”, “a”, …}), omzet naar vectoren (een beetje als de componenten van PCA) zoals voorgesteld door een reeks continue numerieke variabelen Binnen de context van NN zijn embeddings meestal laag-dimensionaal (i.e. beperkt aantal noden in de laag) en dienen ze om de dimensionaliteit te reduceren.
+</div>
+
+<p>In de <a href="https://keras.io/api/layers/core_layers/embedding/">documentatie van Keras</a> staat duidelijk beschreven dat een embedding laag als eerste laag moet gebruikt worden binnen het netwerk. Ook lees je daar de omschrijving van de verwachte parameters, waarvan de belangrijkste de dimensies zijn van de invoer en uitvoer (zie Figuur hieronder).</p>
+<div class="figure"><span id="fig:embedding"></span>
+<img src="img/embedding.svg" alt="Embedding laag met visuele voorstelling van de parameters."  />
+<p class="caption">
+Figuur 11.4: Embedding laag met visuele voorstelling van de parameters.
+</p>
+</div>
+
+<p>De volgende laag die we toevoegen is een speciale vorm van de Dropout laag, die later in het netwerk trouwens ook toegevoegd zal worden. Bij <code>SpatialDropout1D</code> wordt in feite een ganse feature map verwijderd in plaats van specifieke nodes. Het komt erop neer dat gemiddeld 8 van de 32 vectoren van de embedding-laag worden meegenomen terwijl de rest genegeerd wordt. Bij elke epoch wordt er opnieuw gerandomiseerd.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="sequentie-analyse.html#cb127-1"></a>model.add(SpatialDropout1D(<span class="fl">0.25</span>))</span></code></pre></div>
+<p>De eigenlijke implementatie van LSTM gebeurt d.m.v. de gelijknamige functie binnen Keras.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb128-1"><a href="sequentie-analyse.html#cb128-1"></a>model.add(LSTM(units <span class="op">=</span> <span class="dv">50</span>, dropout <span class="op">=</span> <span class="fl">0.5</span>, recurrent_dropout <span class="op">=</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<p><code>Units</code> geeft het aantal neuronen weer zonder rekening te houden met het geheugen, <code>dropout</code> en <code>recurrent_dropout</code> geven de fractie van de invoer resp. van de vorige geheugencel weer (binnen deze laag) die zal worden genegeerd. Standaard is de activatie-functies <em>tanh</em> en <em>sigmoid</em> (voor recurrente stap). Merk op dat alles wat te maken heeft met de cell-state volautomatisch gebeurt.</p>
+<p>Rest ons om nog een (gewone) dropout toe te voegen en af te sluiten met de enige node in de output laag van ons netwerk (omdat we gewoon <code>positive</code> = 1 of <code>negative</code> = 0 willen voorspellen).</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="sequentie-analyse.html#cb129-1"></a>model.add(Dropout(<span class="fl">0.2</span>))</span>
+<span id="cb129-2"><a href="sequentie-analyse.html#cb129-2"></a>model.add(Dense(<span class="dv">1</span>, activation <span class="op">=</span> <span class="st">&quot;sigmoid&quot;</span>)) </span></code></pre></div>
+<p>Het netwerk zoals gevisualiseerd door Tensorboard (na uitvoeren van onderstaande code) ziet er als volgt uit:</p>
+<p><img src="img/sentiment-graph.png" /></p>
+<p>We compileren het model zoals voorheen:</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb130-1"><a href="sequentie-analyse.html#cb130-1"></a>model.<span class="bu">compile</span>(</span>
+<span id="cb130-2"><a href="sequentie-analyse.html#cb130-2"></a>  loss <span class="op">=</span> <span class="st">&quot;binary_crossentropy&quot;</span>,</span>
+<span id="cb130-3"><a href="sequentie-analyse.html#cb130-3"></a>  optimizer <span class="op">=</span> <span class="st">&quot;adam&quot;</span>,</span>
+<span id="cb130-4"><a href="sequentie-analyse.html#cb130-4"></a>  metrics <span class="op">=</span> [<span class="st">&quot;accuracy&quot;</span>])</span></code></pre></div>
+<p>Rest ons nu om het model uit te voeren. We vertrekken vanaf de <code>padded_sequence</code> zodat de input een vast formaat heeft. We geven mee dat 20% van de data gebruikt mag worden voor de validatie dataset. We houden 5000 reviews en overeenkomstige emoties opzij als test dataset. Dit kan door gewoon de eerste 20000 te selecteren omdat we eerder de set van reviews ge-shuffled hebben.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb131-1"><a href="sequentie-analyse.html#cb131-1"></a><span class="im">from</span> keras.callbacks <span class="im">import</span> TensorBoard</span>
+<span id="cb131-2"><a href="sequentie-analyse.html#cb131-2"></a><span class="im">from</span> keras.callbacks <span class="im">import</span> ModelCheckpoint</span>
+<span id="cb131-3"><a href="sequentie-analyse.html#cb131-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb131-4"><a href="sequentie-analyse.html#cb131-4"></a></span>
+<span id="cb131-5"><a href="sequentie-analyse.html#cb131-5"></a>checkpoint <span class="op">=</span> ModelCheckpoint(</span>
+<span id="cb131-6"><a href="sequentie-analyse.html#cb131-6"></a>  <span class="st">&quot;tf/sent_best.hdf5&quot;</span>, monitor <span class="op">=</span> <span class="st">&quot;val_loss&quot;</span>, verbose <span class="op">=</span> <span class="dv">1</span>,</span>
+<span id="cb131-7"><a href="sequentie-analyse.html#cb131-7"></a>  save_best_only <span class="op">=</span> <span class="va">True</span>, mode <span class="op">=</span> <span class="st">&quot;auto&quot;</span>, period <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb131-8"><a href="sequentie-analyse.html#cb131-8"></a>    </span>
+<span id="cb131-9"><a href="sequentie-analyse.html#cb131-9"></a>accuracy <span class="op">=</span> model.fit(</span>
+<span id="cb131-10"><a href="sequentie-analyse.html#cb131-10"></a>  padded_sequence[<span class="dv">0</span>:<span class="dv">20000</span>,],</span>
+<span id="cb131-11"><a href="sequentie-analyse.html#cb131-11"></a>  np.array(r.y)[<span class="dv">0</span>:<span class="dv">20000</span>],</span>
+<span id="cb131-12"><a href="sequentie-analyse.html#cb131-12"></a>  validation_split <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span id="cb131-13"><a href="sequentie-analyse.html#cb131-13"></a>  verbose <span class="op">=</span> <span class="dv">0</span>,</span>
+<span id="cb131-14"><a href="sequentie-analyse.html#cb131-14"></a>  epochs <span class="op">=</span> <span class="dv">5</span>,</span>
+<span id="cb131-15"><a href="sequentie-analyse.html#cb131-15"></a>  batch_size <span class="op">=</span> <span class="dv">32</span>,</span>
+<span id="cb131-16"><a href="sequentie-analyse.html#cb131-16"></a>  callbacks <span class="op">=</span> [TensorBoard(log_dir <span class="op">=</span> <span class="st">&quot;tf&quot;</span>), checkpoint])</span></code></pre></div>
+<p>Hier is de evolutie van de accuraatheid op de training set (oranje) en de validatie set (blauw) zoals TensorBoard het aangeeft:</p>
+<p><img src="img/sent-graph.png" /></p>
+<p>In R kunnen we dezelfde grafieken reproduceren:</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="sequentie-analyse.html#cb132-1"></a>py<span class="op">$</span>accuracy<span class="op">$</span>history <span class="op">%&gt;%</span></span>
+<span id="cb132-2"><a href="sequentie-analyse.html#cb132-2"></a><span class="st">  </span>as.data.table <span class="op">%&gt;%</span></span>
+<span id="cb132-3"><a href="sequentie-analyse.html#cb132-3"></a><span class="st">  </span><span class="kw">extract</span>(, .(accuracy, val_accuracy)) <span class="op">%&gt;%</span></span>
+<span id="cb132-4"><a href="sequentie-analyse.html#cb132-4"></a><span class="st">  </span>ts <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb132-5"><a href="sequentie-analyse.html#cb132-5"></a><span class="st">  </span><span class="kw">plot</span> (<span class="dt">main =</span> <span class="st">&quot;Evolution of accuracy&quot;</span>)</span></code></pre></div>
+<div class="figure">
+<img src="img/sent-result-r.png" alt="" />
+<p class="caption">Resultaten sentimentanalyse in R</p>
+</div>
+<p>Op basis van de bovenstaande grafiek, kunnen we besluiten dat het voldoende is om slechts 2 epochs de trainen. De finale accuraatheid bekomen we door een voorspelling te doen op de test dataset.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="sequentie-analyse.html#cb133-1"></a>model.load_weights(checkpoint_path)</span>
+<span id="cb133-2"><a href="sequentie-analyse.html#cb133-2"></a>  </span>
+<span id="cb133-3"><a href="sequentie-analyse.html#cb133-3"></a>prediction <span class="op">=</span> model.evaluate(</span>
+<span id="cb133-4"><a href="sequentie-analyse.html#cb133-4"></a>  padded_sequence[<span class="dv">20000</span>:<span class="dv">25000</span>,],</span>
+<span id="cb133-5"><a href="sequentie-analyse.html#cb133-5"></a>  np.array(r.y)[<span class="dv">20000</span>:<span class="dv">25000</span>])</span></code></pre></div>
+<p>Het finaal resultaat op ongeziene test dataset is als volgt:</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="sequentie-analyse.html#cb134-1"></a>py<span class="op">$</span>prediction<span class="op">$</span>history <span class="op">%&gt;%</span></span>
+<span id="cb134-2"><a href="sequentie-analyse.html#cb134-2"></a><span class="st">  </span>as.data.table <span class="op">%&gt;%</span></span>
+<span id="cb134-3"><a href="sequentie-analyse.html#cb134-3"></a><span class="st">  </span><span class="kw">extract</span>(, .(accuracy, val_accuracy)) <span class="op">%&gt;%</span></span>
+<span id="cb134-4"><a href="sequentie-analyse.html#cb134-4"></a><span class="st">  </span>ts <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb134-5"><a href="sequentie-analyse.html#cb134-5"></a><span class="st">  </span><span class="kw">plot</span> (<span class="dt">main =</span> <span class="st">&quot;Evolution of accuracy&quot;</span>)</span></code></pre></div>
+<p>Laten we nu zelf eens nieuwe reviews verzinnen en kijken wat het model teruggeeft:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="sequentie-analyse.html#cb135-1"></a>new_review &lt;-<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb135-2"><a href="sequentie-analyse.html#cb135-2"></a>   <span class="st">&quot;I am not sure I understand all aspects of the movie,</span></span>
+<span id="cb135-3"><a href="sequentie-analyse.html#cb135-3"></a><span class="st">       but overall I loved the atmosphere&quot;</span>,</span>
+<span id="cb135-4"><a href="sequentie-analyse.html#cb135-4"></a>   <span class="st">&quot;This was crap, from beginning to end.&quot;</span>,</span>
+<span id="cb135-5"><a href="sequentie-analyse.html#cb135-5"></a>   <span class="st">&quot;This movie was so bad that I almost started to love it&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="sequentie-analyse.html#cb136-1"></a>new_review_prepped <span class="op">=</span> pad_sequences(tokenizer.texts_to_sequences(r.new_review), <span class="op">\</span></span>
+<span id="cb136-2"><a href="sequentie-analyse.html#cb136-2"></a>  maxlen <span class="op">=</span> <span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="sequentie-analyse.html#cb137-1"></a>py<span class="op">$</span>new_review_prepped <span class="op">%&gt;%</span><span class="st"> </span>(py<span class="op">$</span>model<span class="op">$</span>predict) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">extract</span>(, <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb137-2"><a href="sequentie-analyse.html#cb137-2"></a><span class="st">  </span><span class="kw">multiply_by</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;%.2f%%&quot;</span>, .)</span></code></pre></div>
+<pre><code>[1] &quot;96.09%&quot; &quot;35.46%&quot; &quot;49.16%&quot;</code></pre>
+<p>Zeer goed resultaat, maar zoals verwacht heeft het model het nog moeilijk met cynisme.</p>
+
+</div>
+</div>
+<h3>Bronvermelding</h3>
+<div id="refs" class="references">
+<div id="ref-Olah">
+<p>Christopher Olah, 2015. Understanding lstm networks [WWW Document] <em>[Online; accessed 2020-10-28]</em>. URL <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a></p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>Komt overeen met wat we in tal van programmeertalen met de term <em>context</em> zouden aangeven<a href="sequentie-analyse.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="trainen-en-testen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="neurale-netwerken-met-extern-geheugen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ddhaese/machine-learning-source/12_Sequentie_Analyse.Rmd",
+"text": "Bron"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

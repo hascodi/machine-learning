@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>E Installation | Machine Learning</title>
+  <meta name="description" content="Artificial intelligence course at the AP University College." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="E Installation | Machine Learning" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Artificial intelligence course at the AP University College." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="E Installation | Machine Learning" />
+  
+  <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
+  
+
+<meta name="author" content="34142/1916/2021/1/38 David D’Haese" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="computations-using-gpu.html"/>
+<link rel="next" href="git.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\course.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Summary</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot de cursus</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#in-een-notedop"><i class="fa fa-check"></i><b>1.1</b> In een notedop</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#leerdoelen"><i class="fa fa-check"></i><b>1.2</b> Leerdoelen</a></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#cursus-vorm"><i class="fa fa-check"></i><b>1.3</b> Cursus vorm</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#bekijken-van-deze-cursus"><i class="fa fa-check"></i><b>1.4</b> Bekijken van deze Cursus</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#code-uit-de-cursus-uitvoeren"><i class="fa fa-check"></i><b>1.5</b> Code uit de cursus uitvoeren</a></li>
+<li class="chapter" data-level="1.6" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#oefeningen-maken"><i class="fa fa-check"></i><b>1.6</b> Oefeningen maken</a></li>
+<li class="chapter" data-level="1.7" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#licentie-voor-deze-cursus"><i class="fa fa-check"></i><b>1.7</b> Licentie voor deze cursus</a></li>
+<li class="chapter" data-level="1.8" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#verwijzen-naar-deze-cursus"><i class="fa fa-check"></i><b>1.8</b> Verwijzen naar deze cursus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="leren-uit-data.html"><a href="leren-uit-data.html"><i class="fa fa-check"></i><b>2</b> Leren uit data</a><ul>
+<li class="chapter" data-level="2.1" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces"><i class="fa fa-check"></i><b>2.1</b> Het leerproces</a></li>
+<li class="chapter" data-level="2.2" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-evolutie-van-het-machinaal-leren"><i class="fa fa-check"></i><b>2.2</b> De evolutie van het machinaal leren</a></li>
+<li class="chapter" data-level="2.3" data-path="leren-uit-data.html"><a href="leren-uit-data.html#intelligentie"><i class="fa fa-check"></i><b>2.3</b> Intelligentie</a></li>
+<li class="chapter" data-level="2.4" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-model"><i class="fa fa-check"></i><b>2.4</b> Het model</a></li>
+<li class="chapter" data-level="2.5" data-path="leren-uit-data.html"><a href="leren-uit-data.html#doelfunctie"><i class="fa fa-check"></i><b>2.5</b> Doelfunctie</a></li>
+<li class="chapter" data-level="2.6" data-path="leren-uit-data.html"><a href="leren-uit-data.html#mnist-dataset"><i class="fa fa-check"></i><b>2.6</b> MNIST dataset</a></li>
+<li class="chapter" data-level="2.7" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-resultaat-van-mnist-analyse"><i class="fa fa-check"></i><b>2.7</b> Het resultaat van MNIST analyse</a></li>
+<li class="chapter" data-level="2.8" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-mnist-model"><i class="fa fa-check"></i><b>2.8</b> Het MNIST model</a></li>
+<li class="chapter" data-level="2.9" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces-voor-begeleid-ml"><i class="fa fa-check"></i><b>2.9</b> Het leerproces voor begeleid ML</a></li>
+<li class="chapter" data-level="2.10" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-onderdelen-van-een-model"><i class="fa fa-check"></i><b>2.10</b> De onderdelen van een model</a></li>
+<li class="chapter" data-level="2.11" data-path="leren-uit-data.html"><a href="leren-uit-data.html#hyperparameters"><i class="fa fa-check"></i><b>2.11</b> Hyperparameters</a></li>
+<li class="chapter" data-level="2.12" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leeralgoritme"><i class="fa fa-check"></i><b>2.12</b> Het leeralgoritme</a></li>
+<li class="chapter" data-level="2.13" data-path="leren-uit-data.html"><a href="leren-uit-data.html#model-complexiteit"><i class="fa fa-check"></i><b>2.13</b> Model complexiteit</a></li>
+<li class="chapter" data-level="2.14" data-path="leren-uit-data.html"><a href="leren-uit-data.html#comprimeren-door-middel-van-een-ml-model"><i class="fa fa-check"></i><b>2.14</b> Comprimeren door middel van een ML model</a></li>
+<li class="chapter" data-level="2.15" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-ontwerp"><i class="fa fa-check"></i><b>2.15</b> Leren versus ontwerp</a></li>
+<li class="chapter" data-level="2.16" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-onthouden-en-inferentie"><i class="fa fa-check"></i><b>2.16</b> Leren versus onthouden en inferentie</a></li>
+<li class="chapter" data-level="2.17" data-path="leren-uit-data.html"><a href="leren-uit-data.html#onbegeleid-ml"><i class="fa fa-check"></i><b>2.17</b> Onbegeleid ML</a></li>
+<li class="chapter" data-level="2.18" data-path="leren-uit-data.html"><a href="leren-uit-data.html#conditionering"><i class="fa fa-check"></i><b>2.18</b> Conditionering</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#data-voor-ml"><i class="fa fa-check"></i><b>3.1</b> Data voor ML</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#wat-is-data"><i class="fa fa-check"></i><b>3.2</b> Wat is data</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#soorten-data"><i class="fa fa-check"></i><b>3.3</b> Soorten data</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#externe-databronnen"><i class="fa fa-check"></i><b>3.4</b> Externe databronnen</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>3.5</b> Data Genereren</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>3.6</b> De analyse dataset</a></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>3.7</b> Soorten variabelen</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#eng-nominal-scale-data"><i class="fa fa-check"></i><b>3.8</b> (Eng) Nominal-Scale Data</a></li>
+<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#eng-dummy-variables"><i class="fa fa-check"></i><b>3.9</b> (Eng) Dummy Variables</a></li>
+<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#eng-ordinal-scale-data"><i class="fa fa-check"></i><b>3.10</b> (Eng) Ordinal-Scale Data</a></li>
+<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#eng-circular-scale"><i class="fa fa-check"></i><b>3.11</b> (Eng) Circular-Scale</a></li>
+<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#eng-censoring"><i class="fa fa-check"></i><b>3.12</b> (Eng) Censoring</a></li>
+<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>3.13</b> Tijd en ruimte</a></li>
+<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>3.14</b> Toegang tot data</a></li>
+<li class="chapter" data-level="3.15" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>3.15</b> Het codeboek</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>4</b> Data exploratie</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>4.1</b> Principes van data exploratie</a></li>
+<li class="chapter" data-level="4.2" data-path="data-exploratie.html"><a href="data-exploratie.html#stappen-in-data-exploratie"><i class="fa fa-check"></i><b>4.2</b> Stappen in data exploratie</a></li>
+<li class="chapter" data-level="4.3" data-path="data-exploratie.html"><a href="data-exploratie.html#voorbeeld-data-exploratie"><i class="fa fa-check"></i><b>4.3</b> Voorbeeld data exploratie</a></li>
+<li class="chapter" data-level="4.4" data-path="data-exploratie.html"><a href="data-exploratie.html#univariate-verdelingen"><i class="fa fa-check"></i><b>4.4</b> Univariate verdelingen</a></li>
+<li class="chapter" data-level="4.5" data-path="data-exploratie.html"><a href="data-exploratie.html#correlatie-tussen-twee-variabelen"><i class="fa fa-check"></i><b>4.5</b> Correlatie tussen twee variabelen</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html"><i class="fa fa-check"></i><b>5</b> Manipuleren van data</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#kort-overzicht-van-de-manipulaties"><i class="fa fa-check"></i><b>5.1</b> Kort overzicht van de manipulaties</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#filteren-en-versnijden"><i class="fa fa-check"></i><b>5.1.1</b> Filteren en versnijden</a></li>
+<li class="chapter" data-level="5.1.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#booleaans-masker"><i class="fa fa-check"></i><b>5.1.2</b> Booleaans masker</a></li>
+<li class="chapter" data-level="5.1.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-grouping-and-aggregation"><i class="fa fa-check"></i><b>5.1.3</b> (Eng.) Grouping and Aggregation</a></li>
+<li class="chapter" data-level="5.1.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-transforming-text"><i class="fa fa-check"></i><b>5.1.4</b> (Eng.) Transforming text</a></li>
+<li class="chapter" data-level="5.1.5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-re-scaling-numerical-values"><i class="fa fa-check"></i><b>5.1.5</b> (Eng.) Re-Scaling Numerical Values</a></li>
+<li class="chapter" data-level="5.1.6" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-discretizations"><i class="fa fa-check"></i><b>5.1.6</b> (Eng.) Discretizations</a></li>
+<li class="chapter" data-level="5.1.7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-information-content"><i class="fa fa-check"></i><b>5.1.7</b> (Eng.) Information Content</a></li>
+<li class="chapter" data-level="5.1.8" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-reformatting-type-conversion-casting-or-coercion"><i class="fa fa-check"></i><b>5.1.8</b> (Eng.) Reformatting, Type Conversion, Casting or Coercion</a></li>
+<li class="chapter" data-level="5.1.9" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-numerical-values"><i class="fa fa-check"></i><b>5.1.9</b> (Eng.) Changing numerical Values</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-category-names"><i class="fa fa-check"></i><b>5.2</b> (Eng.) Changing Category Names</a></li>
+<li class="chapter" data-level="5.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-imputation"><i class="fa fa-check"></i><b>5.3</b> (Eng.) Imputation</a></li>
+<li class="chapter" data-level="5.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#onbehandeld"><i class="fa fa-check"></i><b>5.4</b> Onbehandeld</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="de-percetron.html"><a href="de-percetron.html"><i class="fa fa-check"></i><b>6</b> De percetron</a><ul>
+<li class="chapter" data-level="6.1" data-path="de-percetron.html"><a href="de-percetron.html#historiek"><i class="fa fa-check"></i><b>6.1</b> Historiek</a></li>
+<li class="chapter" data-level="6.2" data-path="de-percetron.html"><a href="de-percetron.html#de-anatomie-van-de-perceptron"><i class="fa fa-check"></i><b>6.2</b> De anatomie van de perceptron</a></li>
+<li class="chapter" data-level="6.3" data-path="de-percetron.html"><a href="de-percetron.html#casestudy-onderscheiden-van-setosa"><i class="fa fa-check"></i><b>6.3</b> Casestudy: Onderscheiden van setosa</a></li>
+<li class="chapter" data-level="6.4" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-klasse"><i class="fa fa-check"></i><b>6.4</b> De perceptron klasse</a></li>
+<li class="chapter" data-level="6.5" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-functies"><i class="fa fa-check"></i><b>6.5</b> De perceptron functies</a></li>
+<li class="chapter" data-level="6.6" data-path="de-percetron.html"><a href="de-percetron.html#het-leeralgoritme-van-de-perceptron"><i class="fa fa-check"></i><b>6.6</b> Het leeralgoritme van de perceptron</a></li>
+<li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
+<li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-computer-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Computer Vision</a></li>
+<li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
+<li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
+<li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
+<li class="chapter" data-level="8.5" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#filter-als-compressor"><i class="fa fa-check"></i><b>8.5</b> Filter als compressor</a></li>
+<li class="chapter" data-level="8.6" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-stride-niet-opgeven"><i class="fa fa-check"></i><b>8.6</b> De <em>stride</em> niet opgeven</a></li>
+<li class="chapter" data-level="8.7" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-volledige-filter-laag"><i class="fa fa-check"></i><b>8.7</b> De volledige filter-laag</a></li>
+<li class="chapter" data-level="8.8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#meerdere-filters-per-laag"><i class="fa fa-check"></i><b>8.8</b> Meerdere filters per laag</a></li>
+<li class="chapter" data-level="8.9" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#max-pooling"><i class="fa fa-check"></i><b>8.9</b> Max Pooling</a></li>
+<li class="chapter" data-level="8.10" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#samenstellen-van-cnns"><i class="fa fa-check"></i><b>8.10</b> Samenstellen van CNNs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="autoencoders.html"><a href="autoencoders.html"><i class="fa fa-check"></i><b>9</b> Autoencoders</a><ul>
+<li class="chapter" data-level="9.1" data-path="autoencoders.html"><a href="autoencoders.html#probleemstelling-rond-dimensionaliteit-en-complexiteit"><i class="fa fa-check"></i><b>9.1</b> Probleemstelling rond Dimensionaliteit en Complexiteit</a></li>
+<li class="chapter" data-level="9.2" data-path="autoencoders.html"><a href="autoencoders.html#dimensionaliteit-reduceren"><i class="fa fa-check"></i><b>9.2</b> Dimensionaliteit reduceren</a></li>
+<li class="chapter" data-level="9.3" data-path="autoencoders.html"><a href="autoencoders.html#pca-om-dimensionaliteit-te-reduceren"><i class="fa fa-check"></i><b>9.3</b> PCA om dimensionaliteit te reduceren</a></li>
+<li class="chapter" data-level="9.4" data-path="autoencoders.html"><a href="autoencoders.html#pca-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.4</b> PCA op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.5" data-path="autoencoders.html"><a href="autoencoders.html#beperkingen-van-pca"><i class="fa fa-check"></i><b>9.5</b> Beperkingen van PCA</a></li>
+<li class="chapter" data-level="9.6" data-path="autoencoders.html"><a href="autoencoders.html#de-architectuur-van-de-autoencoder"><i class="fa fa-check"></i><b>9.6</b> De Architectuur van de Autoencoder</a></li>
+<li class="chapter" data-level="9.7" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.7</b> Autoencoder op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.8" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-met-cnn"><i class="fa fa-check"></i><b>9.8</b> Autoencoder met CNN</a></li>
+<li class="chapter" data-level="9.9" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-als-ruis-verwijderaar"><i class="fa fa-check"></i><b>9.9</b> Autoencoder als ruis-verwijderaar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html"><i class="fa fa-check"></i><b>10</b> Trainen en testen</a><ul>
+<li class="chapter" data-level="10.1" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#leren-leven-met-de-onzekerheid"><i class="fa fa-check"></i><b>10.1</b> Leren leven met de onzekerheid</a></li>
+<li class="chapter" data-level="10.2" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#meten-van-de-prestatie-van-een-model"><i class="fa fa-check"></i><b>10.2</b> Meten van de prestatie van een model</a></li>
+<li class="chapter" data-level="10.3" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#training--validatie--en-test-set"><i class="fa fa-check"></i><b>10.3</b> Training-, validatie- en test-set</a></li>
+<li class="chapter" data-level="10.4" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#cross-validatie"><i class="fa fa-check"></i><b>10.4</b> Cross-validatie</a></li>
+<li class="chapter" data-level="10.5" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#werkstroom-deep-learning"><i class="fa fa-check"></i><b>10.5</b> Werkstroom deep learning</a></li>
+<li class="chapter" data-level="10.6" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#data-lekkage"><i class="fa fa-check"></i><b>10.6</b> Data lekkage</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html"><i class="fa fa-check"></i><b>11</b> Sequentie Analyse</a><ul>
+<li class="chapter" data-level="11.1" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding-tot-sequentie-analyse"><i class="fa fa-check"></i><b>11.1</b> Inleiding tot sequentie analyse</a></li>
+<li class="chapter" data-level="11.2" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sequence-to-sequence"><i class="fa fa-check"></i><b>11.2</b> Sequence-To-Sequence</a></li>
+<li class="chapter" data-level="11.3" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#recurrente-nn"><i class="fa fa-check"></i><b>11.3</b> Recurrente NN</a></li>
+<li class="chapter" data-level="11.4" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#verdwijnende-gradiënten"><i class="fa fa-check"></i><b>11.4</b> Verdwijnende gradiënten</a></li>
+<li class="chapter" data-level="11.5" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#long-short-term-memory-lstm"><i class="fa fa-check"></i><b>11.5</b> Long short-term memory (LSTM)</a></li>
+<li class="chapter" data-level="11.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sentiment-analyse"><i class="fa fa-check"></i><b>11.6</b> Sentiment analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html"><i class="fa fa-check"></i><b>12</b> Neurale Netwerken met Extern Geheugen</a><ul>
+<li class="chapter" data-level="12.1" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inleiding-nn-met-extern-geheugen"><i class="fa fa-check"></i><b>12.1</b> Inleiding NN met extern geheugen</a></li>
+<li class="chapter" data-level="12.2" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#neurale-turing-machines"><i class="fa fa-check"></i><b>12.2</b> Neurale Turing Machines</a></li>
+<li class="chapter" data-level="12.3" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#lezen-uit-en-schrijven-naar-een-ntm-geheugen"><i class="fa fa-check"></i><b>12.3</b> Lezen uit en schrijven naar een NTM geheugen</a></li>
+<li class="chapter" data-level="12.4" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adressering-van-ntm-geheugens"><i class="fa fa-check"></i><b>12.4</b> Adressering van NTM geheugens</a></li>
+<li class="chapter" data-level="12.5" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inhoud-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.5</b> Inhoud-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.6" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#locatie-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.6</b> Locatie-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.7" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adresseringsmechanisme"><i class="fa fa-check"></i><b>12.7</b> Adresseringsmechanisme</a></li>
+<li class="chapter" data-level="12.8" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-nadelen-van-ntms"><i class="fa fa-check"></i><b>12.8</b> De nadelen van NTMs</a></li>
+<li class="chapter" data-level="12.9" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-differentiële-neurale-computer"><i class="fa fa-check"></i><b>12.9</b> De differentiële neurale computer</a></li>
+<li class="chapter" data-level="12.10" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#implementatie-dnc"><i class="fa fa-check"></i><b>12.10</b> Implementatie DNC</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html"><i class="fa fa-check"></i><b>13</b> Deep Reinforcement Learning</a><ul>
+<li class="chapter" data-level="13.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#inleiding-deep-rl"><i class="fa fa-check"></i><b>13.1</b> Inleiding Deep RL</a></li>
+<li class="chapter" data-level="13.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#voorbeelden-van-deep-reinforcement-learning"><i class="fa fa-check"></i><b>13.2</b> Voorbeelden van deep reinforcement learning</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#introductie-deepmind-team"><i class="fa fa-check"></i><b>13.2.1</b> Introductie DeepMind Team</a></li>
+<li class="chapter" data-level="13.2.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deepminds-deep-q-learning"><i class="fa fa-check"></i><b>13.2.2</b> DeepMind’s Deep-Q learning</a></li>
+<li class="chapter" data-level="13.2.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#robot-tasks"><i class="fa fa-check"></i><b>13.2.3</b> Robot tasks</a></li>
+<li class="chapter" data-level="13.2.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#atlas"><i class="fa fa-check"></i><b>13.2.4</b> Atlas</a></li>
+<li class="chapter" data-level="13.2.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#cart-pole"><i class="fa fa-check"></i><b>13.2.5</b> Cart-Pole</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#markov-beslissingsproces"><i class="fa fa-check"></i><b>13.3</b> Markov beslissingsproces</a></li>
+<li class="chapter" data-level="13.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deep-reinforcement-learning-1"><i class="fa fa-check"></i><b>13.4</b> Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="13.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#varianten-van-deep-rl"><i class="fa fa-check"></i><b>13.5</b> Varianten van (Deep) RL</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#vormen-van-schriftelijke-communicatie"><i class="fa fa-check"></i><b>14.1</b> Vormen van schriftelijke communicatie</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#de-vraagstelling"><i class="fa fa-check"></i><b>14.2</b> De vraagstelling</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#de-probleemstelling"><i class="fa fa-check"></i><b>14.3</b> De probleemstelling</a></li>
+<li class="chapter" data-level="14.4" data-path="rapporteren.html"><a href="rapporteren.html#uitvoering-ai-project"><i class="fa fa-check"></i><b>14.4</b> Uitvoering AI project</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbare-willekeur"><i class="fa fa-check"></i><b>14.4.1</b> Reproduceerbare willekeur</a></li>
+<li class="chapter" data-level="14.4.2" data-path="rapporteren.html"><a href="rapporteren.html#tools"><i class="fa fa-check"></i><b>14.4.2</b> Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="rapporteren.html"><a href="rapporteren.html#de-inleiding-van-een-rapport"><i class="fa fa-check"></i><b>14.5</b> De inleiding van een rapport</a></li>
+<li class="chapter" data-level="14.6" data-path="rapporteren.html"><a href="rapporteren.html#methodiek"><i class="fa fa-check"></i><b>14.6</b> Methodiek</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="rapporteren.html"><a href="rapporteren.html#data-beschikbaar-maken"><i class="fa fa-check"></i><b>14.6.1</b> Data beschikbaar maken</a></li>
+<li class="chapter" data-level="14.6.2" data-path="rapporteren.html"><a href="rapporteren.html#beschikbaar-maken-van-databanken"><i class="fa fa-check"></i><b>14.6.2</b> Beschikbaar maken van databanken</a></li>
+<li class="chapter" data-level="14.6.3" data-path="rapporteren.html"><a href="rapporteren.html#procesbeschrijving"><i class="fa fa-check"></i><b>14.6.3</b> Procesbeschrijving</a></li>
+<li class="chapter" data-level="14.6.4" data-path="rapporteren.html"><a href="rapporteren.html#voorbeeld-uit-wang-et-al."><i class="fa fa-check"></i><b>14.6.4</b> Voorbeeld uit Wang et al.</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="rapporteren.html"><a href="rapporteren.html#resultaten"><i class="fa fa-check"></i><b>14.7</b> Resultaten</a><ul>
+<li class="chapter" data-level="14.7.1" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.7.1</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.7.2" data-path="rapporteren.html"><a href="rapporteren.html#onzekere-cijfers"><i class="fa fa-check"></i><b>14.7.2</b> Onzekere cijfers</a></li>
+<li class="chapter" data-level="14.7.3" data-path="rapporteren.html"><a href="rapporteren.html#visuele-cijfers"><i class="fa fa-check"></i><b>14.7.3</b> Visuele cijfers</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="rapporteren.html"><a href="rapporteren.html#discussie-en-conclusie"><i class="fa fa-check"></i><b>14.8</b> Discussie en Conclusie</a></li>
+<li class="chapter" data-level="14.9" data-path="rapporteren.html"><a href="rapporteren.html#afsluiten-met-de-samenvatting"><i class="fa fa-check"></i><b>14.9</b> Afsluiten met de samenvatting</a></li>
+<li class="chapter" data-level="14.10" data-path="rapporteren.html"><a href="rapporteren.html#verwijzen-naar-extern-werk"><i class="fa fa-check"></i><b>14.10</b> Verwijzen naar extern werk</a><ul>
+<li class="chapter" data-level="14.10.1" data-path="rapporteren.html"><a href="rapporteren.html#citeren"><i class="fa fa-check"></i><b>14.10.1</b> Citeren</a></li>
+<li class="chapter" data-level="14.10.2" data-path="rapporteren.html"><a href="rapporteren.html#licenties-en-toestemming"><i class="fa fa-check"></i><b>14.10.2</b> Licenties en toestemming</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a><ul>
+<li class="chapter" data-level="15.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#inleiding-tot-de-ml-ethiek"><i class="fa fa-check"></i><b>15.1</b> Inleiding tot de ML-ethiek</a></li>
+<li class="chapter" data-level="15.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#hoe-het-niet-moet"><i class="fa fa-check"></i><b>15.2</b> Hoe het niet moet</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gender-ongelijkheid"><i class="fa fa-check"></i><b>15.2.1</b> Gender-ongelijkheid</a></li>
+<li class="chapter" data-level="15.2.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#onmenselijk"><i class="fa fa-check"></i><b>15.2.2</b> Onmenselijk</a></li>
+<li class="chapter" data-level="15.2.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#vals-gevoel-van-controle"><i class="fa fa-check"></i><b>15.2.3</b> Vals gevoel van controle</a></li>
+<li class="chapter" data-level="15.2.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gamification"><i class="fa fa-check"></i><b>15.2.4</b> Gamification</a></li>
+<li class="chapter" data-level="15.2.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ongewilde-advertenties"><i class="fa fa-check"></i><b>15.2.5</b> Ongewilde advertenties</a></li>
+<li class="chapter" data-level="15.2.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#huidskleur"><i class="fa fa-check"></i><b>15.2.6</b> Huidskleur</a></li>
+<li class="chapter" data-level="15.2.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#polarisatie"><i class="fa fa-check"></i><b>15.2.7</b> Polarisatie</a></li>
+<li class="chapter" data-level="15.2.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gezondheid"><i class="fa fa-check"></i><b>15.2.8</b> Gezondheid</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-oorzaken-van-onethisch-ai-producten"><i class="fa fa-check"></i><b>15.3</b> De oorzaken van onethisch AI-producten</a></li>
+<li class="chapter" data-level="15.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#representativiteit"><i class="fa fa-check"></i><b>15.4</b> Representativiteit</a></li>
+<li class="chapter" data-level="15.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#randvoorwaarden"><i class="fa fa-check"></i><b>15.5</b> Randvoorwaarden</a></li>
+<li class="chapter" data-level="15.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy-en-ethiek"><i class="fa fa-check"></i><b>15.6</b> Privacy en ethiek</a></li>
+<li class="chapter" data-level="15.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy"><i class="fa fa-check"></i><b>15.7</b> Privacy</a></li>
+<li class="chapter" data-level="15.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-drie-wetten-van-asimov"><i class="fa fa-check"></i><b>15.8</b> De drie wetten van Asimov</a></li>
+<li class="chapter" data-level="15.9" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ethiek"><i class="fa fa-check"></i><b>15.9</b> Ethiek</a></li>
+<li class="chapter" data-level="15.10" data-path="ethisch-ml.html"><a href="ethisch-ml.html#proces-om-etisch-te-blijven"><i class="fa fa-check"></i><b>15.10</b> Proces om etisch te blijven</a></li>
+<li class="chapter" data-level="15.11" data-path="ethisch-ml.html"><a href="ethisch-ml.html#regels-rond-ethiek"><i class="fa fa-check"></i><b>15.11</b> Regels rond ethiek</a></li>
+<li class="chapter" data-level="15.12" data-path="ethisch-ml.html"><a href="ethisch-ml.html#eed"><i class="fa fa-check"></i><b>15.12</b> Eed</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
+<li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
+<li class="chapter" data-level="C" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>C</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
+<li class="chapter" data-level="D" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>D</b> Computations using GPU</a></li>
+<li class="chapter" data-level="E" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>E</b> Installation</a><ul>
+<li class="chapter" data-level="E.1" data-path="installation.html"><a href="installation.html#installing-cuda-optional"><i class="fa fa-check"></i><b>E.1</b> Installing CUDA (optional)</a></li>
+<li class="chapter" data-level="E.2" data-path="installation.html"><a href="installation.html#the-r-language"><i class="fa fa-check"></i><b>E.2</b> The R language</a></li>
+<li class="chapter" data-level="E.3" data-path="installation.html"><a href="installation.html#python"><i class="fa fa-check"></i><b>E.3</b> Python</a></li>
+<li class="chapter" data-level="E.4" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>E.4</b> RStudio</a></li>
+<li class="chapter" data-level="E.5" data-path="installation.html"><a href="installation.html#installing-tensorflow"><i class="fa fa-check"></i><b>E.5</b> Installing Tensorflow</a></li>
+<li class="chapter" data-level="E.6" data-path="installation.html"><a href="installation.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>E.6</b> Installation steps that worked for the author</a></li>
+<li class="chapter" data-level="E.7" data-path="installation.html"><a href="installation.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>E.7</b> Waar vind ik hulp</a></li>
+<li class="chapter" data-level="E.8" data-path="installation.html"><a href="installation.html#waar-kan-ik-leeralgoritmen-terugvinden"><i class="fa fa-check"></i><b>E.8</b> Waar kan ik leeralgoritmen terugvinden</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>F</b> Git</a></li>
+<li class="chapter" data-level="G" data-path="antwoorden.html"><a href="antwoorden.html"><i class="fa fa-check"></i><b>G</b> Antwoorden</a><ul>
+<li class="chapter" data-level="G.1" data-path="antwoorden.html"><a href="antwoorden.html#hoofdstuk-4"><i class="fa fa-check"></i><b>G.1</b> Hoofdstuk 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Machine Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="installation" class="section level1">
+<h1><span class="header-section-number">E</span> Installation</h1>
+<div id="installing-cuda-optional" class="section level2">
+<h2><span class="header-section-number">E.1</span> Installing CUDA (optional)</h2>
+<p>In 2007 NVIDIA released CUDA® (<a href="https://nl.wikipedia.org/wiki/CUDA">Compute Unified Device Architecture</a>). CUDA is a parallel computing platform and programming model that enables dramatic increases in computing performance by harnessing the power of the GPU. You can download the platform from <a href="https://developer.nvidia.com/cuda-downloads">here</a>, but before you install it, check that your system is compatible and read the disclaimers provided. For Windows operating systems you can find additional information <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">here</a>. Mind that the above is optional. You can run all the material provided in this course without the GPU computation option. If you plan to install CUDA anyway, make sure to check out the detailed <a href="installation.html#installation-steps-that-worked-for-the-author">installation steps that worked for the author</a> first.</p>
+</div>
+<div id="the-r-language" class="section level2">
+<h2><span class="header-section-number">E.2</span> The R language</h2>
+<p><a href="https://www.r-project.org/">R</a> is a <a href="https://en.wikipedia.org/wiki/Turing_completeness">turing-complete</a> programming language focusing on specifically on data analysis. It is the most popular among statisticians and data scientists and in comparison to Python it is often said to be the brains whereas Python is said to be the muscles (see <span class="citation">Upadhyay <a href="#ref-RvsPython" role="doc-biblioref">2016</a></span>):</p>
+<div class="figure"><span id="fig:r-versus-python"></span>
+<img src="https://i0.wp.com/ucanalytics.com/blogs/wp-content/uploads/2015/10/Superman-Vs-Batman.jpg?w=582" alt="In an article on his channel called YOU CANalytics, Roopam Upadhyay has compared R with Batman and Python with Superman. Such a comparison is deemed to be opinionated, and I believe that some of the differences explained in the article are not unconditionally valid, but at least it debunks some of the long held beliefs about the R language." width="250px" />
+<p class="caption">
+Figuur E.1: In an article on his channel called <em>YOU CANalytics</em>, Roopam Upadhyay has compared R with Batman and Python with Superman. Such a comparison is deemed to be opinionated, and I believe that some of the differences explained in the article are not unconditionally valid, but at least it debunks some of the long held beliefs about the R language.
+</p>
+</div>
+
+<p>For Windows systems, you can download the latest stable R version from <a href="https://cran.r-project.org/bin/windows/base/">here</a>. It comes with a number of very useful functions already in the<code>base</code> namespace Again, make sure to continue reading first to check the <a href="installation.html#installation-steps-that-worked-for-the-author">installation steps that worked for the author</a> below.</p>
+</div>
+<div id="python" class="section level2">
+<h2><span class="header-section-number">E.3</span> Python</h2>
+<p>Python is a general-purpose programming language developed by Guido Van Rossum. The previous paragraph already discusses the differences between R and Python. In addition, some resources or platforms will rely only on one of these two languages. For these reasons, it pays of for a prospective data-scientist to manage both.</p>
+
+<div class="theorem">
+<p><span id="thm:rossum" class="theorem"><strong>Persoonlijkheid E.1  (Guido Van Rossum)  </strong></span><br/><img src="img/Guido_Van_Rossum.png" /></p>
+<em>Guido Van Rossum</em> is the father of Python. He developed the language in 1989 as a Dutch IT-specialist associated with the Mathematisch Centrum in Amsterdam, Netherlands. Originally meant as a low-threshold language for beginning programmers, it now trumps all other. See for yourself on <a href="https://trends.google.nl/trends/explore?cat=32&amp;date=today%205-y&amp;q=java,javascript,.NET,Python">Google trends</a>.
+</div>
+
+</div>
+<div id="rstudio" class="section level2">
+<h2><span class="header-section-number">E.4</span> RStudio</h2>
+<p>Rstudio was found by far to be the most valuable and student-friendly IDE (integrated development environment) for working professionally with data, not just in R, but also in Python, Julia and other (scripting) languages such as SQL and Stan. In addition, it is the easiest IDE for people who have limited computer experience. Installing RStudio is free for academic use. See <a href="https://rstudio.com" class="uri">https://rstudio.com</a> for more information, installation generally takes only a few minutes. Once installed, get acquainted with the IDE. See the book of Campbell for details on the IDE (<span class="citation">Campbell <a href="#ref-campbell2019rstudio" role="doc-biblioref">2019</a></span>).</p>
+</div>
+<div id="installing-tensorflow" class="section level2">
+<h2><span class="header-section-number">E.5</span> Installing Tensorflow</h2>
+<p>Around 2005, Google released <a href="https://www.tensorflow.org/">Tensorflow®</a>. TensorFlow is an open-source Python library to aid with the development, training, building and releasing of machine learning models, particularly deep learning models. To install TensorFlow for Rstudio, visit <a href="https://tensorflow.rstudio.com/" class="uri">https://tensorflow.rstudio.com/</a> and read the instructions there. Check the installation steps used by the author below before you start.</p>
+</div>
+<div id="installation-steps-that-worked-for-the-author" class="section level2">
+<h2><span class="header-section-number">E.6</span> Installation steps that worked for the author</h2>
+<p>Every system is different, so the steps below might not work for you. With these and with the links provided above, you should be able to get up and running in no time. Here is the set of instructions that worked for me, starting from scratch on a Dell XPS 15 7590 with a Windows 10 Pro operating system. For Windows users, remember check the ‘set Path’ option during installation, if available, or set the path manually using the [command line]](<a href="https://www.windows-commandline.com/set-path-command-line/" class="uri">https://www.windows-commandline.com/set-path-command-line/</a>). Also, test each step before you go to the next.</p>
+<ol style="list-style-type: decimal">
+<li>(optional) Install <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.htm">CUDA</a> version 10.2.89_441.22 for Windows and test with <code>nvcc -V</code> anywhere at the command line prompt</li>
+<li>Install <a href="https://www.r-project.org/">R</a> and test by running the command <code>R --version</code> anywhere at the command line prompt</li>
+<li>Install <a href="https://www.python.org/downloads/">Python 3</a> and test by running the command <code>python --version</code> anywhere at the command line prompt</li>
+<li>Install <a href="https://rstudio.com">Rstudio</a> and check that the correct version of R is being linked to</li>
+<li>Install <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> in a directory that contains <em>no spaces</em> (not automatically adding to Windows PATH variable as advised, but manually) and test by running the command <code>conda --version</code> anywhere at the command line prompt</li>
+<li>Add a python environment, here called <code>tf</code> (in the <code>Scripts</code> sub-folder of Miniconda installation folder), read and follow the advise given (if any) and test afterwards with the command <code>conda info --envs</code> or <code>conda env list</code>:</li>
+</ol>
+<div class="sourceCode" id="cb158"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb158-1"><a href="installation.html#cb158-1"></a><span class="ex">conda</span> create -n tf</span></code></pre></div>
+<pre>
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.8.3
+  latest version: 4.8.4
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+  Package Plan ##
+  environment location: […]\envs\tf
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+ 
+  To activate this environment, use
+ 
+      $ conda activate tf
+ 
+  To deactivate an active environment, use
+ 
+      $ conda deactivate
+</pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Open RStudio and, using the console, install the helper package <code>tensorflow</code> that guides the installation:</li>
+</ol>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="installation.html#cb159-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tensorflow&quot;</span>)</span></code></pre></div>
+<pre>
+Installing package into […]
+(as ‘lib’ is unspecified)
+also installing the dependencies ‘rappdirs’, ‘config’, ‘reticulate’, ‘tfruns’
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/rappdirs_0.3.1.zip'
+Content type 'application/zip' length 87285 bytes (85 KB)
+downloaded 85 KB
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/config_0.3.zip'
+Content type 'application/zip' length 27334 bytes (26 KB)
+downloaded 26 KB
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/reticulate_1.16.zip'
+Content type 'application/zip' length 1742735 bytes (1.7 MB)
+downloaded 1.7 MB
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/tfruns_1.4.zip'
+Content type 'application/zip' length 1479931 bytes (1.4 MB)
+downloaded 1.4 MB
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/tensorflow_2.2.0.zip'
+Content type 'application/zip' length 145036 bytes (141 KB)
+downloaded 141 KB
+
+package ‘rappdirs’ successfully unpacked and MD5 sums checked
+package ‘config’ successfully unpacked and MD5 sums checked
+package ‘reticulate’ successfully unpacked and MD5 sums checked
+package ‘tfruns’ successfully unpacked and MD5 sums checked
+package ‘tensorflow’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in […]
+</pre>
+<ol start="8" style="list-style-type: decimal">
+<li>Still in RStudios console window, load the <code>tensorflow</code> package in memory (change <code>tf</code> if use you another environment name):</li>
+</ol>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="installation.html#cb160-1"></a><span class="kw">install_tensorflow</span>(<span class="dt">version =</span> <span class="st">&quot;nightly-gpu&quot;</span>, <span class="dt">envname =</span> <span class="st">&quot;tf&quot;</span>)</span></code></pre></div>
+<pre>Collecting package metadata (current_repodata.json): ...working... done<br>
+Solving environment: ...working... done
+
+  Package Plan ##
+
+  environment location: […]\envs\tf
+
+  added / updated specs:
+    - python=3.6
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    certifi-2020.6.20          |   py36h9f0ad1d_0         152 KB  conda-forge
+    pip-20.2.2                 |             py_0         1.1 MB  conda-forge
+    python-3.6.11              |h6f26aa1_2_cpython        18.9 MB  conda-forge
+    python_abi-3.6             |          1_cp36m           4 KB  conda-forge
+    setuptools-49.6.0          |   py36h9f0ad1d_0         919 KB  conda-forge
+    vc-14.1                    |       h869be7e_1           6 KB  conda-forge
+    vs2015_runtime-14.16.27012 |       h30e32a0_2         2.2 MB  conda-forge
+    wheel-0.35.1               |     pyh9f0ad1d_0          29 KB  conda-forge
+    wincertstore-0.2           |        py36_1003          13 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        23.3 MB
+
+The following NEW packages will be INSTALLED:
+
+  certifi            conda-forge/win-64::certifi-2020.6.20-py36h9f0ad1d_0
+  pip                conda-forge/noarch::pip-20.2.2-py_0
+  python             conda-forge/win-64::python-3.6.11-h6f26aa1_2_cpython
+  python_abi         conda-forge/win-64::python_abi-3.6-1_cp36m
+  setuptools         conda-forge/win-64::setuptools-49.6.0-py36h9f0ad1d_0
+  vc                 conda-forge/win-64::vc-14.1-h869be7e_1
+  vs2015_runtime     conda-forge/win-64::vs2015_runtime-14.16.27012-h30e32a0_2
+  wheel              conda-forge/noarch::wheel-0.35.1-pyh9f0ad1d_0
+  wincertstore       conda-forge/win-64::wincertstore-0.2-py36_1003
+
+[…]
+
+Collecting tf-nightly-gpu
+  Downloading tf_nightly_gpu-2.4.0.dev20200822-cp36-cp36m-win_amd64.whl (282.9 MB)
+
+[…]
+
+Installation complete.
+
+Warning messages:
+1: In normalizePath(path.expand(path), winslash, mustWork) :
+  path[1]="[…]\Miniconda\envs\tf/python.exe": Het systeem kan het opgegeven bestand niet vinden
+2: In normalizePath(path.expand(path), winslash, mustWork) :
+  path[1]="[…]\Miniconda\envs\tf/python.exe": Het systeem kan het opgegeven bestand niet vinden
+
+Restarting R session...
+
+NVIDIA’s platforms and application frameworks enable developers to build a wide array of AI applications. Consider potential algorithmic bias when choosing or creating the models being deployed. Work with the model’s developer to ensure that it meets the requirements for the relevant industry and use case; that the necessary instruction and documentation are provided to understand error rates, confidence intervals, and results; and that the model is being used under the conditions and in the manner intended.
+</pre>
+<ol start="9" style="list-style-type: decimal">
+<li>Test tensorflow using the command below</li>
+</ol>
+<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="installation.html#cb161-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb161-2"><a href="installation.html#cb161-2"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb161-3"><a href="installation.html#cb161-3"></a></span>
+<span id="cb161-4"><a href="installation.html#cb161-4"></a>tf.random.set_seed(<span class="dv">1</span>)</span>
+<span id="cb161-5"><a href="installation.html#cb161-5"></a></span>
+<span id="cb161-6"><a href="installation.html#cb161-6"></a>model <span class="op">=</span> tf.keras.Sequential([tf.keras.layers.Dense( <span class="op">\</span></span>
+<span id="cb161-7"><a href="installation.html#cb161-7"></a>  units <span class="op">=</span> <span class="dv">1</span>, input_shape <span class="op">=</span> [<span class="dv">1</span>])], )</span>
+<span id="cb161-8"><a href="installation.html#cb161-8"></a></span>
+<span id="cb161-9"><a href="installation.html#cb161-9"></a><span class="bu">print</span>(tf.reduce_sum(tf.random.normal([<span class="dv">1000</span>, <span class="dv">1000</span>])))</span></code></pre></div>
+<pre>
+2020-09-17 15:06:29.340924: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2020-09-17 15:06:29.365342: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
+coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s
+2020-09-17 15:06:29.365627: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-09-17 15:06:29.368816: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-09-17 15:06:29.371298: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-09-17 15:06:29.372145: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-09-17 15:06:29.375605: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-09-17 15:06:29.377715: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-09-17 15:06:29.385621: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-09-17 15:06:29.385907: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-17 15:06:29.386607: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-09-17 15:06:29.489348: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x20dd8509930 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-17 15:06:29.489640: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-17 15:06:29.490043: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
+coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s
+2020-09-17 15:06:29.490402: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-09-17 15:06:29.490567: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-09-17 15:06:29.490775: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-09-17 15:06:29.491080: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-09-17 15:06:29.491298: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-09-17 15:06:29.491542: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-09-17 15:06:29.491784: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-09-17 15:06:29.492628: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-09-17 15:06:30.261351: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-17 15:06:30.261492: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-09-17 15:06:30.261571: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-09-17 15:06:30.261943: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 2907 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2020-09-17 15:06:30.289124: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x20e0e74be40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-17 15:06:30.289298: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1650, Compute Capability 7.5
+
+tf.Tensor(22.580101, shape=(), dtype=float32)
+</pre>
+</div>
+<div id="waar-vind-ik-hulp" class="section level2">
+<h2><span class="header-section-number">E.7</span> Waar vind ik hulp</h2>
+<p>Als je een bepaalde actie wil uitvoeren in R, maar je kent de naam van het pakket niet, dan zijn <a href="https://www.r-bloggers.com/">R Bloggers</a> en <a href="https://stackoverflow.com/">Stack Overflow</a> vermoedelijk de beste plaatsen om te zoeken. Gaat over de RStudio IDE, dan is de <a href="https://community.rstudio.com/">RStudio Community</a> misschien wel iets. Zoek je toch op Google, voeg dan de term <code>package</code> toe aan de lijst van zoektermen om betere resultaten te bekomen. Heb je de naam van een R pakket of een functie en werk je met RStudio, dan moet je meestal de IDE niet te verlaten. Wil je meer weten over een bepaald pakket, dan zijn er vignettes (soort handleiding) en documentatie. Vignettes roep je aan d.m.v. de <code>vignette()</code> functie, documentatie met <code>?</code> of <code>help()</code>. Verder heeft R ook demo’s en kan je rechtstreeks de voorbeelden uit de technische documentatie uitvoeren zonder de code te moeten kopiëren.</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="installation.html#cb162-1"></a><span class="co"># Start</span></span>
+<span id="cb162-2"><a href="installation.html#cb162-2"></a><span class="kw">help.start</span>()</span>
+<span id="cb162-3"><a href="installation.html#cb162-3"></a></span>
+<span id="cb162-4"><a href="installation.html#cb162-4"></a><span class="co"># Documentatie</span></span>
+<span id="cb162-5"><a href="installation.html#cb162-5"></a>?magrittr</span>
+<span id="cb162-6"><a href="installation.html#cb162-6"></a>?magrittr<span class="op">::</span>extract</span>
+<span id="cb162-7"><a href="installation.html#cb162-7"></a></span>
+<span id="cb162-8"><a href="installation.html#cb162-8"></a><span class="co"># Zoeken naar hulp op basis van term</span></span>
+<span id="cb162-9"><a href="installation.html#cb162-9"></a><span class="kw">help.search</span>(<span class="st">&quot;pipes&quot;</span>)</span>
+<span id="cb162-10"><a href="installation.html#cb162-10"></a></span>
+<span id="cb162-11"><a href="installation.html#cb162-11"></a><span class="co"># Informatie/handleiding specifiek pakket</span></span>
+<span id="cb162-12"><a href="installation.html#cb162-12"></a><span class="kw">vignette</span>(<span class="st">&#39;magrittr&#39;</span>)</span>
+<span id="cb162-13"><a href="installation.html#cb162-13"></a></span>
+<span id="cb162-14"><a href="installation.html#cb162-14"></a><span class="co"># Lijst pakketten van gekoppelde bibliotheken</span></span>
+<span id="cb162-15"><a href="installation.html#cb162-15"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb162-16"><a href="installation.html#cb162-16"></a></span>
+<span id="cb162-17"><a href="installation.html#cb162-17"></a><span class="co"># Lijst pakketten geïnstalleerde bibliotheken</span></span>
+<span id="cb162-18"><a href="installation.html#cb162-18"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb162-19"><a href="installation.html#cb162-19"></a></span>
+<span id="cb162-20"><a href="installation.html#cb162-20"></a><span class="co"># Lijst alle vignettes</span></span>
+<span id="cb162-21"><a href="installation.html#cb162-21"></a><span class="kw">browseVignettes</span>()</span>
+<span id="cb162-22"><a href="installation.html#cb162-22"></a></span>
+<span id="cb162-23"><a href="installation.html#cb162-23"></a><span class="co"># Demonstratie</span></span>
+<span id="cb162-24"><a href="installation.html#cb162-24"></a><span class="kw">demo</span>(image)</span>
+<span id="cb162-25"><a href="installation.html#cb162-25"></a></span>
+<span id="cb162-26"><a href="installation.html#cb162-26"></a><span class="co"># Voorbeeld-code uit documentatie</span></span>
+<span id="cb162-27"><a href="installation.html#cb162-27"></a><span class="kw">example</span>(<span class="st">&quot;stl&quot;</span>)</span>
+<span id="cb162-28"><a href="installation.html#cb162-28"></a></span>
+<span id="cb162-29"><a href="installation.html#cb162-29"></a><span class="co"># Pakket info (auteur, versie, ...)</span></span>
+<span id="cb162-30"><a href="installation.html#cb162-30"></a><span class="kw">library</span>(<span class="dt">help =</span> <span class="st">&quot;magrittr&quot;</span>)</span>
+<span id="cb162-31"><a href="installation.html#cb162-31"></a></span>
+<span id="cb162-32"><a href="installation.html#cb162-32"></a><span class="co"># R site</span></span>
+<span id="cb162-33"><a href="installation.html#cb162-33"></a><span class="kw">RSiteSearch</span>(<span class="st">&quot;magrittr&quot;</span>)</span>
+<span id="cb162-34"><a href="installation.html#cb162-34"></a></span>
+<span id="cb162-35"><a href="installation.html#cb162-35"></a><span class="co"># CRAN repository pakketten</span></span>
+<span id="cb162-36"><a href="installation.html#cb162-36"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/available_packages_by_name.html&quot;</span>)</span>
+<span id="cb162-37"><a href="installation.html#cb162-37"></a></span>
+<span id="cb162-38"><a href="installation.html#cb162-38"></a><span class="co"># CRAN repo specifiek pakket</span></span>
+<span id="cb162-39"><a href="installation.html#cb162-39"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/magrittr/index.html&quot;</span>)</span>
+<span id="cb162-40"><a href="installation.html#cb162-40"></a></span>
+<span id="cb162-41"><a href="installation.html#cb162-41"></a><span class="co"># CRAN task views</span></span>
+<span id="cb162-42"><a href="installation.html#cb162-42"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/&quot;</span>)</span>
+<span id="cb162-43"><a href="installation.html#cb162-43"></a></span>
+<span id="cb162-44"><a href="installation.html#cb162-44"></a><span class="co"># CRAN speciefieke task view</span></span>
+<span id="cb162-45"><a href="installation.html#cb162-45"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/Hydrology.html&quot;</span>)</span></code></pre></div>
+<p>Voor Python en andere talen verwijs ik naar <a href="https://stackoverflow.com/">Stack Overflow</a>. Zie ook volgende paragraaf voor wat meer info over rond Python.</p>
+</div>
+<div id="waar-kan-ik-leeralgoritmen-terugvinden" class="section level2">
+<h2><span class="header-section-number">E.8</span> Waar kan ik leeralgoritmen terugvinden</h2>
+<p>Laten we beginnen met waar je de verscheidene leeralgoritmen kunt terugvinden. In sommige gevallen, zoals voor een enkelvoudig <em>perceptron</em>, kan je het zelf gewoon coderen maar meestal worden de algoritmen gelukkig ter beschikking gesteld. Omdat wiskundigen eerder R gebruiken zullen de nieuwere leeralgoritmen gewoonlijk eerst in R verschijnen en pas later in Python. Bij het publiceren van nieuwe methoden wordt er immers vaak van de auteurs verwacht dat ze het algoritme als een peer-reviewed R pakket (eng: <em>package</em>) registreren en publiek ter beschikking stellen. Het Comprehensive R Archive Network (<a href="https://cran.r-project.org/">CRAN</a>), dat de R pakketten beheert en erop toeziet dat de pakketten zowel wiskundig als programmatorisch aan bepaalde standaarden voldoet, stelt zogenaamde <em>task views</em> op met telkens een overzicht van de pakketten die kunnen helpen bij een welbepaalde taak. Zoeken we naar “machine learning”, komen we op honderden pakketten uit van <code>ahaz</code> tot <code>xgboost</code><a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> en vele van deze pakketten geven toegang tot tientallen verschillende typen leeralgoritmen. Maar dat is niet alles. Op de webpagina met het <a href="https://cran.r-project.org/web/views/">overzicht van alle task views</a>, vinden we bijvoorbeeld het onderwerp natuurlijke taalverwerking (eng: <em>natural language processing</em>; NLP) met nog eens tientallen pakketten specifiek rond dit thema.</p>
+<p>Voor Python ontwikkeling verwijzen we voor leeralgoritmen eerst en vooral naar <a href="https://scikit-learn.org/stable/">scikit-learn</a>. Deze bibliotheek biedt een ruime gereedschapskist aan voor beginnende datawetenschappers. De naam komt trouwens van Science-kit <span class="math inline">\(\rightarrow\)</span> scikit <span class="math inline">\(\rightarrow\)</span> sk. Dan is er <a href="https://www.tensorflow.org/">Tensorflow</a> waar in de cursus dieper op wordt ingegaan. Ook hier vind je een rijke schat aan informatie. Python biedt een aantal voordelen voor ML en het belangrijkste voordeel is misschien wel dat Python een algemene programmeertaal is waarmee je gemakkelijker volwaardige applicaties kunt maken of met hardware interfacen. De bewering dat Python ‘krachtiger’ of ‘performanter’ zou zijn dan R neem ik eerder met een korreltje zout. Op de weinige momenten waarop beide platformen op eerlijke wijze vergeleken worden is het verschil onbeduidend en bovendien moet je voornamelijk rekening houden met ontwikkeltijd en daar biedt Python zeker geen voordeel. Tenslotte vermeld ik hier nog even <a href="https://julialang.org/">Julia</a>, een opkomende taal waarin ML eenvoudiger moet worden.</p>
+</div>
+</div>
+<h3>Bronvermelding</h3>
+<div id="refs" class="references">
+<div id="ref-campbell2019rstudio">
+<p>Campbell, M., 2019. RStudio views, in: Learn Rstudio Ide. Springer, pp. 29–38.</p>
+</div>
+<div id="ref-RvsPython">
+<p>Upadhyay, R., 2016. R vs python – a comparison [WWW Document] <em>Accessed: 2020-08-28</em>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p>zie <a href="https://cran.r-project.org/web/views/MachineLearning.html" class="uri">https://cran.r-project.org/web/views/MachineLearning.html</a>.<a href="installation.html#fnref13" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="computations-using-gpu.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="git.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ddhaese/machine-learning-source/98_Appendix.Rmd",
+"text": "Bron"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 7 Inleiding tot Artificiële Neurale Netwerken | Machine Learning</title>
+  <meta name="description" content="Artificial intelligence course at the AP University College." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 7 Inleiding tot Artificiële Neurale Netwerken | Machine Learning" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Artificial intelligence course at the AP University College." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 7 Inleiding tot Artificiële Neurale Netwerken | Machine Learning" />
+  
+  <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
+  
+
+<meta name="author" content="34142/1916/2021/1/38 David D’Haese" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="de-percetron.html"/>
+<link rel="next" href="convolutionele-neurale-netwerken-cnn.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\course.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Summary</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot de cursus</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#in-een-notedop"><i class="fa fa-check"></i><b>1.1</b> In een notedop</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#leerdoelen"><i class="fa fa-check"></i><b>1.2</b> Leerdoelen</a></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#cursus-vorm"><i class="fa fa-check"></i><b>1.3</b> Cursus vorm</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#bekijken-van-deze-cursus"><i class="fa fa-check"></i><b>1.4</b> Bekijken van deze Cursus</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#code-uit-de-cursus-uitvoeren"><i class="fa fa-check"></i><b>1.5</b> Code uit de cursus uitvoeren</a></li>
+<li class="chapter" data-level="1.6" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#oefeningen-maken"><i class="fa fa-check"></i><b>1.6</b> Oefeningen maken</a></li>
+<li class="chapter" data-level="1.7" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#licentie-voor-deze-cursus"><i class="fa fa-check"></i><b>1.7</b> Licentie voor deze cursus</a></li>
+<li class="chapter" data-level="1.8" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#verwijzen-naar-deze-cursus"><i class="fa fa-check"></i><b>1.8</b> Verwijzen naar deze cursus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="leren-uit-data.html"><a href="leren-uit-data.html"><i class="fa fa-check"></i><b>2</b> Leren uit data</a><ul>
+<li class="chapter" data-level="2.1" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces"><i class="fa fa-check"></i><b>2.1</b> Het leerproces</a></li>
+<li class="chapter" data-level="2.2" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-evolutie-van-het-machinaal-leren"><i class="fa fa-check"></i><b>2.2</b> De evolutie van het machinaal leren</a></li>
+<li class="chapter" data-level="2.3" data-path="leren-uit-data.html"><a href="leren-uit-data.html#intelligentie"><i class="fa fa-check"></i><b>2.3</b> Intelligentie</a></li>
+<li class="chapter" data-level="2.4" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-model"><i class="fa fa-check"></i><b>2.4</b> Het model</a></li>
+<li class="chapter" data-level="2.5" data-path="leren-uit-data.html"><a href="leren-uit-data.html#doelfunctie"><i class="fa fa-check"></i><b>2.5</b> Doelfunctie</a></li>
+<li class="chapter" data-level="2.6" data-path="leren-uit-data.html"><a href="leren-uit-data.html#mnist-dataset"><i class="fa fa-check"></i><b>2.6</b> MNIST dataset</a></li>
+<li class="chapter" data-level="2.7" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-resultaat-van-mnist-analyse"><i class="fa fa-check"></i><b>2.7</b> Het resultaat van MNIST analyse</a></li>
+<li class="chapter" data-level="2.8" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-mnist-model"><i class="fa fa-check"></i><b>2.8</b> Het MNIST model</a></li>
+<li class="chapter" data-level="2.9" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces-voor-begeleid-ml"><i class="fa fa-check"></i><b>2.9</b> Het leerproces voor begeleid ML</a></li>
+<li class="chapter" data-level="2.10" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-onderdelen-van-een-model"><i class="fa fa-check"></i><b>2.10</b> De onderdelen van een model</a></li>
+<li class="chapter" data-level="2.11" data-path="leren-uit-data.html"><a href="leren-uit-data.html#hyperparameters"><i class="fa fa-check"></i><b>2.11</b> Hyperparameters</a></li>
+<li class="chapter" data-level="2.12" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leeralgoritme"><i class="fa fa-check"></i><b>2.12</b> Het leeralgoritme</a></li>
+<li class="chapter" data-level="2.13" data-path="leren-uit-data.html"><a href="leren-uit-data.html#model-complexiteit"><i class="fa fa-check"></i><b>2.13</b> Model complexiteit</a></li>
+<li class="chapter" data-level="2.14" data-path="leren-uit-data.html"><a href="leren-uit-data.html#comprimeren-door-middel-van-een-ml-model"><i class="fa fa-check"></i><b>2.14</b> Comprimeren door middel van een ML model</a></li>
+<li class="chapter" data-level="2.15" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-ontwerp"><i class="fa fa-check"></i><b>2.15</b> Leren versus ontwerp</a></li>
+<li class="chapter" data-level="2.16" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-onthouden-en-inferentie"><i class="fa fa-check"></i><b>2.16</b> Leren versus onthouden en inferentie</a></li>
+<li class="chapter" data-level="2.17" data-path="leren-uit-data.html"><a href="leren-uit-data.html#onbegeleid-ml"><i class="fa fa-check"></i><b>2.17</b> Onbegeleid ML</a></li>
+<li class="chapter" data-level="2.18" data-path="leren-uit-data.html"><a href="leren-uit-data.html#conditionering"><i class="fa fa-check"></i><b>2.18</b> Conditionering</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#data-voor-ml"><i class="fa fa-check"></i><b>3.1</b> Data voor ML</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#wat-is-data"><i class="fa fa-check"></i><b>3.2</b> Wat is data</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#soorten-data"><i class="fa fa-check"></i><b>3.3</b> Soorten data</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#externe-databronnen"><i class="fa fa-check"></i><b>3.4</b> Externe databronnen</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>3.5</b> Data Genereren</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>3.6</b> De analyse dataset</a></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>3.7</b> Soorten variabelen</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#eng-nominal-scale-data"><i class="fa fa-check"></i><b>3.8</b> (Eng) Nominal-Scale Data</a></li>
+<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#eng-dummy-variables"><i class="fa fa-check"></i><b>3.9</b> (Eng) Dummy Variables</a></li>
+<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#eng-ordinal-scale-data"><i class="fa fa-check"></i><b>3.10</b> (Eng) Ordinal-Scale Data</a></li>
+<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#eng-circular-scale"><i class="fa fa-check"></i><b>3.11</b> (Eng) Circular-Scale</a></li>
+<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#eng-censoring"><i class="fa fa-check"></i><b>3.12</b> (Eng) Censoring</a></li>
+<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>3.13</b> Tijd en ruimte</a></li>
+<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>3.14</b> Toegang tot data</a></li>
+<li class="chapter" data-level="3.15" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>3.15</b> Het codeboek</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>4</b> Data exploratie</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>4.1</b> Principes van data exploratie</a></li>
+<li class="chapter" data-level="4.2" data-path="data-exploratie.html"><a href="data-exploratie.html#stappen-in-data-exploratie"><i class="fa fa-check"></i><b>4.2</b> Stappen in data exploratie</a></li>
+<li class="chapter" data-level="4.3" data-path="data-exploratie.html"><a href="data-exploratie.html#voorbeeld-data-exploratie"><i class="fa fa-check"></i><b>4.3</b> Voorbeeld data exploratie</a></li>
+<li class="chapter" data-level="4.4" data-path="data-exploratie.html"><a href="data-exploratie.html#univariate-verdelingen"><i class="fa fa-check"></i><b>4.4</b> Univariate verdelingen</a></li>
+<li class="chapter" data-level="4.5" data-path="data-exploratie.html"><a href="data-exploratie.html#correlatie-tussen-twee-variabelen"><i class="fa fa-check"></i><b>4.5</b> Correlatie tussen twee variabelen</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html"><i class="fa fa-check"></i><b>5</b> Manipuleren van data</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#kort-overzicht-van-de-manipulaties"><i class="fa fa-check"></i><b>5.1</b> Kort overzicht van de manipulaties</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#filteren-en-versnijden"><i class="fa fa-check"></i><b>5.1.1</b> Filteren en versnijden</a></li>
+<li class="chapter" data-level="5.1.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#booleaans-masker"><i class="fa fa-check"></i><b>5.1.2</b> Booleaans masker</a></li>
+<li class="chapter" data-level="5.1.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-grouping-and-aggregation"><i class="fa fa-check"></i><b>5.1.3</b> (Eng.) Grouping and Aggregation</a></li>
+<li class="chapter" data-level="5.1.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-transforming-text"><i class="fa fa-check"></i><b>5.1.4</b> (Eng.) Transforming text</a></li>
+<li class="chapter" data-level="5.1.5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-re-scaling-numerical-values"><i class="fa fa-check"></i><b>5.1.5</b> (Eng.) Re-Scaling Numerical Values</a></li>
+<li class="chapter" data-level="5.1.6" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-discretizations"><i class="fa fa-check"></i><b>5.1.6</b> (Eng.) Discretizations</a></li>
+<li class="chapter" data-level="5.1.7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-information-content"><i class="fa fa-check"></i><b>5.1.7</b> (Eng.) Information Content</a></li>
+<li class="chapter" data-level="5.1.8" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-reformatting-type-conversion-casting-or-coercion"><i class="fa fa-check"></i><b>5.1.8</b> (Eng.) Reformatting, Type Conversion, Casting or Coercion</a></li>
+<li class="chapter" data-level="5.1.9" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-numerical-values"><i class="fa fa-check"></i><b>5.1.9</b> (Eng.) Changing numerical Values</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-changing-category-names"><i class="fa fa-check"></i><b>5.2</b> (Eng.) Changing Category Names</a></li>
+<li class="chapter" data-level="5.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#eng.-imputation"><i class="fa fa-check"></i><b>5.3</b> (Eng.) Imputation</a></li>
+<li class="chapter" data-level="5.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#onbehandeld"><i class="fa fa-check"></i><b>5.4</b> Onbehandeld</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="de-percetron.html"><a href="de-percetron.html"><i class="fa fa-check"></i><b>6</b> De percetron</a><ul>
+<li class="chapter" data-level="6.1" data-path="de-percetron.html"><a href="de-percetron.html#historiek"><i class="fa fa-check"></i><b>6.1</b> Historiek</a></li>
+<li class="chapter" data-level="6.2" data-path="de-percetron.html"><a href="de-percetron.html#de-anatomie-van-de-perceptron"><i class="fa fa-check"></i><b>6.2</b> De anatomie van de perceptron</a></li>
+<li class="chapter" data-level="6.3" data-path="de-percetron.html"><a href="de-percetron.html#casestudy-onderscheiden-van-setosa"><i class="fa fa-check"></i><b>6.3</b> Casestudy: Onderscheiden van setosa</a></li>
+<li class="chapter" data-level="6.4" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-klasse"><i class="fa fa-check"></i><b>6.4</b> De perceptron klasse</a></li>
+<li class="chapter" data-level="6.5" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-functies"><i class="fa fa-check"></i><b>6.5</b> De perceptron functies</a></li>
+<li class="chapter" data-level="6.6" data-path="de-percetron.html"><a href="de-percetron.html#het-leeralgoritme-van-de-perceptron"><i class="fa fa-check"></i><b>6.6</b> Het leeralgoritme van de perceptron</a></li>
+<li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
+<li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-computer-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Computer Vision</a></li>
+<li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
+<li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
+<li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
+<li class="chapter" data-level="8.5" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#filter-als-compressor"><i class="fa fa-check"></i><b>8.5</b> Filter als compressor</a></li>
+<li class="chapter" data-level="8.6" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-stride-niet-opgeven"><i class="fa fa-check"></i><b>8.6</b> De <em>stride</em> niet opgeven</a></li>
+<li class="chapter" data-level="8.7" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-volledige-filter-laag"><i class="fa fa-check"></i><b>8.7</b> De volledige filter-laag</a></li>
+<li class="chapter" data-level="8.8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#meerdere-filters-per-laag"><i class="fa fa-check"></i><b>8.8</b> Meerdere filters per laag</a></li>
+<li class="chapter" data-level="8.9" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#max-pooling"><i class="fa fa-check"></i><b>8.9</b> Max Pooling</a></li>
+<li class="chapter" data-level="8.10" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#samenstellen-van-cnns"><i class="fa fa-check"></i><b>8.10</b> Samenstellen van CNNs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="autoencoders.html"><a href="autoencoders.html"><i class="fa fa-check"></i><b>9</b> Autoencoders</a><ul>
+<li class="chapter" data-level="9.1" data-path="autoencoders.html"><a href="autoencoders.html#probleemstelling-rond-dimensionaliteit-en-complexiteit"><i class="fa fa-check"></i><b>9.1</b> Probleemstelling rond Dimensionaliteit en Complexiteit</a></li>
+<li class="chapter" data-level="9.2" data-path="autoencoders.html"><a href="autoencoders.html#dimensionaliteit-reduceren"><i class="fa fa-check"></i><b>9.2</b> Dimensionaliteit reduceren</a></li>
+<li class="chapter" data-level="9.3" data-path="autoencoders.html"><a href="autoencoders.html#pca-om-dimensionaliteit-te-reduceren"><i class="fa fa-check"></i><b>9.3</b> PCA om dimensionaliteit te reduceren</a></li>
+<li class="chapter" data-level="9.4" data-path="autoencoders.html"><a href="autoencoders.html#pca-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.4</b> PCA op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.5" data-path="autoencoders.html"><a href="autoencoders.html#beperkingen-van-pca"><i class="fa fa-check"></i><b>9.5</b> Beperkingen van PCA</a></li>
+<li class="chapter" data-level="9.6" data-path="autoencoders.html"><a href="autoencoders.html#de-architectuur-van-de-autoencoder"><i class="fa fa-check"></i><b>9.6</b> De Architectuur van de Autoencoder</a></li>
+<li class="chapter" data-level="9.7" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-op-de-mnist-dataset"><i class="fa fa-check"></i><b>9.7</b> Autoencoder op de MNIST dataset</a></li>
+<li class="chapter" data-level="9.8" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-met-cnn"><i class="fa fa-check"></i><b>9.8</b> Autoencoder met CNN</a></li>
+<li class="chapter" data-level="9.9" data-path="autoencoders.html"><a href="autoencoders.html#autoencoder-als-ruis-verwijderaar"><i class="fa fa-check"></i><b>9.9</b> Autoencoder als ruis-verwijderaar</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html"><i class="fa fa-check"></i><b>10</b> Trainen en testen</a><ul>
+<li class="chapter" data-level="10.1" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#leren-leven-met-de-onzekerheid"><i class="fa fa-check"></i><b>10.1</b> Leren leven met de onzekerheid</a></li>
+<li class="chapter" data-level="10.2" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#meten-van-de-prestatie-van-een-model"><i class="fa fa-check"></i><b>10.2</b> Meten van de prestatie van een model</a></li>
+<li class="chapter" data-level="10.3" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#training--validatie--en-test-set"><i class="fa fa-check"></i><b>10.3</b> Training-, validatie- en test-set</a></li>
+<li class="chapter" data-level="10.4" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#cross-validatie"><i class="fa fa-check"></i><b>10.4</b> Cross-validatie</a></li>
+<li class="chapter" data-level="10.5" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#werkstroom-deep-learning"><i class="fa fa-check"></i><b>10.5</b> Werkstroom deep learning</a></li>
+<li class="chapter" data-level="10.6" data-path="trainen-en-testen.html"><a href="trainen-en-testen.html#data-lekkage"><i class="fa fa-check"></i><b>10.6</b> Data lekkage</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html"><i class="fa fa-check"></i><b>11</b> Sequentie Analyse</a><ul>
+<li class="chapter" data-level="11.1" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding-tot-sequentie-analyse"><i class="fa fa-check"></i><b>11.1</b> Inleiding tot sequentie analyse</a></li>
+<li class="chapter" data-level="11.2" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sequence-to-sequence"><i class="fa fa-check"></i><b>11.2</b> Sequence-To-Sequence</a></li>
+<li class="chapter" data-level="11.3" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#recurrente-nn"><i class="fa fa-check"></i><b>11.3</b> Recurrente NN</a></li>
+<li class="chapter" data-level="11.4" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#verdwijnende-gradiënten"><i class="fa fa-check"></i><b>11.4</b> Verdwijnende gradiënten</a></li>
+<li class="chapter" data-level="11.5" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#long-short-term-memory-lstm"><i class="fa fa-check"></i><b>11.5</b> Long short-term memory (LSTM)</a></li>
+<li class="chapter" data-level="11.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sentiment-analyse"><i class="fa fa-check"></i><b>11.6</b> Sentiment analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html"><i class="fa fa-check"></i><b>12</b> Neurale Netwerken met Extern Geheugen</a><ul>
+<li class="chapter" data-level="12.1" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inleiding-nn-met-extern-geheugen"><i class="fa fa-check"></i><b>12.1</b> Inleiding NN met extern geheugen</a></li>
+<li class="chapter" data-level="12.2" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#neurale-turing-machines"><i class="fa fa-check"></i><b>12.2</b> Neurale Turing Machines</a></li>
+<li class="chapter" data-level="12.3" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#lezen-uit-en-schrijven-naar-een-ntm-geheugen"><i class="fa fa-check"></i><b>12.3</b> Lezen uit en schrijven naar een NTM geheugen</a></li>
+<li class="chapter" data-level="12.4" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adressering-van-ntm-geheugens"><i class="fa fa-check"></i><b>12.4</b> Adressering van NTM geheugens</a></li>
+<li class="chapter" data-level="12.5" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inhoud-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.5</b> Inhoud-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.6" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#locatie-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.6</b> Locatie-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.7" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adresseringsmechanisme"><i class="fa fa-check"></i><b>12.7</b> Adresseringsmechanisme</a></li>
+<li class="chapter" data-level="12.8" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-nadelen-van-ntms"><i class="fa fa-check"></i><b>12.8</b> De nadelen van NTMs</a></li>
+<li class="chapter" data-level="12.9" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-differentiële-neurale-computer"><i class="fa fa-check"></i><b>12.9</b> De differentiële neurale computer</a></li>
+<li class="chapter" data-level="12.10" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#implementatie-dnc"><i class="fa fa-check"></i><b>12.10</b> Implementatie DNC</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html"><i class="fa fa-check"></i><b>13</b> Deep Reinforcement Learning</a><ul>
+<li class="chapter" data-level="13.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#inleiding-deep-rl"><i class="fa fa-check"></i><b>13.1</b> Inleiding Deep RL</a></li>
+<li class="chapter" data-level="13.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#voorbeelden-van-deep-reinforcement-learning"><i class="fa fa-check"></i><b>13.2</b> Voorbeelden van deep reinforcement learning</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#introductie-deepmind-team"><i class="fa fa-check"></i><b>13.2.1</b> Introductie DeepMind Team</a></li>
+<li class="chapter" data-level="13.2.2" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deepminds-deep-q-learning"><i class="fa fa-check"></i><b>13.2.2</b> DeepMind’s Deep-Q learning</a></li>
+<li class="chapter" data-level="13.2.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#robot-tasks"><i class="fa fa-check"></i><b>13.2.3</b> Robot tasks</a></li>
+<li class="chapter" data-level="13.2.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#atlas"><i class="fa fa-check"></i><b>13.2.4</b> Atlas</a></li>
+<li class="chapter" data-level="13.2.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#cart-pole"><i class="fa fa-check"></i><b>13.2.5</b> Cart-Pole</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#markov-beslissingsproces"><i class="fa fa-check"></i><b>13.3</b> Markov beslissingsproces</a></li>
+<li class="chapter" data-level="13.4" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#deep-reinforcement-learning-1"><i class="fa fa-check"></i><b>13.4</b> Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="13.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#varianten-van-deep-rl"><i class="fa fa-check"></i><b>13.5</b> Varianten van (Deep) RL</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#vormen-van-schriftelijke-communicatie"><i class="fa fa-check"></i><b>14.1</b> Vormen van schriftelijke communicatie</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#de-vraagstelling"><i class="fa fa-check"></i><b>14.2</b> De vraagstelling</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#de-probleemstelling"><i class="fa fa-check"></i><b>14.3</b> De probleemstelling</a></li>
+<li class="chapter" data-level="14.4" data-path="rapporteren.html"><a href="rapporteren.html#uitvoering-ai-project"><i class="fa fa-check"></i><b>14.4</b> Uitvoering AI project</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbare-willekeur"><i class="fa fa-check"></i><b>14.4.1</b> Reproduceerbare willekeur</a></li>
+<li class="chapter" data-level="14.4.2" data-path="rapporteren.html"><a href="rapporteren.html#tools"><i class="fa fa-check"></i><b>14.4.2</b> Tools</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="rapporteren.html"><a href="rapporteren.html#de-inleiding-van-een-rapport"><i class="fa fa-check"></i><b>14.5</b> De inleiding van een rapport</a></li>
+<li class="chapter" data-level="14.6" data-path="rapporteren.html"><a href="rapporteren.html#methodiek"><i class="fa fa-check"></i><b>14.6</b> Methodiek</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="rapporteren.html"><a href="rapporteren.html#data-beschikbaar-maken"><i class="fa fa-check"></i><b>14.6.1</b> Data beschikbaar maken</a></li>
+<li class="chapter" data-level="14.6.2" data-path="rapporteren.html"><a href="rapporteren.html#beschikbaar-maken-van-databanken"><i class="fa fa-check"></i><b>14.6.2</b> Beschikbaar maken van databanken</a></li>
+<li class="chapter" data-level="14.6.3" data-path="rapporteren.html"><a href="rapporteren.html#procesbeschrijving"><i class="fa fa-check"></i><b>14.6.3</b> Procesbeschrijving</a></li>
+<li class="chapter" data-level="14.6.4" data-path="rapporteren.html"><a href="rapporteren.html#voorbeeld-uit-wang-et-al."><i class="fa fa-check"></i><b>14.6.4</b> Voorbeeld uit Wang et al.</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="rapporteren.html"><a href="rapporteren.html#resultaten"><i class="fa fa-check"></i><b>14.7</b> Resultaten</a><ul>
+<li class="chapter" data-level="14.7.1" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.7.1</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.7.2" data-path="rapporteren.html"><a href="rapporteren.html#onzekere-cijfers"><i class="fa fa-check"></i><b>14.7.2</b> Onzekere cijfers</a></li>
+<li class="chapter" data-level="14.7.3" data-path="rapporteren.html"><a href="rapporteren.html#visuele-cijfers"><i class="fa fa-check"></i><b>14.7.3</b> Visuele cijfers</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="rapporteren.html"><a href="rapporteren.html#discussie-en-conclusie"><i class="fa fa-check"></i><b>14.8</b> Discussie en Conclusie</a></li>
+<li class="chapter" data-level="14.9" data-path="rapporteren.html"><a href="rapporteren.html#afsluiten-met-de-samenvatting"><i class="fa fa-check"></i><b>14.9</b> Afsluiten met de samenvatting</a></li>
+<li class="chapter" data-level="14.10" data-path="rapporteren.html"><a href="rapporteren.html#verwijzen-naar-extern-werk"><i class="fa fa-check"></i><b>14.10</b> Verwijzen naar extern werk</a><ul>
+<li class="chapter" data-level="14.10.1" data-path="rapporteren.html"><a href="rapporteren.html#citeren"><i class="fa fa-check"></i><b>14.10.1</b> Citeren</a></li>
+<li class="chapter" data-level="14.10.2" data-path="rapporteren.html"><a href="rapporteren.html#licenties-en-toestemming"><i class="fa fa-check"></i><b>14.10.2</b> Licenties en toestemming</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a><ul>
+<li class="chapter" data-level="15.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#inleiding-tot-de-ml-ethiek"><i class="fa fa-check"></i><b>15.1</b> Inleiding tot de ML-ethiek</a></li>
+<li class="chapter" data-level="15.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#hoe-het-niet-moet"><i class="fa fa-check"></i><b>15.2</b> Hoe het niet moet</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gender-ongelijkheid"><i class="fa fa-check"></i><b>15.2.1</b> Gender-ongelijkheid</a></li>
+<li class="chapter" data-level="15.2.2" data-path="ethisch-ml.html"><a href="ethisch-ml.html#onmenselijk"><i class="fa fa-check"></i><b>15.2.2</b> Onmenselijk</a></li>
+<li class="chapter" data-level="15.2.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#vals-gevoel-van-controle"><i class="fa fa-check"></i><b>15.2.3</b> Vals gevoel van controle</a></li>
+<li class="chapter" data-level="15.2.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gamification"><i class="fa fa-check"></i><b>15.2.4</b> Gamification</a></li>
+<li class="chapter" data-level="15.2.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ongewilde-advertenties"><i class="fa fa-check"></i><b>15.2.5</b> Ongewilde advertenties</a></li>
+<li class="chapter" data-level="15.2.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#huidskleur"><i class="fa fa-check"></i><b>15.2.6</b> Huidskleur</a></li>
+<li class="chapter" data-level="15.2.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#polarisatie"><i class="fa fa-check"></i><b>15.2.7</b> Polarisatie</a></li>
+<li class="chapter" data-level="15.2.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#gezondheid"><i class="fa fa-check"></i><b>15.2.8</b> Gezondheid</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-oorzaken-van-onethisch-ai-producten"><i class="fa fa-check"></i><b>15.3</b> De oorzaken van onethisch AI-producten</a></li>
+<li class="chapter" data-level="15.4" data-path="ethisch-ml.html"><a href="ethisch-ml.html#representativiteit"><i class="fa fa-check"></i><b>15.4</b> Representativiteit</a></li>
+<li class="chapter" data-level="15.5" data-path="ethisch-ml.html"><a href="ethisch-ml.html#randvoorwaarden"><i class="fa fa-check"></i><b>15.5</b> Randvoorwaarden</a></li>
+<li class="chapter" data-level="15.6" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy-en-ethiek"><i class="fa fa-check"></i><b>15.6</b> Privacy en ethiek</a></li>
+<li class="chapter" data-level="15.7" data-path="ethisch-ml.html"><a href="ethisch-ml.html#privacy"><i class="fa fa-check"></i><b>15.7</b> Privacy</a></li>
+<li class="chapter" data-level="15.8" data-path="ethisch-ml.html"><a href="ethisch-ml.html#de-drie-wetten-van-asimov"><i class="fa fa-check"></i><b>15.8</b> De drie wetten van Asimov</a></li>
+<li class="chapter" data-level="15.9" data-path="ethisch-ml.html"><a href="ethisch-ml.html#ethiek"><i class="fa fa-check"></i><b>15.9</b> Ethiek</a></li>
+<li class="chapter" data-level="15.10" data-path="ethisch-ml.html"><a href="ethisch-ml.html#proces-om-etisch-te-blijven"><i class="fa fa-check"></i><b>15.10</b> Proces om etisch te blijven</a></li>
+<li class="chapter" data-level="15.11" data-path="ethisch-ml.html"><a href="ethisch-ml.html#regels-rond-ethiek"><i class="fa fa-check"></i><b>15.11</b> Regels rond ethiek</a></li>
+<li class="chapter" data-level="15.12" data-path="ethisch-ml.html"><a href="ethisch-ml.html#eed"><i class="fa fa-check"></i><b>15.12</b> Eed</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
+<li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
+<li class="chapter" data-level="C" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>C</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
+<li class="chapter" data-level="D" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>D</b> Computations using GPU</a></li>
+<li class="chapter" data-level="E" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>E</b> Installation</a><ul>
+<li class="chapter" data-level="E.1" data-path="installation.html"><a href="installation.html#installing-cuda-optional"><i class="fa fa-check"></i><b>E.1</b> Installing CUDA (optional)</a></li>
+<li class="chapter" data-level="E.2" data-path="installation.html"><a href="installation.html#the-r-language"><i class="fa fa-check"></i><b>E.2</b> The R language</a></li>
+<li class="chapter" data-level="E.3" data-path="installation.html"><a href="installation.html#python"><i class="fa fa-check"></i><b>E.3</b> Python</a></li>
+<li class="chapter" data-level="E.4" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>E.4</b> RStudio</a></li>
+<li class="chapter" data-level="E.5" data-path="installation.html"><a href="installation.html#installing-tensorflow"><i class="fa fa-check"></i><b>E.5</b> Installing Tensorflow</a></li>
+<li class="chapter" data-level="E.6" data-path="installation.html"><a href="installation.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>E.6</b> Installation steps that worked for the author</a></li>
+<li class="chapter" data-level="E.7" data-path="installation.html"><a href="installation.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>E.7</b> Waar vind ik hulp</a></li>
+<li class="chapter" data-level="E.8" data-path="installation.html"><a href="installation.html#waar-kan-ik-leeralgoritmen-terugvinden"><i class="fa fa-check"></i><b>E.8</b> Waar kan ik leeralgoritmen terugvinden</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>F</b> Git</a></li>
+<li class="chapter" data-level="G" data-path="antwoorden.html"><a href="antwoorden.html"><i class="fa fa-check"></i><b>G</b> Antwoorden</a><ul>
+<li class="chapter" data-level="G.1" data-path="antwoorden.html"><a href="antwoorden.html#hoofdstuk-4"><i class="fa fa-check"></i><b>G.1</b> Hoofdstuk 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Machine Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inleiding-tot-artificiële-neurale-netwerken" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 7</span> Inleiding tot Artificiële Neurale Netwerken</h1>
+
+<div class="lemma">
+<span id="lem:fundamenten-deep-learning" class="lemma"><strong>Leerdoel 7.1  </strong></span>Begrijpt de fundamenten achter deep learning (<a href="inleiding-tot-de-cursus.html#leerdoelen"><em>EA_LD753</em></a>).
+</div>
+
+<div id="geschakelde-perceptronen" class="section level2">
+<h2><span class="header-section-number">7.1</span> Geschakelde perceptronen</h2>
+<p>Een artificieel neuraal netwerk (ANN) kan gezien worden als een samenstelling van individuele perceptronen zodat de uitvoer van de ene perceptron de invoer van een andere wordt. Maar de neuronen worden niet kris-kras door elkaar geplaatst, maar worden georganiseerd in zogenaamde lagen (eng: <em>layers</em>). In een feed-forward netwerk resulteert dit in een <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">gerichte acyclische graaf</a> (eng: <em>directed acyclic graph</em>) van noden of neuronen.</p>
+<div class="figure"><span id="fig:nn-01"></span>
+<img src="img/nn_01.svg" alt="Een fictief ANN met vier lagen. Het netwerk is een acyclische directionele graaf die van links naar rechts loopt. De meest linkse laag is de invoer-laag, de meest rechtse de uitvoer-laag. Één perceptron binnen het ANN is aangeduid in kleur en bestaat uit meerdere inkomende connecties, een node en één uitgaande connectie (hier niet getoond). We gaan later leren dat er ook nog andere manieren zijn om een ANN te visualiseren."  />
+<p class="caption">
+Figuur 7.1: Een fictief ANN met vier lagen. Het netwerk is een acyclische directionele graaf die van links naar rechts loopt. De meest linkse laag is de invoer-laag, de meest rechtse de uitvoer-laag. Één perceptron binnen het ANN is aangeduid in kleur en bestaat uit meerdere inkomende connecties, een node en één uitgaande connectie (hier niet getoond). We gaan later leren dat er ook nog andere manieren zijn om een ANN te visualiseren.
+</p>
+</div>
+
+<p>Laten we een eenvoudig voorbeeld bekijken. In het hoofdstuk rond de perceptron konden we <em>Iris setosa</em> bloemen onderscheiden van andere soorten op basis van twee eigenschappen, namelijk de lengte en breedte van de kelkbladeren. Als we nu eens proberen de drie soorten te onderscheiden. Met één perceptron lukt het niet, want herinner je dat een perceptron enkel lineair gescheiden punten-wolken kan onderscheiden en een lijn zal telkens maar leiden tot een uitkomst met twee mogelijke categorieën.</p>
+<p>Doordat we nu meerdere uitkomsten hebben moeten we voor elke uitkomst een node (neuron, perceptron) voorzien. De invoer van deze 3 uitkomst-noden (“neuronen in de uitvoer laag”, eng: <em>output-layer</em>) is verbonden met de uitvoer van de 2 invoer-laag neuronen (omdat er twee eigenschappen zijn). Zo ziet het nieuwe netwerk er uit:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb76-1"></a><span class="kw">library</span>(neuralnet)</span>
+<span id="cb76-2"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb76-2"></a></span>
+<span id="cb76-3"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb76-3"></a>nn =<span class="st"> </span><span class="kw">neuralnet</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width,</span>
+<span id="cb76-4"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb76-4"></a>  <span class="dt">data =</span> iris, <span class="dt">hidden =</span> <span class="dv">0</span>, <span class="dt">linear.output =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb76-5"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb76-5"></a>nn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">rep =</span> <span class="st">&quot;best&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:nn-iris-0"></span>
+<img src="_main_files/figure-html/nn-iris-0-1.png" alt="Een ANN om op basis van twee eigenschappen van de kelkbladeren van iris-bloemen drie soorten (setosa, vericolor en virginica) te onderscheiden. Dit netwerk heeft enkel een invoer- en een uitvoer-laag. De drie connecties naar de setosa-node plus deze node zelf komen overeen met de perceptron casestudy uit vorig hoofdstuk. De ‘Error’ geeft de totale fout weer. Verder in de tekst wordt deze aangeduid met het symbool \(\varepsilon\) (epsilon). ‘Steps’ het aantal doorlopen epochs." width="672" />
+<p class="caption">
+Figuur 7.2: Een ANN om op basis van twee eigenschappen van de kelkbladeren van iris-bloemen drie soorten (<em>setosa</em>, <em>vericolor</em> en <em>virginica</em>) te onderscheiden. Dit netwerk heeft enkel een invoer- en een uitvoer-laag. De drie connecties naar de <code>setosa</code>-node plus deze node zelf komen overeen met de <a href="de-percetron.html#casestudy-onderscheiden-van-setosa">perceptron casestudy</a> uit vorig hoofdstuk. De ‘Error’ geeft de totale fout weer. Verder in de tekst wordt deze aangeduid met het symbool <span class="math inline">\(\varepsilon\)</span> (epsilon). ‘Steps’ het aantal doorlopen epochs.
+</p>
+</div>
+
+<p>Uit het bovenstaand netwerk kunnen we het volgende aflezen:</p>
+<ul>
+<li>Het bestaat uit twee lagen, een invoer-laag (eng: <em>input layer</em>) en een uitvoer-laag (eng: <em>output layer</em>)</li>
+<li>Het leeralgoritme heeft 2251 epochs nodig gehad om tot een stabiele oplossing te komen</li>
+<li>De totale fout die gemaakt wordt, is recht evenredig met <span class="math inline">\(\approx 26.4\,mm^2\)</span></li>
+<li>Of een bloem van de soort <em>Iris setosa</em> is heeft te maken met zowel de lengte als de breedte van het kelkblad, zij het in omgekeerde verhouding</li>
+<li>Vooral de breedte van het kelkblad bepaald of de bloem een <em>versicolor</em> is terwijl het eerder de lengte is dat bepaald of het een <em>virginica</em> is.</li>
+</ul>
+<p>De resultaten van bovenstaand netwerk kunnen als matrix <span class="math inline">\(\mathbf{\theta}\)</span> worden weergegeven. Laten we deze matrix voor de volledigheid eens bekijken:</p>
+<p><span class="math display">\[\theta=\begin{bmatrix}
+0.775&amp;1.788&amp;-1.568 \\
+-0.374&amp;0.014&amp;0.360 \\
+0.571&amp;-0.503&amp;-0.067 \\
+\end{bmatrix}\]</span></p>
+<p>De totale fout waarvan hierboven sprake is, is evenredig met de som van de kwadraten van de deviaties tussen <span class="math inline">\(y\)</span> en <span class="math inline">\(\hat{y}\)</span> en wordt berekend met de kost-functie <span class="math inline">\(c\)</span> (eng: <em>cost function</em>):</p>
+<p><span class="math display" id="eq:kwadratensom">\[\begin{equation}
+  \varepsilon=c(y,\hat{y})=\frac{1}{2}\sum_{n=1}^{N}{(y_n-\hat{y}_n)^2}
+  \tag{7.1}
+\end{equation}\]</span></p>
+<p>Behalve een invoer-laag en een uitvoer-laag, kan een netwerk ook worden opgebouwd uit tussenliggende <em>verborgen lagen</em> (eng: <em>hidden layers</em>). Figuur <a href="inleiding-tot-artificiële-neurale-netwerken.html#fig:nn-iris-1">7.3</a> laat zien wat er gebeurt indien we aan het Iris-netwerk een verborgen laag toevoegen met daarin 3 noden.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-1"></a><span class="kw">library</span>(neuralnet)</span>
+<span id="cb77-2"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-2"></a> </span>
+<span id="cb77-3"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-3"></a>nn =<span class="st"> </span><span class="kw">neuralnet</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width,</span>
+<span id="cb77-4"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-4"></a>  <span class="dt">data =</span> iris, <span class="dt">hidden =</span> <span class="dv">3</span>, <span class="dt">linear.output =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb77-5"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-5"></a>nn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">rep =</span> <span class="st">&quot;best&quot;</span>) </span></code></pre></div>
+<div class="figure"><span id="fig:nn-iris-1"></span>
+<img src="_main_files/figure-html/nn-iris-1-1.png" alt="Idem als voor Figuur 7.2, maar nu met toevoeging van een verborgen laag met 3 neuronen." width="672" />
+<p class="caption">
+Figuur 7.3: Idem als voor Figuur <a href="inleiding-tot-artificiële-neurale-netwerken.html#fig:nn-iris-0">7.2</a>, maar nu met toevoeging van een verborgen laag met 3 neuronen.
+</p>
+</div>
+
+<p>Merk op dat de totale fout <span class="math inline">\(\varepsilon\)</span> nu kleiner is geworden, maar dat betekent nog niet dat dit een goed idee is om de extra verborgen laag inderdaad toe te voegen.</p>
+
+<div class="exercise">
+<span id="exr:goed-idee-tussenlaag" class="exercise"><strong>Oefening 7.1  (Méér verborgen lagen)  </strong></span>Het toevoegen van een extra verborgen laag in ons model zorgt ervoor dat de totale fout <span class="math inline">\(\varepsilon\)</span> op de Iris dataset verkleint. Maar dat betekent nog niet dat het een goed idee is om een laag toe te voegen. Waarom niet? Leg uit in eigen woorden.
+</div>
+
+</div>
+<div id="feed-forward-anns-ff-anns" class="section level2">
+<h2><span class="header-section-number">7.2</span> Feed-forward ANNs (FF-ANNs)</h2>
+<p>We gaan nu iets specifieker moeten zijn in wat de regels rond een ANN zijn en hoe een ANN aan zijn oplossing komt. Om te beginnen leggen we de regels vast voor de noden en connectoren (pijlen) een FF-ANN:</p>
+
+<div class="definition">
+<p><span id="def:ff-ann-noden" class="definition"><strong>Stelling 7.1  (Regels voor FF-ANN)  </strong></span>Regels:</p>
+<ul>
+<li>De <em>invoer-laag</em> is verplicht en bevat één node voor elke feature</li>
+<li>De <em>uitvoer-laag</em> is ook verplicht en bevat één node voor elke afhankelijke variabele (<em>regressie</em>) of één node voorelke categorie van de uitkomst (<em>classificatie</em>)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+<li>Verborgen lagen zijn optioneel</li>
+<li>Het aantal noden in de verborgen lagen is bij realistische situaties met vele features meestal veel kleiner dan het aantal features zodat de invoer a.h.w. gecomprimeerd wordt</li>
+<li>Elke laag, behalve de uitvoer-laag, kan een speciale afwijking-node (eng: <em>bias-node</em>) bevatten met de constante waarde 1
+</div></li>
+</ul>
+
+<div class="definition">
+<p><span id="def:ff-ann-connectoren" class="definition"><strong>Stelling 7.2  </strong></span><strong>Connectoren</strong>:</p>
+<ul>
+<li>In een FF-ANN mogen connectoren niet twee noden van dezelfde laag verbinden</li>
+<li>Bovendien moet de zin van de connectoren lopen van invoer-laag naar uitvoerlaag en nooit andersom</li>
+<li>Het is niet zo dat alle noden van de ene laag moeten verbonden zijn met alle noden van de volgende laag
+</div></li>
+</ul>
+<p>Hoe werkt een FF-ANN nu eigenlijk? Wel, als je het perceptron begrijpt is er eigenlijk niet veel aan. De waarden van de noden binnen de invoer-laag zijn uiteraard gekend. Voor elke andere laag in het netwerk bekom je de nieuwe waarden door de waarden uit de voorgaande laag te vermenigvuldigen (via inwendig product, zie Appendix) met de bijhorende gewichten:</p>
+<p><span class="math display" id="eq:layer-matrix-multiplication">\[\begin{equation}
+  z_\Lambda=g(x_\Lambda)=\mathbf{x_\Lambda}\cdot\mathbf{\theta_\Lambda} \\
+  \hat{y}_\Lambda=t(z_\Lambda) \\
+  \Lambda\subset\{2, 3,..,\mathscr{L}\}
+  \tag{7.2}
+\end{equation}\]</span></p>
+<p>, waarbij <span class="math inline">\(\Lambda\)</span> de index van de laag moet voorstellen.</p>
+<p>Het leeralgoritme begint met willekeurige gewichten en neemt de eerste set van instanties (de zogenaamde <em>minibatch</em>) en vult de waarden in voor de noden van de invoer-laag. Daarna zal het leeralgoritme de inwendige producten berekenen en zo de waarden voor de volgende lagen binnen het netwerk invullen. Komt het FF-ANN leeralgoritme aan de laatste laag van het netwerk aan, dan wordt de geschatte uitkomst <span class="math inline">\(\hat{y}\)</span> vergeleken met de werkelijke uitkomst <span class="math inline">\(y\)</span>. Op basis hiervan zal het leeralgoritme de gewichten aanpassen.</p>
+</div>
+<div id="types-neuronen" class="section level2">
+<h2><span class="header-section-number">7.3</span> Types neuronen</h2>
+<p>Tot hier toe hebben we uitsluitend lineaire neuronen besproken, maar om complexere problemen te kunnen afhandelen was er een manier nodig om een niet-lineaire respons in de neuronen in te bouwen. Dit doen we door van de transformatie functie <span class="math inline">\(t(z)\)</span> een niet-lineaire functie te maken. Het type transformatie-functie bepaald dan ook het type neuron. Er zijn vele types lineaire en niet-lineaire neuronen, maar enkel de meest courante worden hieronder visueel weergegeven.</p>
+<div class="figure"><span id="fig:sigmoid-neuron"></span>
+<img src="_main_files/figure-html/sigmoid-neuron-1.png" alt="Vier neuron-types gebaseerd op hun transformatie- functies \(t(z)\). De functie voor de sigmoïd is \(\frac{1}{1+e^{-z}}\), die van het tanh neuron type is uiteraard \(tanh(x)\) en die voor het Restricted Linear Unit neuron (ReLU) is \(max(0, z)\)." width="672" />
+<p class="caption">
+Figuur 7.4: Vier neuron-types gebaseerd op hun transformatie- functies <span class="math inline">\(t(z)\)</span>. De functie voor de sigmoïd is <span class="math inline">\(\frac{1}{1+e^{-z}}\)</span>, die van het <em>tanh</em> neuron type is uiteraard <span class="math inline">\(tanh(x)\)</span> en die voor het Restricted Linear Unit neuron (ReLU) is <span class="math inline">\(max(0, z)\)</span>.
+</p>
+</div>
+
+<p>Sommige restricties gelden voor alle neuronen binnen een laag. Zo is er de zogenaamde <em>softmax</em>-type uitvoer-laag. Hierbij stellen de neuronen binnen die laag een kansverdeling voor en moet bijgevolg de som van de neuronen op exact 1 uitkomen:</p>
+<p><span class="math display" id="eq:softmax">\[\begin{equation}
+  \hat{y}_\Lambda=\frac{e^{z_\Lambda}}{\sum_{\Lambda}{e^{z_\Lambda}}}
+  \tag{7.3}
+\end{equation}\]</span></p>
+</div>
+<div id="backpropagation" class="section level2">
+<h2><span class="header-section-number">7.4</span> Backpropagation</h2>
+<p>Hierboven stond er:</p>
+<p><q>Op basis hiervan zal het leeralgoritme de gewichten aanpassen.</q></p>
+<p>Tijdens het trainen van meerlagige ANNs maken we gebruik van het <em>backpropagation algoritme</em> (zie <span class="citation">Rumelhart et al. <a href="#ref-rumelhart1986" role="doc-biblioref">1986</a></span>) een voorbeeld van <a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamisch programmeren</a> (eng: <em>dynamic programming</em>). Hieronder zijn de stappen uiteengezet:</p>
+<ol style="list-style-type: decimal">
+<li><em>Initialisatie</em>: De architectuur van het netwerk en de beginwaarden van de parameters worden toegekend</li>
+<li><em>Invoer</em>: Ingeven van de waarden van de invoer laag</li>
+<li><em>Forward pass</em>: De lagen één voor één doorlopen, te beginnen bij de eerste laag na de invoerlaag en bij elke laag berekenen we <span class="math inline">\(x_{\Lambda+1}=t_\Lambda(g(x_\Lambda)), \Lambda\subset\{1,..,\mathscr{L}-1\}\)</span></li>
+<li><em>Bereken de kost</em>: Met de waarden in de uitvoerlaag, berekenen we de restterm <span class="math inline">\(\varepsilon\)</span>.</li>
+<li><em>Backpropagation</em>: Nu berekenen we voor elke laag, van laatste naar tweede, de afgeleiden <span class="math inline">\(\frac{\partial{E_n}}{\partial\theta_{n-1}}\)</span> (eng: <em>error derivatives</em>) die aangeven hoeveel de restterm van een laag verandert naarmate de parameters van de neuronen uit de vorige laag veranderen</li>
+<li><em>Wijzigen parameters</em>: We vullen nu de leersnelheid in en lossen de zogenaamde modificatie-formule (eng: <em>modification formula</em>) op om de nieuwe parameter waarden (= <em>gewichten</em>) te berekenen en we kunnen voort naar de volgende epoch</li>
+</ol>
+<div class="figure"><span id="fig:backpropagation"></span>
+<img src="img/backpropagation.svg" alt="Schematische weergave van het backpropagation algoritme uitgewerkt in een begeleid ML context. Links staat de dataset met de onafhankelijke variabelen, rechts de uitkomsten. Centraal de weergave van een ANN waarvan de dikte van de connectoren overeenstemmen met de waarden voor \(\theta\)."  />
+<p class="caption">
+Figuur 7.5: Schematische weergave van het backpropagation algoritme uitgewerkt in een begeleid ML context. Links staat de dataset met de onafhankelijke variabelen, rechts de uitkomsten. Centraal de weergave van een ANN waarvan de dikte van de connectoren overeenstemmen met de waarden voor <span class="math inline">\(\theta\)</span>.
+</p>
+</div>
+
+<p>Zie de <a href="img/backpropagation-Jay-Prakash.html">blog</a> (link lokale kopij met aantekeningen) van Jay Prakash voor een uitgewerkt voorbeeld en de precies berekening van de afgeleiden (<span class="citation">Prakash <a href="#ref-Prakash2017" role="doc-biblioref">2017</a></span>).</p>
+</div>
+<div id="de-verliesfunctie-en-kost-functies" class="section level2">
+<h2><span class="header-section-number">7.5</span> De verliesfunctie en kost-functies</h2>
+<p>Met een verliesfunctie (<span class="math inline">\(v\)</span>; eng: <em>loss function</em>) bereken je, binnen een epoch, de prestatie van een model door de uitvoer voor die epoch het model <span class="math inline">\(\hat{y}\)</span> te vergelijken met de werkelijke uitkomst <span class="math inline">\(y\)</span>. Heb je meerdere epochs doorlopen, dan kan je de voorspellingen van de ganse training set vergelijken met de reële waarden.</p>
+
+<div class="definition">
+<span id="def:verliesfunctie" class="definition"><strong>Stelling 7.3  (Verliesfunctie vs kost-functie)  </strong></span>Een <strong>verliesfunctie</strong> werkt binnen een epoch op een enkele instantie of op een minibatch. Een kost-functie is een soort beoordelingsfunctie (eng: <em>objective function</em>) die werkt op een volledige episode waarbij de ganse training set in rekening wordt gebracht en waarbij vaak ook regularisatietermen beschouwd worden (zie later).
+</div>
+
+<p>Er zijn veel mogelijke verschillende verlies- en kost-functies afhankelijk van het beoogde doel en type van de uitkomst-variabele. Een populaire keuze wanneer het gaat om reële getallen is de som van de kwadraten van de verschillen (eng: <em>sum of squared errors</em> of kort SSE) of het gemiddelde daarvan (eng: <em>mean sum of squares</em> of MSE). Bij SSE en ANN gebruikt men meestal over de helft van de som van de kwadraten omdat deze vorm differentieerbaarder is.</p>
+<p><span class="math display" id="eq:kwadratensom2">\[\begin{equation}
+  \varepsilon=c(y,\hat{y})=\frac{1}{2}\sum_{n=1}^{N}{(y_n-\hat{y}_n)^2}
+  \tag{7.4}
+\end{equation}\]</span></p>
+<p>Naarmate dat het voorspelde resultaat <span class="math inline">\(\hat{y}\)</span> steeds meer begint af te wijken van het werkelijk resultaat <span class="math inline">\(y\)</span>, neemt de restterm <span class="math inline">\(\varepsilon\)</span> razendsnel toe (zie interactieve figuur hieronder) en het doel van het leeralgoritme is om de parameters <span class="math inline">\(\mathbf{\theta}\)</span> zodanig aan te passen dat de fout net zijn klein mogelijk wordt. Men zegt dat het doel is om de verlies- en kost-functies te minimaliseren (eng: <em>minimize</em>).</p>
+<iframe width="100%" height="650px" src="img/convex.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
+</iframe>
+<p>Een andere belangrijke verliesfunctie is de cross-entropie: Deze wordt gebruikt wanneer de uitkomst variabele een kansverdeling (eng: <em>probability distribution</em>) voorstelt, i.e. wanneer de waarden voor de uitkomsten reële getallen getallen zijn in het bereik <span class="math inline">\([0, 1]\)</span> en wanneer alle waarden voor de categorieën in de uitvoerlaag van het netwerk optellen tot 1. Deze laatste wordt gewaarborgd door de zogenaamde softmax restrictie (zie <a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen">Types neuronen</a>).</p>
+<p><span class="math display" id="eq:cross-entropie">\[\begin{equation}
+  c(y, \hat{y})=-\frac1N\sum_{n=1}^{N}{\left[y_n\,log(\hat{y}_n) + (1-y) \,log(1-\hat{y})\right]}
+  \tag{7.5}
+\end{equation}\]</span></p>
+<p>Het is mooi om zulke verliesfunctie in beeld te brengen, maar in werkelijkheid spelen er meer dan twee parameters in het spel en zijn niet alle neuronen lineair. Als gevolg zal de verliesfunctie de vorm van een hypervlak in een meer-dimensionale ruimte gaan innemen en zal de vorm ook veel grilliger zijn dan hier voorgesteld.</p>
+</div>
+<div id="gradiënt-afdaling" class="section level2">
+<h2><span class="header-section-number">7.6</span> Gradiënt afdaling</h2>
+<p>De bedoeling is om het laagste punt van de hierboven gedemonstreerde verliesfunctie te vinden. Indien het werkelijk om kwadratische verlies-oppervlakten zou gaan, dan was er geen probleem omdat met het laagste punt dan analytisch zou kunnen vinden, i.e. met een relatief eenvoudige matrix bewerking. Maar in werkelijkheid zijn de verliesfuncties grillig en meerdimensionaal (<a href="inleiding-tot-artificiële-neurale-netwerken.html#fig:complexe-verlies-landschappen">7.7</a>). Dan is er een soort trial-and-error manier nodig om het laagste punt te vinden.</p>
+<div class="figure"><span id="fig:curve-vorm"></span>
+<img src="img/curve-vorm.svg" alt="Onderscheid tussen kwadratische, convexe en grillige functies, hier voor de eenvoud voorgesteld als abstracte twee-dimensionale functies."  />
+<p class="caption">
+Figuur 7.6: Onderscheid tussen kwadratische, convexe en grillige functies, hier voor de eenvoud voorgesteld als abstracte twee-dimensionale functies.
+</p>
+</div>
+
+<p>Het zoeken naar zulk een minimum van zulk een functie noemt men een <em>optimalisatie-probleem</em> en een groot deel van het onderzoek naar ANNs situeert zich rond het vinden van een efficiënt optimalisatie algoritme. Deze optimalisatie is trouwens waarnaar in de paragraaf rond de perceptron verwezen werd als zijnde de administratie rondom de functies <span class="math inline">\(g\)</span> en <span class="math inline">\(t\)</span>.</p>
+<div class="figure"><span id="fig:complexe-verlies-landschappen"></span>
+<img src="https://www.cs.umd.edu/~tomg/img/landscapes/noshort.png" alt="Voorbeeld van een realistische geprojecteerde verlies-functie bekomen door Ankur Mohan volgens de methode beschreven in Li et al. 2018. Kijk ook eens op losslandscape.com voor artistieke rendering van ‘verlies-landschappen’."  />
+<p class="caption">
+Figuur 7.7: Voorbeeld van een realistische geprojecteerde verlies-functie bekomen door Ankur Mohan volgens de methode beschreven in <span class="citation">Li et al. <a href="#ref-li2018" role="doc-biblioref">2018</a></span>. Kijk ook eens op <a href="https://losslandscape.com/">losslandscape.com</a> voor artistieke rendering van ‘verlies-landschappen’.
+</p>
+</div>
+
+<p>Maar goed, laten we, om de eenvoud te bewaren, toch nog even voortbouwen op een verliesfuncties met een eenvoudige convexe vorm. Bij het initialiseren van de parameters met willekeurige waarden stellen we ons een willekeurig punt voor in het <span class="math inline">\(\theta_1\perp\theta_2\)</span>-vlak. Vanuit dit punt projecteren we ons op het verlies-oppervlakte, door parallel te lopen met de <span class="math inline">\(\varepsilon\)</span>-as totdat we het oppervlakte kruisen. We bevinden ons nu ergens op dit oppervlak, in het punt <span class="math inline">\(e\)</span>. Hoe vinden we nu het laagste punt op dit oppervlak? Simpel, volg de weg die het steilst naar beneden gaat en, in het geval van een convexe functie, kom je vanzelf uit op het laagste punt. De weg van de steilste afdaling (eng: <em>steepest ascent</em>) wordt wiskundig uitgedrukt als de <a href="https://nl.wikipedia.org/wiki/Gradi%C3%ABnt_(wiskunde)">gradient</a> <span class="math inline">\(\nabla\varepsilon\)</span> in <span class="math inline">\(e\)</span>. Een gradient kan gezien worden als een meerdimensionale afgeleide en kan in een 2-dimensionale context (2 parameters) voorgesteld worden als een raakvlak in het punt <span class="math inline">\(e\)</span>. Vandaar de naam van een familie aan optimalisatie-algoritmen en ook de titel van deze paragraaf: gradiënt afdaling (eng: <em>gradient descent</em>).</p>
+<p>We weten nu in welke richting we moeten gaan, het enige dat overblijft is de grootte van de stap die we in die richting nemen. De grootte van de stap wordt bepaald door de leersnelheid <span class="math inline">\(r\)</span> (eng: <em>learning rate</em>). Nemen we te grootte stappen, dan kunnen we het minimum missen doordat we er over springen. Nemen we te kleine stappen, dan duurt het mogelijk te lang en riskeren we bovendien om achter kleine heuveltjes van de ruis te komen vastzitten.</p>
+<p>Wanneer we voldoende dicht komen bij het (lokaal) minimum van het verlies-oppervlakte, verwachten we dat de gradient in dat punt heel erg klein wordt. We zeggen dan dat het optimalisatie-algoritme <strong>convergeert</strong>. Wat ‘voldoende dicht’ precies moet zijn, wordt door de datawetenschapper bepaald en is meestal een arbitrair klein getal. Blijft tijdens het zoeken de gradient fluctueren, dan kan de datawetenschapper beslissen dat de zoektocht vroegtijdig gestaakt wordt alvorens er convergentie bereikt wordt. Er is immers niet altijd een garantie dat convergentie mogelijk is en zelfs als je optimalisatie-algoritme convergeert, heb je bij grillige oppervlakten nooit de garantie dat het lokaal minimum ook het globaal minimum is.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-35" class="definition"><strong>Stelling 7.4  </strong></span>Bij complexe en grillige verlies-oppervlakten zal het vakk zo zijn dat er geen garanties gegeven kunnen worden dat het optimilsatie-algoritme convergeert of dat het gevonden minimum ook de best mogelijk oplossing is.
+</div>
+
+<p>Wiskundig kunnen we de gradiënt-afdaling van het optimalisatie-algoritme als volgt samenvatten:</p>
+<p><span class="math display" id="eq:gradient-afdaling">\[\begin{equation}
+  \theta\leftarrow\theta-r\cdot\nabla\varepsilon(\theta)
+  \tag{7.6}
+\end{equation}\]</span></p>
+<p>De leersnelheid wordt vaak, zoals bij de familie aan optimalisatie-algoritmes die men <a href="https://nl.wikipedia.org/wiki/Simulated_annealing"><em>simluated annealing</em></a> noemt, bij elke epoch aangepast aan de zogenaamde <em>temperatuur</em> die langzaam afneemt.</p>
+</div>
+<div id="stochastische-en-minibatch-gradiënt-afdaling" class="section level2">
+<h2><span class="header-section-number">7.7</span> Stochastische en Minibatch gradiënt afdaling</h2>
+<iframe width="100%" height="650px" src="img/eggholder.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
+</iframe>
+<p>De afdaling zoals beschreven in vorige paragraaf baseert zich op verlies-landschappen die berekend werden op de ganse dataset. In dat geval spreekt men van <em>batch gradiënt afdaling</em> (eng: <em>batch gradiënt descent</em>). Zoals reeds aangehaald, deze strategie werkt niet goed wanneer het oppervlakte van het verlies-landschap grillig is zoals in het voorbeeld hier direct boven. Die grilligheid wordt veroorzaakt omdat net de verliesfuncties van alle instanties in de dataset samen worden beschouwd. In de <em>stochastische gradiënt-afdaling</em> (eng:<em>stochastic gradient descent</em>) worden de verlies-hypervlakken berekend telkens voor slechts één instantie tegelijk. Deze benadering maakt dat de rekentijd bij grote datasets te hoog zou oplopen. Daarom is er een tussenvorm bedacht, de <em>minibatch gradiënt-afdaling</em> (eng: <em>minibatch gradient descent</em>). HIer wordt telkens een subset (de minibatch) van de dataset gebruikt om het verlies-oppervlak te berekenen. De minibatch grootte is een hyperparameter van het leeralgoritme.</p>
+<p>Je kan waarschijnlijk hele bibliotheken vullen met informatie over de verschillende optimalisatie-algoritmen, maar hier volstaat het om te weten dat er erg veel verschillende zijn en dat er nog actief onderzoek naar wordt gedaan.</p>
+</div>
+<div id="regularisatie" class="section level2">
+<h2><span class="header-section-number">7.8</span> Regularisatie</h2>
+<p><a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">Regularisatie</a> (eng: <em>regularization</em>) is een manier om het overfitten tegen te gaan. Het wordt algemeen gebruikt in ML en is niet bepaald specifiek voor neurale netwerken. Het is een heel eenvoudig principe. Het komt erop neer dat er aan de kost-functie een term wordt toegevoegd dat ervoor zorgt té complexe modellen worden afgestraft.</p>
+<p>Specifiek voor ANNs gaat het om een term die te grote gewichten <span class="math inline">\(\mathbf{\theta}\)</span> afstraft.</p>
+<p><span class="math display" id="eq:regularisatie">\[\begin{equation}
+  \varepsilon&#39;=\varepsilon+\lambda \cdot r(\theta)
+  \tag{7.7}
+\end{equation}\]</span></p>
+<p>In de formule <a href="inleiding-tot-artificiële-neurale-netwerken.html#eq:regularisatie">(7.7)</a> dient <span class="math inline">\(r(\theta)\)</span> om de vorm aan te geven van de functie die toeneemt naarmate <span class="math inline">\(||\theta||\)</span> toeneemt en is <span class="math inline">\(\lambda\)</span> een hyperparameter die de sterkte aangeeft waarmee te grote parameters moeten worden afgestraft. Met <span class="math inline">\(\lambda=0\)</span> nemen we geen maatregelen tegen overfitting met alle gevolgen van dien. Een te grote <span class="math inline">\(\lambda\)</span>-waarde is ook nefast omdat het leerproces dan te fel gehinderd wordt.</p>
+<p>Er zijn meerdere regularisatie termen mogelijk. Een gangbare regularisatie is de zogenaamde L2 regularisatie. Dit is dus een regularisatie op basis van L2, de euclidische norm (Formule <a href="inleiding-tot-artificiële-neurale-netwerken.html#eq:euclidische-norm">(7.8)</a>).</p>
+<p><span class="math display" id="eq:euclidische-norm">\[\begin{equation}
+  r(\theta)=||\mathbf{\theta}||^2=\sqrt{\theta_1 ^ 2+\theta_2 ^ 2+..+\theta_n ^ 2}
+  \tag{7.8}
+\end{equation}\]</span></p>
+<p>Omdat echter the vierkantswortel een vorm van schaling veroorzaakt en omdat <span class="math inline">\(\lambda\)</span> deze functie al overneemt gebruikt men meestal de volgende regularisatie-functie:</p>
+<p><span class="math display" id="eq:l2-regularisatie">\[\begin{equation}
+  r(\theta)=\frac12\lambda\sum{\theta^2}
+  \tag{7.9}
+\end{equation}\]</span></p>
+<p>Bij elke epoch verkleinen de waarden van de parameters lineair naar nul. Daarom wordt er naar deze regularisatie verwezen met de term <em>weight decay</em>. Het gevolg is dat alle parameters a.h.w. de kans krijgen om een bijdrage te leveren in het maken van de voorspellingen.</p>
+<p>Een andere regularisatie term is de L<sub>1</sub> norm:</p>
+<p><span class="math display" id="eq:l1-regularisatie">\[\begin{equation}
+  r(\theta)=\lambda\sum{|\theta|}
+  \tag{7.10}
+\end{equation}\]</span></p>
+<p>Deze regularisatie werkt dus in op de absolute waarde van de parameters. Als gevolg zullen er vele parameters tijdens de optimalisatie quasi nul worden (vergeet niet dat computers beperkt zijn in het weergeven van erg kleine getallen). Bijgevolg worden de parameters eruit gefilterd die onvoldoende bijdragen aan de voorspelling.</p>
+<p>Omdat men in de praktijk de voordelen van zowel de L<sub>1</sub> als de L<sub>2</sub> wil benutten bestaat er een tussenvorm: <em>elastisch net regularisatie</em> (eng: <em>elastic net regularization</em>). Beide termen worden in dit geval aan de beoordelingsfunctie toegevoegd, de ene met een factor <span class="math inline">\(\alpha \subset [0, 1]\)</span>, de andere met een factor <span class="math inline">\(1-\alpha\)</span>, alweer een hyperparameter.</p>
+<p>Nog een regularisatie is de <em>max norm beperking</em> (eng: <em>max norm constraint</em>). Hier wordt er een plafond ingesteld op de magnitude van de inkomende parameter vector van een neuron. Wordt <span class="math inline">\(||\theta||_2 &gt; c\)</span> dan wordt de co-vector verkleind met de hoeveelheid dat het groter dan <span class="math inline">\(c\)</span> was.</p>
+<p>De laatste vorm van regularisatie die hier besproken wordt, noemt men <em>dropout</em> (nl: uitval of uitvaller). Dit is een erg populaire regularisatie. Tijdens het trainen mogen neuronen actief blijven met een bepaalde waarschijnlijkheid <span class="math inline">\(p_{act}\)</span>. Bij elke epoch is er dus als het ware een loterij. Elk neuron trekt een lotje <span class="math inline">\(p_k\)</span>. Als de waarde van <span class="math inline">\(p_k&lt;P_{act}\)</span>, dan mag het neuron niet meespelen in de volgende ronde, anders wel. Op deze manier voorkomt men dat een neuraal netwerk té afhankelijk wordt gemaakt van bepaalde input</p>
+<div class="figure"><span id="fig:dropout"></span>
+<img src="img/dropout.svg" alt="Het proces van dropout regularisatie. De getallen zijn de probabiliteiten die het gevolg zijn van de loterij waarvan sprake is in de tekst. Aangepast van figuur 2-16 van Buduma and Locascio 2017."  />
+<p class="caption">
+Figuur 7.8: Het proces van dropout regularisatie. De getallen zijn de probabiliteiten die het gevolg zijn van de loterij waarvan sprake is in de tekst. Aangepast van figuur 2-16 van <span class="citation">Buduma and Locascio <a href="#ref-buduma" role="doc-biblioref">2017</a></span>.
+</p>
+</div>
+
+<p>Om het testen mogelijk te maken tijdens zulke regularisatie, wordt de uitvoer van neuronen die niet of non-actief werden geplaatst gedeeld met de waarde <span class="math inline">\(p_{act}\)</span>. Deze aanpassing noemt men <em>omgekeerde uitval</em> (eng: <em>inverted dropout</em>).</p>
+
+</div>
+</div>
+<h3>Bronvermelding</h3>
+<div id="refs" class="references">
+<div id="ref-buduma">
+<p>Buduma, N., Locascio, N., 2017. Fundamentals of deep learning: Designing next-generation machine intelligence algorithms. " O’Reilly Media, Inc.".</p>
+</div>
+<div id="ref-li2018">
+<p>Li, H., Xu, Z., Taylor, G., Studer, C., Goldstein, T., 2018. Visualizing the loss landscape of neural nets, in: Advances in Neural Information Processing Systems. pp. 6389–6399.</p>
+</div>
+<div id="ref-Prakash2017">
+<p>Prakash, J., 2017. Back-propagation is very simple. Who made it complicated ? [WWW Document] <em>[Online; accessed 2020-09-07]</em>. URL <a href="https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c">https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c</a></p>
+</div>
+<div id="ref-rumelhart1986">
+<p>Rumelhart, D.E., Hinton, G.E., Williams, R.J., 1986. Learning representations by back-propagating errors. nature 323, 533–536.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Een <em>regressie</em> gebruik je wanneer de afhankelijke variabelen numeriek continue zijn. Een <em>classificatie</em> gebruik wanneer de afhankelijke variabelen ordinaal, nominaal of numeriek discreet zijn.<a href="inleiding-tot-artificiële-neurale-netwerken.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="de-percetron.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="convolutionele-neurale-netwerken-cnn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ddhaese/machine-learning-source/07_Neurale_Netwerken.Rmd",
+"text": "Bron"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
